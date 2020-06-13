@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="card mt-5">
-              <div class="card-header">
+            <div class="card text-white bg-secondary border border-light mt-5">
+              <div class="card-header bg-light">
                 <h3 class="card-title">Student Management System</h3>
 
                 <div class="card-tools">
@@ -12,7 +12,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table class="table table-hover text-nowrap text-light">
                   <thead>
                     <tr>
                       <th>ID</th>
