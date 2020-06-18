@@ -34851,7 +34851,7 @@ var Toast = __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.mixin({
   toast: true,
   position: 'top-end',
   showConfirmButton: false,
-  timer: 3000,
+  timer: 8000,
   timerProgressBar: true,
   onOpen: function onOpen(toast) {
     toast.addEventListener('mouseenter', __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a.stopTimer);
@@ -77320,7 +77320,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
+          _c("div", { staticClass: "card text-dark card-default" }, [
             _c("div", { staticClass: "card-header" }, [
               _vm._v("Profile Component")
             ]),
@@ -77506,6 +77506,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     //------- OBJECTS--------------------------------------------------------------//
@@ -77525,27 +77529,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     //------ /OBJECTS--------------------------------------------------------------//
     //------- METHODS--------------------------------------------------------------//
     methods: {
-        loadUsers: function loadUsers() {
+        editModal: function editModal(user) {
+            this.form.reset();
+            $('#addNew').modal('show');
+            this.form.fill(user);
+        },
+        newModal: function newModal() {
+            this.form.reset();
+            $('#addNew').modal('show');
+        },
+        deleteUser: function deleteUser(id) {
             var _this = this;
+
+            swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then(function (result) {
+                if (result.value) {
+                    //Send request to server
+                    _this.form.delete('api/user/' + id).then(function () {
+                        swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+                        setTimeout(function () {
+                            this.loadUsers();
+                        }.bind(_this), 1000);
+                    }).catch(function () {
+                        swal("Failed!", "There was something wrong.", "Warning");
+                    });
+                }
+            });
+        },
+        loadUsers: function loadUsers() {
+            var _this2 = this;
 
             axios.get("api/user").then(function (_ref) {
                 var data = _ref.data;
-                return _this.users = data.data;
+                return _this2.users = data.data;
             });
         },
         createUser: function createUser() {
+            var _this3 = this;
+
             this.$Progress.start();
-            this.form.post('api/user');
-            //Fire.$emit('AfterCreate');
-            $('#addNew').modal('hide');
-            Toast.fire({
-                icon: 'success',
-                title: 'Signed in successfully'
-            });
-            setTimeout(function () {
-                this.loadUsers();
-            }.bind(this), 2500);
-            this.$Progress.finish();
+            this.form.post('api/user').then(function () {
+                //Fire.$emit('AfterCreate');
+                $('#addNew').modal('hide');
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Signed in successfully'
+                });
+                setTimeout(function () {
+                    this.loadUsers();
+                }.bind(_this3), 2500);
+                _this3.$Progress.finish();
+            }).catch(function () {});
         }
     },
     //------ /METHODS--------------------------------------------------------------//
@@ -77557,6 +77598,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //});
         //setTimeout(() => this.loadUsers(), 5000);
         //setInterval(() => this.loadUsers(), 10000);
+    },
+    deleteUser: function deleteUser() {
+        this.deleteUser();
     }
     //------ /FUNCTION--------------------------------------------------------------//
 
@@ -77573,37 +77617,97 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card mt-5" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body table-responsive p-0" }, [
-            _c("table", { staticClass: "table table-hover text-nowrap" }, [
-              _vm._m(1),
+        _c(
+          "div",
+          { staticClass: "card text-white bg-dark border border-light mt-3" },
+          [
+            _c("div", { staticClass: "card-header bg-info" }, [
+              _c("h3", { staticClass: "card-title" }, [
+                _vm._v("Users Management System")
+              ]),
               _vm._v(" "),
+              _c("div", { staticClass: "card-tools" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    on: { click: _vm.newModal }
+                  },
+                  [
+                    _vm._v("Add New "),
+                    _c("div", { staticClass: "fas fa-user-plus fa-fw" })
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body table-responsive p-0" }, [
               _c(
-                "tbody",
-                _vm._l(_vm.users, function(user) {
-                  return _c("tr", { key: user.id }, [
-                    _c("td", [_vm._v(_vm._s(user.id))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(user.name))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(user.email))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm._f("upText")(user.type)))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(_vm._s(_vm._f("myDate")(user.created_at)))
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(2, true)
-                  ])
-                }),
-                0
+                "table",
+                { staticClass: "table table-hover text-nowrap text-light" },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.users, function(user) {
+                      return _c(
+                        "tr",
+                        { key: user.id, staticClass: "text-light" },
+                        [
+                          _c("td", [_vm._v(_vm._s(user.id))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.name))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.email))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(_vm._s(_vm._f("upText")(user.type)))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(_vm._s(_vm._f("myDate")(user.created_at)))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editModal(user)
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fa fa-edit blue" })]
+                            ),
+                            _vm._v(
+                              "\n                        /\n                        "
+                            ),
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteUser(user.id)
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fa fa-trash red" })]
+                            )
+                          ])
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ]
               )
             ])
-          ])
-        ])
+          ]
+        )
       ])
     ]),
     _vm._v(" "),
@@ -77622,7 +77726,7 @@ var render = function() {
       [
         _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(3),
+            _vm._m(1),
             _vm._v(" "),
             _c(
               "form",
@@ -77830,7 +77934,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(4)
+                _vm._m(2)
               ]
             )
           ])
@@ -77840,30 +77944,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [
-        _vm._v("Users Management System")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-tools" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-success",
-            attrs: { "data-toggle": "modal", "data-target": "#addNew" }
-          },
-          [
-            _vm._v("Add New "),
-            _c("div", { staticClass: "fas fa-user-plus fa-fw" })
-          ]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -77888,24 +77968,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-edit blue" })
-      ]),
-      _vm._v("\n                      /\n                      "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-trash red" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
-      _c("h5", { staticClass: "modal-title", attrs: { id: "addNewLabel" } }, [
-        _vm._v("Add New")
-      ]),
+      _c(
+        "h5",
+        { staticClass: "modal-title text-dark", attrs: { id: "addNewLabel" } },
+        [_vm._v("Add New")]
+      ),
       _vm._v(" "),
       _c(
         "button",
@@ -78128,27 +78196,59 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     //------ /OBJECTS--------------------------------------------------------------//
     //------- METHODS--------------------------------------------------------------//
     methods: {
-        loadStudents: function loadStudents() {
+        newModal: function newModal() {
+            this.form.reset();
+            $('#addNewStudent').modal('show');
+        },
+        deleteStudent: function deleteStudent(id) {
             var _this = this;
+
+            swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then(function (result) {
+                if (result.value) {
+                    //Send request to server
+                    _this.form.delete('api/student/' + id).then(function () {
+                        swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+                        setTimeout(function () {
+                            this.loadStudents();
+                        }.bind(_this), 1000);
+                    }).catch(function () {
+                        swal("Failed!", "There was something wrong.", "Warning");
+                    });
+                }
+            });
+        },
+        loadStudents: function loadStudents() {
+            var _this2 = this;
 
             axios.get("api/student").then(function (_ref) {
                 var data = _ref.data;
-                return _this.students = data.data;
+                return _this2.students = data.data;
             });
         },
         createStudent: function createStudent() {
+            var _this3 = this;
+
             this.$Progress.start();
-            this.form.post('api/student');
-            //Fire.$emit('AfterCreate');
-            $('#addNewStudent').modal('hide');
-            Toast.fire({
-                icon: 'success',
-                title: 'Signed in successfully'
-            });
-            setTimeout(function () {
-                this.loadStudents();
-            }.bind(this), 2500);
-            this.$Progress.finish();
+            this.form.post('api/student').then(function () {
+                //Fire.$emit('AfterCreate');
+                $('#addNewStudent').modal('hide');
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Signed in successfully'
+                });
+                setTimeout(function () {
+                    this.loadStudents();
+                }.bind(_this3), 2500);
+                _this3.$Progress.finish();
+            }).catch(function () {});
         }
     },
     //------ /METHODS--------------------------------------------------------------//
@@ -78176,35 +78276,82 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card mt-5" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body table-responsive p-0" }, [
-            _c("table", { staticClass: "table table-hover text-nowrap" }, [
-              _vm._m(1),
+        _c(
+          "div",
+          { staticClass: "card text-white bg-dark border border-light mt-3" },
+          [
+            _c("div", { staticClass: "card-header bg-info " }, [
+              _c("h3", { staticClass: "card-title" }, [
+                _vm._v("Student Management System")
+              ]),
               _vm._v(" "),
+              _c("div", { staticClass: "card-tools" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success border border-light",
+                    on: { click: _vm.newModal }
+                  },
+                  [
+                    _vm._v("Register Student "),
+                    _c("div", { staticClass: "fas fa-user-plus fa-fw" })
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body table-responsive p-0" }, [
               _c(
-                "tbody",
-                _vm._l(_vm.students, function(student) {
-                  return _c("tr", { key: student.id }, [
-                    _c("td", [_vm._v(_vm._s(student.id))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(student.name))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(student.email))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(_vm._s(_vm._f("myDate")(student.created_at)))
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(2, true)
-                  ])
-                }),
-                0
+                "table",
+                { staticClass: "table table-hover text-nowrap text-light" },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.students, function(student) {
+                      return _c(
+                        "tr",
+                        { key: student.id, staticClass: "text-light" },
+                        [
+                          _c("td", [_vm._v(_vm._s(student.id))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(student.name))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(student.email))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(_vm._s(_vm._f("myDate")(student.created_at)))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._m(1, true),
+                            _vm._v(
+                              "\n                      /\n                      "
+                            ),
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteStudent(student.id)
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fa fa-trash red" })]
+                            )
+                          ])
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ]
               )
             ])
-          ])
-        ])
+          ]
+        )
       ])
     ]),
     _vm._v(" "),
@@ -78223,7 +78370,7 @@ var render = function() {
       [
         _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(3),
+            _vm._m(2),
             _vm._v(" "),
             _c(
               "form",
@@ -78424,7 +78571,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(4)
+                _vm._m(3)
               ]
             )
           ])
@@ -78434,30 +78581,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [
-        _vm._v("Student Management System")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-tools" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-success",
-            attrs: { "data-toggle": "modal", "data-target": "#addNewStudent" }
-          },
-          [
-            _vm._v("Register Student "),
-            _c("div", { staticClass: "fas fa-user-plus fa-fw" })
-          ]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -78480,14 +78603,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-edit blue" })
-      ]),
-      _vm._v("\n                      /\n                      "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-trash red" })
-      ])
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fa fa-edit blue" })
     ])
   },
   function() {
@@ -78497,7 +78614,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "addNewStudentLabel" } },
+        {
+          staticClass: "modal-title text-dark",
+          attrs: { id: "addNewStudentLabel" }
+        },
         [_vm._v("Student Registration")]
       ),
       _vm._v(" "),

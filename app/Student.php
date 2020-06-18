@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use Notifiable;
-
+ 
     /**
      * The attributes that are mass assignable.
      *

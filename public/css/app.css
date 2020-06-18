@@ -14031,7 +14031,7 @@ pre code {
 }
 
 .table-hover tbody tr:hover {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: #2c3e50;
 }
 
 .table-primary,

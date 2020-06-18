@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
+ 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Student;
@@ -73,6 +73,10 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::findOrFail($id);
+
+        //delete the user
+        $student->delete();
+        return ['message' => 'User Deleted!'];
     }
 }

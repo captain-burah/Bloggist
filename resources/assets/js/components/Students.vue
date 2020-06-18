@@ -2,12 +2,12 @@
     <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="card text-white bg-secondary border border-light mt-5">
-              <div class="card-header bg-light">
+            <div class="card text-white bg-dark border border-light mt-3">
+              <div class="card-header bg-info ">
                 <h3 class="card-title">Student Management System</h3>
 
                 <div class="card-tools">
-                  <button class="btn btn-success" data-toggle="modal" data-target="#addNewStudent">Register Student <div class="fas fa-user-plus fa-fw"></div></button>
+                  <button class="btn btn-success border border-light" @click="newModal">Register Student <div class="fas fa-user-plus fa-fw"></div></button>
                 </div>
               </div>
               <!-- /.card-header -->
@@ -24,7 +24,7 @@
                   </thead>
 
                   <tbody>
-                    <tr v-for="student in students" :key="student.id">
+                    <tr v-for="student in students" :key="student.id" class="text-light">
                       <td>{{student.id}}</td>
                       <td>{{student.name}}</td>
                       <td>{{student.email}}</td>
@@ -32,7 +32,7 @@
                       <td>
                           <a href="#"><i class="fa fa-edit blue"></i></a>
                           /
-                          <a href="#"> <i class="fa fa-trash red"></i></a>
+                          <a href="#" @click="deleteStudent(student.id)"> <i class="fa fa-trash red"></i></a>
                       </td>
                     </tr>
                   </tbody>
@@ -50,7 +50,7 @@
                 <div class="modal-content">
                 <!------ Modal: Button ----------------------------------------------------->
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addNewStudentLabel">Student Registration</h5>
+                        <h5 class="modal-title text-dark" id="addNewStudentLabel">Student Registration</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -120,22 +120,56 @@
     //------ /OBJECTS--------------------------------------------------------------//
     //------- METHODS--------------------------------------------------------------//
         methods: {
-            
+            newModal(){
+                this.form.reset();
+                $('#addNewStudent').modal('show');
+            },
+            deleteStudent(id){
+                swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.value) {
+                            //Send request to server
+                            this.form.delete('api/student/'+id).then(() => {
+                                swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                                )
+                            setTimeout(function(){this.loadStudents()}.bind(this), 1000);
+                            }).catch(() => {
+                                swal("Failed!", "There was something wrong.", "Warning");
+                            });
+                        }
+                    })
+            },
             loadStudents(){
                 axios.get("api/student").then(({data}) => (this.students = data.data));
             },
 
             createStudent(){
                 this.$Progress.start();
-                this.form.post('api/student');
-                //Fire.$emit('AfterCreate');
-                $('#addNewStudent').modal('hide');
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Signed in successfully'
-                });
-                setTimeout(function(){this.loadStudents()}.bind(this), 2500);
-                this.$Progress.finish();
+                this.form.post('api/student')
+                .then(()=>{
+                    //Fire.$emit('AfterCreate');
+                    $('#addNewStudent').modal('hide');
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Signed in successfully'
+                    });
+                    setTimeout(function(){this.loadStudents()}.bind(this), 2500);
+                    this.$Progress.finish();
+                })
+                .catch(()=>{
+
+                })
+                
             }
         },
     //------ /METHODS--------------------------------------------------------------//
