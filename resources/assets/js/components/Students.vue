@@ -18,6 +18,7 @@
                       <th>ID</th>
                       <th>Student Name</th>
                       <th>Email</th>
+                      <th>Batch</th>
                       <th>Registered</th>
                       <th>Modify</th>
                     </tr>
@@ -28,6 +29,7 @@
                       <td>{{student.id}}</td>
                       <td>{{student.name}}</td>
                       <td>{{student.email}}</td>
+                      <td>{{student.batch | upText}}</td>
                       <td>{{student.created_at | myDate}}</td>
                       <td>
                           <a href="#" @click="editModal(student)"><i class="fa fa-edit blue"></i></a>

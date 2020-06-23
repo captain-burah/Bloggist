@@ -78255,6 +78255,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     //------- OBJECTS--------------------------------------------------------------//
@@ -78430,6 +78432,10 @@ var render = function() {
                           _c("td", [_vm._v(_vm._s(student.name))]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(student.email))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(_vm._s(_vm._f("upText")(student.batch)))
+                          ]),
                           _vm._v(" "),
                           _c("td", [
                             _vm._v(_vm._s(_vm._f("myDate")(student.created_at)))
@@ -78793,6 +78799,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Student Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Email")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Batch")]),
         _vm._v(" "),
         _c("th", [_vm._v("Registered")]),
         _vm._v(" "),
