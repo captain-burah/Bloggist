@@ -3,12 +3,12 @@
     <!------ Table : User List ----------------------------------------------------->
         <div class="row">
           <div class="col-md-12">
-            <div class="card text-white bg-dark border border-light mt-3">
+            <div class="card text-white bg-dark border border-secondary mt-3">
               <div class="card-header bg-info">
                 <h3 class="card-title">Users Management System</h3>
 
                 <div class="card-tools">
-                  <button class="btn btn-success" @click="newModal">Add New <div class="fas fa-user-plus fa-fw"></div></button>
+                  <button class="btn btn-success border border-light" @click="newModal">Add New <div class="fas fa-user-plus fa-fw yellow"></div></button>
                 </div>
               </div>
               <!-- /.card-header -->

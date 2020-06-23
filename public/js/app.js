@@ -34843,7 +34843,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __webpack_require__(149);
 
 window.Vue = __webpack_require__(170);
-//-------------- Vue SweetAlert -------------------------------------------------->
+//-------------- Vue SweetAlert v2-------------------------------------------------->
 
 window.swal = __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default.a;
 
@@ -77201,7 +77201,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
+          _c("div", { staticClass: "card text-dark card-default" }, [
             _c("div", { staticClass: "card-header" }, [
               _vm._v("Dashboard Component")
             ]),
@@ -77512,6 +77512,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     //------- OBJECTS--------------------------------------------------------------//
@@ -77642,7 +77643,9 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _c(
           "div",
-          { staticClass: "card text-white bg-dark border border-light mt-3" },
+          {
+            staticClass: "card text-white bg-dark border border-secondary mt-3"
+          },
           [
             _c("div", { staticClass: "card-header bg-info" }, [
               _c("h3", { staticClass: "card-title" }, [
@@ -77653,12 +77656,12 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-success",
+                    staticClass: "btn btn-success border border-light",
                     on: { click: _vm.newModal }
                   },
                   [
                     _vm._v("Add New "),
-                    _c("div", { staticClass: "fas fa-user-plus fa-fw" })
+                    _c("div", { staticClass: "fas fa-user-plus fa-fw yellow" })
                   ]
                 )
               ])
@@ -78384,7 +78387,9 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _c(
           "div",
-          { staticClass: "card text-white bg-dark border border-light mt-3" },
+          {
+            staticClass: "card text-white bg-dark border border-secondary mt-3"
+          },
           [
             _c("div", { staticClass: "card-header bg-info " }, [
               _c("h3", { staticClass: "card-title" }, [
@@ -78400,7 +78405,7 @@ var render = function() {
                   },
                   [
                     _vm._v("Register Student "),
-                    _c("div", { staticClass: "fas fa-user-plus fa-fw" })
+                    _c("div", { staticClass: "fas fa-user-plus fa-fw yellow" })
                   ]
                 )
               ])

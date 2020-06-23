@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Larastart</title>
+  <title>Venture 2021</title>
   
   <!-- CSS -->
   <link rel="stylesheet" href="css/app.css">
@@ -40,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <a href="index3.html" class="brand-link bg-success rounded-bottom">
       <img src="./img/rocket.png" alt="Larastart" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Larastart</span>
+      <span class="brand-text font-weight-light">Venture 2021</span>
     </a>
 
     <!-- Sidebar -->
