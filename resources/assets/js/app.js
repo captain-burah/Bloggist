@@ -8,7 +8,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-//-------------- Vue SweetAlert -------------------------------------------------->
+//-------------- Vue SweetAlert v2-------------------------------------------------->
 import swal from 'sweetalert2';
 window.swal = swal;
 
@@ -28,9 +28,9 @@ window.Toast = Toast;
 //-------------- Vue Progress-Bar -------------------------------------------------->
 import VueProgressBar from 'vue-progressbar';
 Vue.use(VueProgressBar, {
-  color: '#bffaf3',
-  failedColor: '#874b4b',
-  thickness: '5px',
+  color: '#03e7fc',
+  failedColor: '#fc2803',
+  thickness: '7px',
   transition: {
     speed: '3s',
     opacity: '0.6s',

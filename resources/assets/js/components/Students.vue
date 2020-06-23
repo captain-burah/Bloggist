@@ -30,7 +30,7 @@
                       <td>{{student.email}}</td>
                       <td>{{student.created_at | myDate}}</td>
                       <td>
-                          <a href="#"><i class="fa fa-edit blue"></i></a>
+                          <a href="#" @click="editModal(student)"><i class="fa fa-edit blue"></i></a>
                           /
                           <a href="#" @click="deleteStudent(student.id)"> <i class="fa fa-trash red"></i></a>
                       </td>
@@ -50,14 +50,15 @@
                 <div class="modal-content">
                 <!------ Modal: Button ----------------------------------------------------->
                     <div class="modal-header">
-                        <h5 class="modal-title text-dark" id="addNewStudentLabel">Student Registration</h5>
+                        <h5 class="modal-title text-dark" v-show="!editmode" id="addNewStudentLabel">Student Registration</h5>
+                        <h5 class="modal-title text-dark" v-show="editmode" id="addNewStudentLabel">Update Student Details</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                 <!----- /Modal: Button ----------------------------------------------------->
                 <!----- Modal: Body -------------------------------------------------------->
-                    <form @submit.prevent="createStudent">
+                    <form @submit.prevent="editmode ? updateStudent() : createStudent()">
                         <div class="modal-body">
                             <div class="form-group">
                                 <input v-model="form.name" type="text" name="name"
@@ -91,7 +92,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Create</button>
+                            <button type="submit" v-show="!editmode" class="btn btn-primary">Create</button>
+                            <button type="submit" v-show="editmode" class="btn btn-success">Update</button>
                         </div>
                     </form>
                 <!----- /Modal: Body ----------------------------------------------------->
@@ -107,8 +109,10 @@
     //------- OBJECTS--------------------------------------------------------------//
         data() {
             return {
+                editmode: false,
                 students : {},
                 form: new Form({
+                    id: '',
                     name : '',
                     email : '',
                     password : '',
@@ -120,7 +124,38 @@
     //------ /OBJECTS--------------------------------------------------------------//
     //------- METHODS--------------------------------------------------------------//
         methods: {
+            updateStudent(){
+                this.$Progress.start();
+                //console.log('Its Updating fine!');
+                this.form.put('api/student/'+this.form.id)
+                .then(() => {
+                    $('#addNewStudent').modal('hide');
+                    //success
+                    swal.fire(
+                        'Update!',
+                        'Information has been updated.',
+                        'success'
+                    )
+                    setTimeout(function(){this.loadStudents()}.bind(this), 1000);
+                    this.$Progress.finish();
+                })
+                .catch(() => {
+                    this.$Progress.fail();
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Something went wrong!',
+                        text: "Please note the form validations",
+                    });
+                });
+            },
+            editModal(student){
+                this.editmode = true;
+                this.form.reset();
+                $('#addNewStudent').modal('show');
+                this.form.fill(student);
+            },
             newModal(){
+                this.editmode = false;
                 this.form.reset();
                 $('#addNewStudent').modal('show');
             },

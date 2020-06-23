@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+    <!------ Table : User List ----------------------------------------------------->
         <div class="row">
           <div class="col-md-12">
             <div class="card text-white bg-dark border border-light mt-3">
@@ -49,21 +50,22 @@
             <!-- /.card -->
           </div>
         </div>
-
+    <!----- /Table : User List ----------------------------------------------------->
     <!------ Modal: Add_New ----------------------------------------------------->
         <div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="addNewLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                 <!------ Modal: Button ----------------------------------------------------->
                     <div class="modal-header">
-                        <h5 class="modal-title text-dark" id="addNewLabel">Add New</h5>
+                        <h5 class="modal-title text-dark" v-show="!editmode" id="addNewLabel">Add New</h5>
+                        <h5 class="modal-title text-dark" v-show="editmode" id="addNewLabel">Update User Info</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                 <!----- /Modal: Button ----------------------------------------------------->
                 <!------ Modal: Body ----------------------------------------------------->
-                    <form @submit.prevent="createUser">
+                    <form @submit.prevent="editmode ? updateUser() : createUser()">
                         <div class="modal-body">
                             <div class="form-group">
                                 <input v-model="form.name" type="text" name="name"
@@ -99,7 +101,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Create</button>
+                            <button type="submit" v-show="!editmode" class="btn btn-primary">Create</button>
+                            <button type="submit" v-show="editmode" class="btn btn-success">Update</button>
                         </div>
                     </form>
                 <!----- /Modal: Body ----------------------------------------------------->
@@ -115,8 +118,10 @@
     //------- OBJECTS--------------------------------------------------------------//
         data() {
             return {
+                editmode : false,
                 users : {},
                 form: new Form({
+                    id : '',
                     name : '',
                     email : '',
                     password : '',
@@ -128,12 +133,33 @@
     //------ /OBJECTS--------------------------------------------------------------//
     //------- METHODS--------------------------------------------------------------//
         methods: {
+            updateUser(){
+                this.$Progress.start();
+                //console.log('Its Updating fine!');
+                this.form.put('api/user/'+this.form.id)
+                .then(() => {
+                    $('#addNew').modal('hide');
+                    //success
+                    swal.fire(
+                        'Update!',
+                        'Information has been updated.',
+                        'success'
+                    )
+                    setTimeout(function(){this.loadUsers()}.bind(this), 1000);
+                    this.$Progress.finish();
+                })
+                .catch(() => {
+                    this.$Progress.fail();
+                });
+            },
             editModal(user){
+                this.editmode = true;
                 this.form.reset();
                 $('#addNew').modal('show');
                 this.form.fill(user);
             },
             newModal(){
+                this.editmode = false;
                 this.form.reset();
                 $('#addNew').modal('show');
             },
@@ -163,7 +189,8 @@
                     })
             },
             loadUsers(){
-                axios.get("api/user").then(({data}) => (this.users = data.data));
+                axios.get("api/user")
+                .then(({ data }) => (this.users = data.data));
             },
 
             createUser(){

@@ -29,7 +29,7 @@ class StudentController extends Controller
     {
         $this->validate($request, [
             'name'  => 'required|string|max:191',
-            'email'  => 'required|string|email|max:191|unique:users',
+            'email'  => 'required|string|email|max:191|unique:students',
             'batch'  => 'required',
             'password'  => 'required|string|min:8',
         ]);
@@ -62,7 +62,18 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::findOrFail($id);
+
+        $this->validate($request, [
+            'name'  => 'required|string|max:191',
+            'email'  => 'required|string|email|max:191|unique:students,email,'.$student->id,
+            'batch'  => 'required',
+            'password'  => 'sometimes|min:8',
+        ]);
+
+        $student->update($request->all());
+
+        return['message' => 'updating'];
     }
 
     /**

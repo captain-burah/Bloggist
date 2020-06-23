@@ -34863,9 +34863,9 @@ window.Toast = Toast;
 //-------------- Vue Progress-Bar -------------------------------------------------->
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_progressbar___default.a, {
-  color: '#bffaf3',
-  failedColor: '#874b4b',
-  thickness: '5px',
+  color: '#03e7fc',
+  failedColor: '#fc2803',
+  thickness: '7px',
   transition: {
     speed: '3s',
     opacity: '0.6s',
@@ -77510,13 +77510,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     //------- OBJECTS--------------------------------------------------------------//
     data: function data() {
         return {
+            editmode: false,
             users: {},
             form: new Form({
+                id: '',
                 name: '',
                 email: '',
                 password: '',
@@ -77529,17 +77533,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     //------ /OBJECTS--------------------------------------------------------------//
     //------- METHODS--------------------------------------------------------------//
     methods: {
+        updateUser: function updateUser() {
+            var _this = this;
+
+            this.$Progress.start();
+            //console.log('Its Updating fine!');
+            this.form.put('api/user/' + this.form.id).then(function () {
+                $('#addNew').modal('hide');
+                //success
+                swal.fire('Update!', 'Information has been updated.', 'success');
+                setTimeout(function () {
+                    this.loadUsers();
+                }.bind(_this), 1000);
+                _this.$Progress.finish();
+            }).catch(function () {
+                _this.$Progress.fail();
+            });
+        },
         editModal: function editModal(user) {
+            this.editmode = true;
             this.form.reset();
             $('#addNew').modal('show');
             this.form.fill(user);
         },
         newModal: function newModal() {
+            this.editmode = false;
             this.form.reset();
             $('#addNew').modal('show');
         },
         deleteUser: function deleteUser(id) {
-            var _this = this;
+            var _this2 = this;
 
             swal.fire({
                 title: 'Are you sure?',
@@ -77552,11 +77575,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (result) {
                 if (result.value) {
                     //Send request to server
-                    _this.form.delete('api/user/' + id).then(function () {
+                    _this2.form.delete('api/user/' + id).then(function () {
                         swal.fire('Deleted!', 'Your file has been deleted.', 'success');
                         setTimeout(function () {
                             this.loadUsers();
-                        }.bind(_this), 1000);
+                        }.bind(_this2), 1000);
                     }).catch(function () {
                         swal("Failed!", "There was something wrong.", "Warning");
                     });
@@ -77564,15 +77587,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         loadUsers: function loadUsers() {
-            var _this2 = this;
+            var _this3 = this;
 
             axios.get("api/user").then(function (_ref) {
                 var data = _ref.data;
-                return _this2.users = data.data;
+                return _this3.users = data.data;
             });
         },
         createUser: function createUser() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.$Progress.start();
             this.form.post('api/user').then(function () {
@@ -77584,8 +77607,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
                 setTimeout(function () {
                     this.loadUsers();
-                }.bind(_this3), 2500);
-                _this3.$Progress.finish();
+                }.bind(_this4), 2500);
+                _this4.$Progress.finish();
             }).catch(function () {});
         }
     },
@@ -77726,7 +77749,43 @@ var render = function() {
       [
         _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(1),
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.editmode,
+                      expression: "!editmode"
+                    }
+                  ],
+                  staticClass: "modal-title text-dark",
+                  attrs: { id: "addNewLabel" }
+                },
+                [_vm._v("Add New")]
+              ),
+              _vm._v(" "),
+              _c(
+                "h5",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.editmode,
+                      expression: "editmode"
+                    }
+                  ],
+                  staticClass: "modal-title text-dark",
+                  attrs: { id: "addNewLabel" }
+                },
+                [_vm._v("Update User Info")]
+              ),
+              _vm._v(" "),
+              _vm._m(1)
+            ]),
             _vm._v(" "),
             _c(
               "form",
@@ -77734,7 +77793,7 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.createUser($event)
+                    _vm.editmode ? _vm.updateUser() : _vm.createUser()
                   }
                 }
               },
@@ -77934,7 +77993,50 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(2)
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Close")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: !_vm.editmode,
+                          expression: "!editmode"
+                        }
+                      ],
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Create")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.editmode,
+                          expression: "editmode"
+                        }
+                      ],
+                      staticClass: "btn btn-success",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Update")]
+                  )
+                ])
               ]
             )
           ])
@@ -77968,47 +78070,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title text-dark", attrs: { id: "addNewLabel" } },
-        [_vm._v("Add New")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Create")]
-      )
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
   }
 ]
 render._withStripped = true
@@ -78177,13 +78250,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     //------- OBJECTS--------------------------------------------------------------//
     data: function data() {
         return {
+            editmode: false,
             students: {},
             form: new Form({
+                id: '',
                 name: '',
                 email: '',
                 password: '',
@@ -78196,12 +78273,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     //------ /OBJECTS--------------------------------------------------------------//
     //------- METHODS--------------------------------------------------------------//
     methods: {
+        updateStudent: function updateStudent() {
+            var _this = this;
+
+            this.$Progress.start();
+            //console.log('Its Updating fine!');
+            this.form.put('api/student/' + this.form.id).then(function () {
+                $('#addNewStudent').modal('hide');
+                //success
+                swal.fire('Update!', 'Information has been updated.', 'success');
+                setTimeout(function () {
+                    this.loadStudents();
+                }.bind(_this), 1000);
+                _this.$Progress.finish();
+            }).catch(function () {
+                _this.$Progress.fail();
+                swal.fire({
+                    icon: 'error',
+                    title: 'Something went wrong!',
+                    text: "Please note the form validations"
+                });
+            });
+        },
+        editModal: function editModal(student) {
+            this.editmode = true;
+            this.form.reset();
+            $('#addNewStudent').modal('show');
+            this.form.fill(student);
+        },
         newModal: function newModal() {
+            this.editmode = false;
             this.form.reset();
             $('#addNewStudent').modal('show');
         },
         deleteStudent: function deleteStudent(id) {
-            var _this = this;
+            var _this2 = this;
 
             swal.fire({
                 title: 'Are you sure?',
@@ -78214,11 +78320,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (result) {
                 if (result.value) {
                     //Send request to server
-                    _this.form.delete('api/student/' + id).then(function () {
+                    _this2.form.delete('api/student/' + id).then(function () {
                         swal.fire('Deleted!', 'Your file has been deleted.', 'success');
                         setTimeout(function () {
                             this.loadStudents();
-                        }.bind(_this), 1000);
+                        }.bind(_this2), 1000);
                     }).catch(function () {
                         swal("Failed!", "There was something wrong.", "Warning");
                     });
@@ -78226,15 +78332,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         loadStudents: function loadStudents() {
-            var _this2 = this;
+            var _this3 = this;
 
             axios.get("api/student").then(function (_ref) {
                 var data = _ref.data;
-                return _this2.students = data.data;
+                return _this3.students = data.data;
             });
         },
         createStudent: function createStudent() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.$Progress.start();
             this.form.post('api/student').then(function () {
@@ -78246,8 +78352,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
                 setTimeout(function () {
                     this.loadStudents();
-                }.bind(_this3), 2500);
-                _this3.$Progress.finish();
+                }.bind(_this4), 2500);
+                _this4.$Progress.finish();
             }).catch(function () {});
         }
     },
@@ -78325,7 +78431,18 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("td", [
-                            _vm._m(1, true),
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editModal(student)
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fa fa-edit blue" })]
+                            ),
                             _vm._v(
                               "\n                      /\n                      "
                             ),
@@ -78370,7 +78487,43 @@ var render = function() {
       [
         _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(2),
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.editmode,
+                      expression: "!editmode"
+                    }
+                  ],
+                  staticClass: "modal-title text-dark",
+                  attrs: { id: "addNewStudentLabel" }
+                },
+                [_vm._v("Student Registration")]
+              ),
+              _vm._v(" "),
+              _c(
+                "h5",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.editmode,
+                      expression: "editmode"
+                    }
+                  ],
+                  staticClass: "modal-title text-dark",
+                  attrs: { id: "addNewStudentLabel" }
+                },
+                [_vm._v("Update Student Details")]
+              ),
+              _vm._v(" "),
+              _vm._m(1)
+            ]),
             _vm._v(" "),
             _c(
               "form",
@@ -78378,7 +78531,7 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.createStudent($event)
+                    _vm.editmode ? _vm.updateStudent() : _vm.createStudent()
                   }
                 }
               },
@@ -78571,7 +78724,50 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(3)
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Close")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: !_vm.editmode,
+                          expression: "!editmode"
+                        }
+                      ],
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Create")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.editmode,
+                          expression: "editmode"
+                        }
+                      ],
+                      staticClass: "btn btn-success",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Update")]
+                  )
+                ])
               ]
             )
           ])
@@ -78603,58 +78799,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#" } }, [
-      _c("i", { staticClass: "fa fa-edit blue" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        {
-          staticClass: "modal-title text-dark",
-          attrs: { id: "addNewStudentLabel" }
-        },
-        [_vm._v("Student Registration")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Create")]
-      )
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
   }
 ]
 render._withStripped = true
