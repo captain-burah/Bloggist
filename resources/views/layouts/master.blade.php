@@ -161,7 +161,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       Captain_Burah
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2020-2021 <a href="#">Larastart</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2020-2021 <a href="#">Venture</a>.</strong> All rights reserved.
   </footer>
 <!-- ./Main Footer -->
 

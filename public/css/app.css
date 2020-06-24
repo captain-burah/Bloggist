@@ -26984,12 +26984,12 @@ a.text-muted:hover {
 
 .description-block {
   display: block;
-  margin: 10px 0;
+  margin: 0px 0;
   text-align: center;
 }
 
 .description-block.margin-bottom {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .description-block > .description-header {
