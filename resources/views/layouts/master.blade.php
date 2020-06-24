@@ -10,6 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <script> window.laravel = { csrfToken: '{{ csrf_token() }}' } </script>
   <title>Venture 2021</title>
   
   <!-- CSS -->
@@ -135,13 +136,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper bg-dark">   
+    <div class="content-wrapper bg-light">   
       <!-- Main content -->
       <div class="content">
         <div class="container-fluid">
             <!-- for example router view -->
             <router-view></router-view>
-
+            
             <!-- set progressbar -->
             <vue-progress-bar></vue-progress-bar>
         </div>        <!-- /.row -->

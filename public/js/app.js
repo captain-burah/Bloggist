@@ -79235,7 +79235,7 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c(
         "div",
-        { staticClass: "col-md-12 text-dark mt-2 " },
+        { staticClass: "col-md-12 mt-2 " },
         [
           _c("passport-clients"),
           _vm._v(" "),
