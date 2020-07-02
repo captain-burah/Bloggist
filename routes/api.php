@@ -22,4 +22,6 @@ Route::group(['middleware' => 'auth:api'], function() {
         'user'=> 'API\UserController',
         'student'=> 'API\StudentController'
     ]);
+    Route::get('profile', 'API\UserController@profile');
+    Route::put('profile', 'API\UserController@updateProfile');
 });

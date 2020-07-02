@@ -41,6 +41,7 @@ class StudentController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'batch' => $request['batch'],
+            'photo' => $request['photo'],
         ]);
     }
 

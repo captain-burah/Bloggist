@@ -44,8 +44,30 @@ class UserController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'type' => $request['type'],
+            'photo' => $request['photo'],
         ]);
     }
+
+    public function updateProfile(Request $request)
+    {
+        $user = auth('api')->user();
+        if ($request->photo) {
+
+            $name = time().'.' . explode('/', explode(':', substr($request->photo, 0, strpos
+            ($request->photo, ';')))[1])[1];
+
+            \Image::make($request->photo)->save(public_path('img/profile/').$name);
+        }
+        //return $request -> photo;
+        //return ['message' => 'Success'];
+    }
+
+    public function profile()
+    {
+        return auth('api')->user();
+    }
+
+
 
     /**
      * Display the specified resource.
@@ -57,7 +79,6 @@ class UserController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
