@@ -20,9 +20,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-dark navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-white navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -41,6 +41,9 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Go Back</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
