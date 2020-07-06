@@ -45,7 +45,9 @@
             height: 100vh;
             margin: 0;
             font-weight: 100;
-            
+            }
+            body{
+                background-color: #40844e;
             }
          
             .cover-container {
@@ -115,19 +117,25 @@
             padding: .75rem 1.25rem;
             font-weight: 700;
             }
+            .cover-heading{
+                font-weight: 400;
+                margin-bottom: 5%;
+            }
     
     
             /*
             * Footer
             */
-            .mastfoot {
-            color: rgba(255, 255, 255, .5);
-            }
+            
             .mastMenu{
+                
                 margin-bottom: 0;
                 margin-top: 0;
+                background-color: #32673c;
+                align-items: center;
             }
-            .mastMenu-item{
+            .mastMenu-a{
+                align-items: center;
                 margin: 10%;
                 font-weight: 600;
             }
@@ -135,12 +143,20 @@
                 font-weight: 400;
             }
 
+            .mastMenu-item:hover {
+                background-color: #40844e;
+                color: #fff !important;
+                
+                transition: background-color .25s;
+            }
+            
+
         </style>
     </head>
-    <body class="text-center bg-light" >
+    <body class="text-center " >
         <div class="cover-container d-flex h-100 p-3 mx-auto flex-column ">
 <!--------------Header Section-------------->
-            <header class="container-fluid  mb-auto ">
+            <header class="container-fluid  mb-auto border-bottom">
                 
                 
                     <nav class="nav nav-masthead justify-content-center ">
@@ -160,21 +176,28 @@
 
 <!---------------Main Section---------------->
             <main role="main" class="inner cover rounded">
-                <h1 class="cover-heading display-1"><span class="text-primary"><b>V</b></span>enture 2021</h1>
-                <div class="row mastMenu" style="opacity: .9;">
-                    <div class="col-sm-3 shadow-sm rounded-lg mt-4 border-right" >
-                        <a href="#Home" class="text-dark mastMenu-item">Home Page</a>
+                <h1 class="cover-heading display-1 text-light">Venture 2021</h1>
+                <div class="row mastMenu text-light my-0 " style="opacity: .9;;">
+                    <div class="col-sm-3 my-0 py-3 mastMenu-item" >
+                        <a href="#Home" class="text-light mastMenu-a">The Academy</a>
                     </div>
-                    <div class="col-sm-3 shadow-sm rounded-lg mt-4  border-right">
-                        <a href="#Venturecast" class="text-dark mastMenu-item">Venturecast</a>
+                    <div class="col-sm-3 my-0 py-3 mastMenu-item">
+                        <a href="#Venturecast" class="text-light mastMenu-a ">Venturecast</a>
                     </div>
-                    <div class="col-sm-3 shadow-sm rounded-lg mt-4  border-right">
-                        <a href="#Lecturers" class="text-dark mastMenu-item">Lecturers</a>
+                    <div class="col-sm-3  my-0 py-3 mastMenu-item">
+                        <a href="#Lecturers" class="text-light mastMenu-a">Lecture Board</a>
                     </div>
-                    <div class="col-sm-3 shadow-sm rounded-lg mt-4 border-right">
-                        <a href="#About_Us" class="text-dark mastMenu-item">About Us</a>
+                    <div class="col-sm-3  my-0 py-3 mastMenu-item">
+                        <a href="#Lecturers" class="text-light mastMenu-a">Join Here</a>
                     </div>
-    
+                </div>
+                <div class="row mastMenu text-light my-0" style="opacity: .9;  border-radius: 0px 0px 50px 50px">
+                    <div class="col-sm-6  my-0 py-3 mastMenu-item">
+                        <a href="#Lecturers" class="text-light mastMenu-a">Contact</a>
+                    </div>
+                    <div class="col-sm-6  my-0 py-3 mastMenu-item">
+                        <a href="#About_Us" class="text-light mastMenu-a">About Us</a>
+                    </div>
                 </div>
             </main>
             
