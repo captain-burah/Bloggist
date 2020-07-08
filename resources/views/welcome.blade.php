@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="css/app.css">
         <!-- Styles -->
         <style>
-            a,
+            
             a:focus,
             a:hover {
             color: #fff;
@@ -51,7 +51,7 @@
             }
          
             .cover-container {
-                max-width: 52em;      
+                max-width: 62em;      
             }
     
     
@@ -108,18 +108,26 @@
             */
             .cover {
                 padding: 0 0rem;
+                
                 height: 100vh;
                 align-items: center;
-                margin-bottom: 10%;
-                margin-top: 20%;
+                padding-bottom: 
+                margin-bottom: 0;
+                margin-top: 10%;
             }
             .cover .btn-lg {
             padding: .75rem 1.25rem;
             font-weight: 700;
             }
             .cover-heading{
+                max-width: 100%;
                 font-weight: 400;
+                margin-top: 5%;
                 margin-bottom: 5%;
+                background-color: #e6e6e6;
+                opacity: .6;
+                border-radius: 0px 0px 50px 50px;
+                border: #19341e 3px solid;
             }
     
     
@@ -130,31 +138,46 @@
             .mastMenu{
                 
                 margin-bottom: 0;
+                padding-bottom: 0;
                 margin-top: 0;
-                background-color: #32673c;
+                background-color: #19341e;
                 align-items: center;
             }
             .mastMenu-a{
                 align-items: center;
                 margin: 10%;
                 font-weight: 600;
+                color: #e6e6e6;
             }
             .headMenu{
                 font-weight: 400;
             }
-
+            .mastMenu-item{
+                border: #19341e 2px solid;
+            }
             .mastMenu-item:hover {
                 background-color: #40844e;
                 color: #fff !important;
-                
-                transition: background-color .25s;
+                border: #19341e 2px solid;
+                transition: background-color .75s, border .25s;
             }
-            
+            .mastfoot{
+                color: #19341e;
+                font-weight: 700;
+                font-size: .7rem;
+                position: relative;
+                margin-bottom: 0;
+                top: 0;
+            }
+            .footer-a{
+                text-decoration: none;
+                color: #19341e;
+            }
 
         </style>
     </head>
     <body class="text-center " >
-        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column ">
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-container flex-column ">
 <!--------------Header Section-------------->
             <header class="container-fluid  mb-auto border-bottom">
                 
@@ -165,8 +188,8 @@
                         @auth
                             <a href="{{ url('/home') }}">Home</a>
                         @else
-                            <a href="{{ route('login') }}">Login &nbsp;</a>
-                            <a href="{{ route('register') }}">&nbsp; Register</a>
+                            <a href="{{ route('login') }}" class="text-white">Login Now &nbsp;</a>
+                            <a href="{{ route('register') }}" class="text-white"></a>
                         @endauth
                     </div>
                 @endif
@@ -176,35 +199,40 @@
 
 <!---------------Main Section---------------->
             <main role="main" class="inner cover rounded">
-                <h1 class="cover-heading display-1 text-light">Venture 2021</h1>
+
                 <div class="row mastMenu text-light my-0 " style="opacity: .9;;">
-                    <div class="col-sm-3 my-0 py-3 mastMenu-item" >
-                        <a href="#Home" class="text-light mastMenu-a">The Academy</a>
+                    <div class="col-md-3 my-0 py-3 mastMenu-item" >
+                        <a href="#Home" class=" mastMenu-a "><i class="fas fa-school text-warning "></i>&nbsp Academy</a>
                     </div>
-                    <div class="col-sm-3 my-0 py-3 mastMenu-item">
-                        <a href="#Venturecast" class="text-light mastMenu-a ">Venturecast</a>
+                    <div class="col-md-3 my-0 py-3 mastMenu-item">
+                        <a href="#Venturecast" class=" mastMenu-a "><i class="fas fa-chalkboard-teacher text-info  "></i>&nbsp Tutor Panel</a>
                     </div>
-                    <div class="col-sm-3  my-0 py-3 mastMenu-item">
-                        <a href="#Lecturers" class="text-light mastMenu-a">Lecture Board</a>
+                    <div class="col-md-3  my-0 py-3 mastMenu-item">
+                        <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-hashtag  text-danger"></i>&nbsp Studentcast</a>
                     </div>
-                    <div class="col-sm-3  my-0 py-3 mastMenu-item">
-                        <a href="#Lecturers" class="text-light mastMenu-a">Join Here</a>
-                    </div>
-                </div>
-                <div class="row mastMenu text-light my-0" style="opacity: .9;  border-radius: 0px 0px 50px 50px">
-                    <div class="col-sm-6  my-0 py-3 mastMenu-item">
-                        <a href="#Lecturers" class="text-light mastMenu-a">Contact</a>
-                    </div>
-                    <div class="col-sm-6  my-0 py-3 mastMenu-item">
-                        <a href="#About_Us" class="text-light mastMenu-a">About Us</a>
+                    <div class="col-md-3  my-0 py-3 mastMenu-item">
+                        <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-door-open text-success"></i>&nbsp Join Here</a>
                     </div>
                 </div>
+                <div class="row mastMenu text-light my-0" style="opacity: .9;">
+                    <div class="col-md-6  my-0 py-3 mastMenu-item">
+                        <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-id-card purple"></i>&nbsp Reach Us Here</a>
+                    </div>
+                    <div class="col-md-6  my-0 py-3 mastMenu-item">
+                        <a href="#About_Us" class=" mastMenu-a"><i class="fas fa-user-tie indigo"></i>&nbsp About Us</a>
+                    </div>
+                </div>
+
+                <h1 class="cover-heading display-5 text-dark font-weight-bold">Venture 2021</h1>
+                
             </main>
             
 <!---------------Footer Section-------------->
-            <footer class="mastfoot mt-auto">
-                
-            </footer>
+<footer class="mastfoot mt-auto">
+    <div class="inner">
+        <p>designed & developed | &copy <a href="www.instagram.com/captain_burah" class="footer-a">Captain Burah</a></p>
+        </div>
+</footer>
 <!--------------/Footer Section-------------->
         </div>
         
