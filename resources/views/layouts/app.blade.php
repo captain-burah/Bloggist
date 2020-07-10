@@ -7,23 +7,39 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Venture 2021') }}</title>
+    <script> window.laravel = { csrfToken: '{{ csrf_token() }}' } </script>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    
-    
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        html,
+        body {
+            height: 100%;
+            font-family: 'Raleway', sans-serif;
+            color: #636b6f;
+            height: 100vh;
+            margin: 0;
+            font-weight: 100;
+            }
+        body{
+                background-color: #40844e;
+            }
+         .card-wall{
+             background-color: #f2f2f2;
+         }
+    </style>
 </head>
-<body class="bg-light">
+<body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-white navbar-laravel">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel">
+            <div class="container ">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -42,7 +58,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="/">Go Back</a>
+                                <a class="nav-link">Student &nbsp<i class="fas fa-child"></i></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -73,7 +89,7 @@
                 </div>
             </div>
         </nav>
- 
+
         <main class="py-4">
             @yield('content')
         </main>

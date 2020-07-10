@@ -19,6 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('batch');
+            $table->string('year');
             $table->string('photo')->default('profile.png');
             $table->rememberToken();
             $table->timestamps();

@@ -33,6 +33,7 @@ class StudentController extends Controller
             'name'  => 'required|string|max:191',
             'email'  => 'required|string|email|max:191|unique:students',
             'batch'  => 'required',
+            'year' => 'required',
             'password'  => 'required|string|min:8',
         ]);
 
@@ -41,6 +42,7 @@ class StudentController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'batch' => $request['batch'],
+            'year' => $request['year'],
             'photo' => $request['photo'],
         ]);
     }
@@ -71,6 +73,7 @@ class StudentController extends Controller
             'name'  => 'required|string|max:191',
             'email'  => 'required|string|email|max:191|unique:students,email,'.$student->id,
             'batch'  => 'required',
+            'year' => 'required',
             'password'  => 'sometimes|min:8',
         ]);
 

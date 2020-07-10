@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card border border-dark">
-                <div class="card-header bg-dark">{{ __('Login') }}</div>
+            <div class="card">
+                <div class="card-header bg-dark text-center"><i class="fas fa-child text-right"></i>&nbsp {{ __('Student Login') }}</div>
 
-                <div class="card-body">
+                <div class="card-body card-wall">
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @csrf
 

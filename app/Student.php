@@ -1,13 +1,13 @@
 <?php
 
 namespace App;
-
+ 
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\Student as Authenticatable;
 
-class Student extends Model
+class Student extends Authenticatable
 {
     use Notifiable, HasApiTokens;
  
@@ -17,7 +17,7 @@ class Student extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'batch'
+        'name', 'email', 'password', 'batch', 'year'
     ];
 
     /**

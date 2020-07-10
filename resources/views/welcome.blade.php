@@ -15,11 +15,11 @@
         <link rel="stylesheet" href="css/app.css">
         <!-- Styles -->
         <style>
-            
-            a:focus,
-            a:hover {
-            color: #fff;
+            a:hover,
+            a:focus{
+                color: #1a1a1a;
             }
+            
     
             /* Custom default button */
             .btn-secondary,
@@ -51,7 +51,7 @@
             }
          
             .cover-container {
-                max-width: 62em;      
+                max-width: 52em;      
             }
     
     
@@ -125,7 +125,7 @@
                 margin-top: 5%;
                 margin-bottom: 5%;
                 background-color: #e6e6e6;
-                opacity: .6;
+                opacity: .8;
                 border-radius: 0px 0px 50px 50px;
                 border: #19341e 3px solid;
             }
@@ -145,7 +145,7 @@
             }
             .mastMenu-a{
                 align-items: center;
-                margin: 10%;
+                position: relative;
                 font-weight: 600;
                 color: #e6e6e6;
             }
@@ -155,14 +155,18 @@
             .mastMenu-item{
                 border: #19341e 2px solid;
             }
-            .mastMenu-item:hover {
-                background-color: #40844e;
-                color: #fff !important;
+            .mastMenu-item:hover{
+                
+                background-color: #87c593;
                 border: #19341e 2px solid;
                 transition: background-color .75s, border .25s;
             }
+            .mastMenu-a:hover{
+                color: #000;
+                transition: color .25s;
+            }
             .mastfoot{
-                color: #19341e;
+                color: #214528;
                 font-weight: 700;
                 font-size: .7rem;
                 position: relative;
@@ -171,7 +175,11 @@
             }
             .footer-a{
                 text-decoration: none;
-                color: #19341e;
+                color: #214528;
+            }
+            .footer-a:hover{
+                color: #000;
+                font-weight: 900;
             }
 
         </style>
@@ -211,15 +219,15 @@
                         <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-hashtag  text-danger"></i>&nbsp Studentcast</a>
                     </div>
                     <div class="col-md-3  my-0 py-3 mastMenu-item">
-                        <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-door-open text-success"></i>&nbsp Join Here</a>
+                        <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-users-cog text-success"></i>&nbsp Reach Us</a>
                     </div>
                 </div>
                 <div class="row mastMenu text-light my-0" style="opacity: .9;">
                     <div class="col-md-6  my-0 py-3 mastMenu-item">
-                        <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-id-card purple"></i>&nbsp Reach Us Here</a>
+                        <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-graduation-cap purple"></i>&nbsp Join as Tutor</a>
                     </div>
                     <div class="col-md-6  my-0 py-3 mastMenu-item">
-                        <a href="#About_Us" class=" mastMenu-a"><i class="fas fa-user-tie indigo"></i>&nbsp About Us</a>
+                        <a href="{{ route('register') }}" class=" mastMenu-a"><i class="fas fa-child text-primary"></i>&nbsp Join as Student</a>
                     </div>
                 </div>
 
