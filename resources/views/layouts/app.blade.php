@@ -19,6 +19,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
+        a,
+        a:hover,
+        a:focus{
+            color: #fff;
+        }
         html,
         body {
             height: 100%;
@@ -32,7 +37,7 @@
                 background-color: #40844e;
             }
          .card-wall{
-             background-color: #f2f2f2;
+             background-color: #eaf5f2;
          }
     </style>
 </head>

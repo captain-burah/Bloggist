@@ -9,7 +9,10 @@
     padding: 10px !important;
     margin: 2px !important;
 }
-
+.cards-a{
+    text-decoration: none;
+    color: #fff;
+}
 </style>
 
 <template>
@@ -17,7 +20,7 @@
         <div class="row ">
 <!-----------------------------------------Profile Header-------------------------------------------------->
             <div class="col-md-12 mt-3  ">
-                <div class="card card-widget widget-user">
+                <div class="card card-wall card-widget widget-user">
                     <!-- Add the bg color to the header using any of the bg-* classes -->
                     <div class="widget-user-header text-white" style="background-image:url('./img/bg3-2.jpg')">
                         <h3 class="widget-user-username text-right">Elizabeth Pierce</h3>
@@ -29,7 +32,7 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-sm-4 border-right">
-                                <div class="description-block">
+                                <div class="description-block ">
                                     <h5 class="description-header">3</h5>
                                     <span class="description-text"> <a href="#"> Courses Enrolled</a></span>
                                 </div>
@@ -61,7 +64,7 @@
         <div class="row ">
 <!-----------------------------------------Profile Details-------------------------------------------------->
             <div class="col-md-12 mt-3">
-                <div class="card">
+                <div class="card card-wall">
     <!-----------------------------------------Buttons -------------------------------------------------->
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">

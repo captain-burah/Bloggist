@@ -246,7 +246,7 @@
 <!---------------Footer Section-------------->
 <footer class="mastfoot mt-auto">
     <div class="inner">
-        <p>designed & developed | &copy <a href="www.instagram.com/captain_burah" class="footer-a">Captain Burah</a></p>
+        <p>designed & developed | &copy <a href="www.instagram.com/captain_burah" class="footer-a">Captain Burah</a>. All rights reserved.</p>
         </div>
 </footer>
 <!--------------/Footer Section-------------->
