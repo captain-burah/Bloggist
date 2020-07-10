@@ -45,13 +45,14 @@
             height: 100vh;
             margin: 0;
             font-weight: 100;
+            font-size: 1.25rem;
             }
             body{
                 background-color: #40844e;
             }
          
             .cover-container {
-                max-width: 52em;      
+                max-width: 42em;      
             }
     
     
@@ -122,6 +123,7 @@
             .cover-heading{
                 max-width: 100%;
                 font-weight: 400;
+                font-size: 2rem;
                 margin-top: 5%;
                 margin-bottom: 5%;
                 background-color: #e6e6e6;
@@ -181,7 +183,13 @@
                 color: #000;
                 font-weight: 900;
             }
-
+            .home-link{
+                color: #fff;
+                text-decoration: none;
+            }
+            .home-link:hover{
+                color: #fff;
+            }
         </style>
     </head>
     <body class="text-center " >
@@ -194,7 +202,7 @@
                         @if (Route::has('login'))
                     <div class="headMenu">
                         @auth
-                            <a href="{{ url('/home') }}">Home</a>
+                            <a href="{{ url('/home') }}" class="home-link">Go to Dashboard</a>
                         @else
                             <a href="{{ route('login') }}" class="text-white">Login Now &nbsp;</a>
                             <a href="{{ route('register') }}" class="text-white"></a>
@@ -231,7 +239,7 @@
                     </div>
                 </div>
 
-                <h1 class="cover-heading display-5 text-dark font-weight-bold">Venture 2021</h1>
+                <h1 class="cover-heading text-dark font-weight-bold">Venture 2021</h1>
                 
             </main>
             

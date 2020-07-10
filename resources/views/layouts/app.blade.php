@@ -58,7 +58,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link">Student &nbsp<i class="fas fa-child"></i></a>
+                                <a class="nav-link"><u>Student</u> &nbsp<i class="fas fa-child"></i></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
