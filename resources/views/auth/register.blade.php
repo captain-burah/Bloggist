@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+  <!-- Content Wrapper. Contains page content -->
+    <!-- Main content -->
+    <div class="content">
+          <!-- for example router view -->
+          <router-view></router-view>
+          
+          <!-- set progressbar -->
+          <vue-progress-bar></vue-progress-bar>
+    </div>        <!-- /.row -->
+      <!-- /.container-fluid -->
+<!-- /.content -->
+<!-- /.content-wrapper -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -109,7 +121,15 @@
                     </form>
                 </div>
             </div>
+            
         </div>
+        <footer class=" col-12 mastfoot mt-auto text-center">
+            <div class="inner">
+                <p>designed & developed | &copy <a href="www.instagram.com/captain_burah" class="footer-a">Captain Burah</a>. All rights reserved.</p>
+                </div>
+        </footer>
+        <!--------------/Footer Section-------------->
     </div>
+    
 </div>
 @endsection

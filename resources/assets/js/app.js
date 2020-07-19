@@ -64,6 +64,7 @@ let routes = [
   { path: '/orders', component: require('./components/Orders.vue') },
   { path: '/results', component: require('./components/Results.vue') },
   { path: '/assignments', component: require('./components/Assignments.vue') },
+  { path: '/Student_Reg', component: require('./components/Student_Reg.vue') },
 ]
 
 const router = new VueRouter({

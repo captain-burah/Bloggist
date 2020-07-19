@@ -14,6 +14,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('auth:lecturer');
     }
 
     /**
@@ -23,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        return view('welcome');
+    }
+    public function student()
+    {
         return view('student.Smaster');
+    }
+    public function tutor()
+    {
+        return view('lecturer.Lmaster');
     }
 }

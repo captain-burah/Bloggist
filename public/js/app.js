@@ -77586,10 +77586,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "col-12 mt-3" }, [
+      _c("div", { staticClass: "col-12 pt-3" }, [
         _c("div", { staticClass: "card card-primary" }, [
           _c("div", { staticClass: "card-header" }, [
-            _c("h3", { staticClass: "card-title" }, [_vm._v("Recent Lessons")])
+            _c("h3", { staticClass: "card-title" }, [_vm._v("Starred Lessons")])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
@@ -80587,6 +80587,77 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -80610,17 +80681,167 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card text-dark card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Lesson's Component")
+      _c("div", { staticClass: "col-12 pt-3" }, [
+        _c("div", { staticClass: "card card-primary" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h3", { staticClass: "card-title" }, [
+              _vm._v("Registered Lessons")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "position-relative p-3 bg-gray",
+                    staticStyle: { height: "180px" }
+                  },
+                  [
+                    _c("div", { staticClass: "ribbon-wrapper" }, [
+                      _c("div", { staticClass: "ribbon bg-primary" }, [
+                        _vm._v(
+                          "\n                      Ribbon\n                    "
+                        )
+                      ])
+                    ]),
+                    _vm._v("\n                  Ribbon Default "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("small", [_vm._v(".ribbon-wrapper.ribbon-lg .ribbon")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "position-relative p-3 bg-gray",
+                    staticStyle: { height: "180px" }
+                  },
+                  [
+                    _c("div", { staticClass: "ribbon-wrapper ribbon-lg" }, [
+                      _c("div", { staticClass: "ribbon bg-info" }, [
+                        _vm._v(
+                          "\n                      Ribbon Large\n                    "
+                        )
+                      ])
+                    ]),
+                    _vm._v("\n                  Ribbon Large "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("small", [_vm._v(".ribbon-wrapper.ribbon-lg .ribbon")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "position-relative p-3 bg-gray",
+                    staticStyle: { height: "180px" }
+                  },
+                  [
+                    _c("div", { staticClass: "ribbon-wrapper ribbon-xl" }, [
+                      _c("div", { staticClass: "ribbon bg-secondary" }, [
+                        _vm._v(
+                          "\n                      Ribbon Extra Large\n                    "
+                        )
+                      ])
+                    ]),
+                    _vm._v("\n                  Ribbon Extra Large "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("small", [_vm._v(".ribbon-wrapper.ribbon-xl .ribbon")])
+                  ]
+                )
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm in the Lesson component.\n                "
-              )
+            _c("div", { staticClass: "row mt-4" }, [
+              _c("div", { staticClass: "col-sm-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "position-relative p-3 bg-gray",
+                    staticStyle: { height: "180px" }
+                  },
+                  [
+                    _c("div", { staticClass: "ribbon-wrapper ribbon-lg" }, [
+                      _c("div", { staticClass: "ribbon bg-success text-lg" }, [
+                        _vm._v(
+                          "\n                      Ribbon\n                    "
+                        )
+                      ])
+                    ]),
+                    _vm._v("\n                  Ribbon Large "),
+                    _c("br"),
+                    _vm._v(" with Large Text "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("small", [
+                      _vm._v(".ribbon-wrapper.ribbon-lg .ribbon.text-lg")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "position-relative p-3 bg-gray",
+                    staticStyle: { height: "180px" }
+                  },
+                  [
+                    _c("div", { staticClass: "ribbon-wrapper ribbon-xl" }, [
+                      _c("div", { staticClass: "ribbon bg-warning text-lg" }, [
+                        _vm._v(
+                          "\n                      Ribbon\n                    "
+                        )
+                      ])
+                    ]),
+                    _vm._v("\n                  Ribbon Extra Large "),
+                    _c("br"),
+                    _vm._v(" with Large Text "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("small", [
+                      _vm._v(".ribbon-wrapper.ribbon-xl .ribbon.text-lg")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "position-relative p-3 bg-gray",
+                    staticStyle: { height: "180px" }
+                  },
+                  [
+                    _c("div", { staticClass: "ribbon-wrapper ribbon-xl" }, [
+                      _c("div", { staticClass: "ribbon bg-danger text-xl" }, [
+                        _vm._v(
+                          "\n                      Ribbon\n                    "
+                        )
+                      ])
+                    ]),
+                    _vm._v("\n                  Ribbon Extra Large "),
+                    _c("br"),
+                    _vm._v(" with Extra Large Text "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("small", [
+                      _vm._v(".ribbon-wrapper.ribbon-xl .ribbon.text-xl")
+                    ])
+                  ]
+                )
+              ])
             ])
           ])
         ])

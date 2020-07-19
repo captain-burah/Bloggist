@@ -17,13 +17,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="css/app.css">
   <style>
     .navbar-bg{
-      background-color: #38944a;
+      background-color: #339933;
     }
     .bg-wallColor{
       background-color: #ddeeea;
     }
     .sideMenu{
-      background-color: #2a2a2a;
+      background-color: #1a1a1a;
+      
     }
   </style>
 </head>
@@ -31,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper" id="app">
 
   <!-- Navbar -->
-  <nav class="main-header elevation-2 navbar sideMenu navbar-expand navbar-bg navbar-white navbar-dark border-bottom border-success">
+  <nav class="main-header elevation-2 navbar sideMenu navbar-expand navbar-bg navbar-white navbar-dark border-bottom border-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -41,9 +42,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </nav>
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary sideMenu elevation-4 border-right border-success">
+  <aside class="main-sidebar sidebar-dark-primary sideMenu elevation-4 border-right border-dark">
     <!-- Brand Logo -->
-    <a href="{{ url('/') }}" class="brand-link navbar-bg rounded-bottom">
+    <a href="{{ url('/') }}" class="brand-link navbar-bg">
       <img src="./img/rocket.png" alt="Larastart" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Venture 2021</span>
@@ -62,7 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div>
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2 ">
+      <nav class="mt-2 bg-transparent">
         <ul class="nav nav-pills nav-sidebar  flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -155,7 +156,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item">
             
-            <a class="nav-link text-light" href="{{ route('logout') }}"
+            <a class="nav-link text-light" href="{{ route('logout') }}" 
               onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                   <i class="nav-icon fa fa-power-off red"></i>

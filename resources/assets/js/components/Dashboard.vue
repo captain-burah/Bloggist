@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <div class="col-12 mt-3">
+        <div class="col-12 pt-3">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Recent Lessons</h3>
+                <h3 class="card-title">Starred Lessons</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

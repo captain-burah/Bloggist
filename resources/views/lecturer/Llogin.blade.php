@@ -1,22 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                @isset($url)
-                    <div class="card-header bg-dark text-center"><i class="fas fa-graduation-cap"></i>&nbsp {{ __('Tutor Login') }}</div>
-                @else
-                    <div class="card-header bg-dark text-center"><i class="fas fa-child"></i>&nbsp {{ __('Student Login') }}</div> 
-                @endisset
+                <div class="card-header bg-dark text-center"><i class="fas fa-graduate-cap text-right"></i>&nbsp {{ __('Lecturer Login') }}</div>
 
                 <div class="card-body card-wall">
-                    @isset($url)
-                    <form method="POST" action='{{ url("login/$url") }}' aria-label="{{ __('Login') }}">
-                    @else
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
-                    @endisset
                         @csrf
 
                         <div class="form-group row">

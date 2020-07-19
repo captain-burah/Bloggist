@@ -11,7 +11,6 @@
         <title>Venture 2021</title>
         
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/app.css">
         <!-- Styles -->
         <style>
@@ -48,7 +47,7 @@
             font-size: 1.25rem;
             }
             body{
-                background-color: #40844e;
+                background-color: #28a745;
             }
          
             .cover-container {
@@ -164,7 +163,7 @@
                 transition: background-color .75s, border .25s;
             }
             .mastMenu-a:hover{
-                color: #000;
+                color: #fff;
                 transition: color .25s;
             }
             .mastfoot{
@@ -204,8 +203,8 @@
                         @auth
                             <a href="{{ url('/home') }}" class="home-link">Go to Dashboard</a>
                         @else
-                            <a href="{{ route('login') }}" class="text-white">Login Now &nbsp;</a>
-                            <a href="{{ route('register') }}" class="text-white"></a>
+                            <a href="{{ route('login') }}" class="text-white">Login Now &nbsp</a>
+                            <a href="{{ route('register') }}" class="text-white">Register </a>
                         @endauth
                     </div>
                 @endif
@@ -218,24 +217,24 @@
 
                 <div class="row mastMenu text-light my-0 " style="opacity: .9;;">
                     <div class="col-md-3 my-0 py-3 mastMenu-item" >
-                        <a href="#Home" class=" mastMenu-a "><i class="fas fa-school text-warning "></i>&nbsp Academy</a>
+                        <a href="#Home" class=" mastMenu-a text-light"><i class="fas fa-school text-warning "></i>&nbsp Academy</a>
                     </div>
                     <div class="col-md-3 my-0 py-3 mastMenu-item">
-                        <a href="#Venturecast" class=" mastMenu-a "><i class="fas fa-chalkboard-teacher text-info  "></i>&nbsp Tutor Panel</a>
+                        <a href="#Venturecast" class=" mastMenu-a text-light"><i class="fas fa-chalkboard-teacher text-info  "></i>&nbsp Tutor Panel</a>
                     </div>
                     <div class="col-md-3  my-0 py-3 mastMenu-item">
-                        <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-hashtag  text-danger"></i>&nbsp Studentcast</a>
+                        <a href="#Lecturers" class=" mastMenu-a text-light"><i class="fas fa-hashtag  text-danger"></i>&nbsp Studentcast</a>
                     </div>
                     <div class="col-md-3  my-0 py-3 mastMenu-item">
-                        <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-users-cog text-success"></i>&nbsp Reach Us</a>
+                        <a href="#Lecturers" class=" mastMenu-a text-light"><i class="fas fa-users-cog text-success"></i>&nbsp Reach Us</a>
                     </div>
                 </div>
                 <div class="row mastMenu text-light my-0" style="opacity: .9;">
                     <div class="col-md-6  my-0 py-3 mastMenu-item">
-                        <a href="#Lecturers" class=" mastMenu-a"><i class="fas fa-graduation-cap purple"></i>&nbsp Join as Tutor</a>
+                        <a href="{{ url('/register/tutor') }}" class=" mastMenu-a text-light"><i class="fas fa-graduation-cap purple"></i>&nbsp Join as Tutor</a>
                     </div>
                     <div class="col-md-6  my-0 py-3 mastMenu-item">
-                        <a href="{{ route('register') }}" class=" mastMenu-a"><i class="fas fa-child text-primary"></i>&nbsp Join as Student</a>
+                        <a href="{{ route('register') }}" class=" mastMenu-a text-light"><i class="fas fa-child text-primary"></i>&nbsp Join as Student</a>
                     </div>
                 </div>
 
