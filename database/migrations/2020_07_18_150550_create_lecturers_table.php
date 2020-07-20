@@ -21,9 +21,9 @@ class CreateLecturersTable extends Migration
             $table->string('password');
             $table->string('subdomain');
             
-            $table->string('bio');
-            $table->string('gender')->default('Prefer Not To Say');
-            $table->string('contact');
+            $table->string('bio')->nullable();
+            $table->string('gender')->default('Prefer Not To Say')->nullable();
+            $table->string('contact')->nullable();
             $table->string('photo')->default('profile.png');
             $table->rememberToken();
             $table->timestamps();
