@@ -199,15 +199,27 @@
                 
                     <nav class="nav nav-masthead justify-content-center ">
                         @if (Route::has('login'))
-                    <div class="headMenu">
-                        @auth
-                            <a href="{{ url('/home') }}" class="home-link">Go to Dashboard</a>
-                        @else
-                            <a href="{{ route('login') }}" class="text-white">Login Now &nbsp</a>
-                            <a href="{{ route('register') }}" class="text-white">Register </a>
-                        @endauth
-                    </div>
-                @endif
+                            <div class="headMenu">
+                                @auth
+                                    @isset($url)
+                                        @if ($url === "/student")
+                                            <a href="{{ url('/student_dashboard') }}" class="home-link">Go to Dashboard</a>
+
+                                        @elseif ($url === "/tutor")
+                                            <a href="{{ url('/tutor_dashboard') }}" class="home-link">Go to Dashboard</a>
+                                            
+                                        @endif
+                                    @endisset
+                                    @empty($url)
+                                        <a href="{{ route('login') }}" class="home-link">Go to Dashboard</a>
+                                    @endempty
+
+                                @else
+                                    <a href="{{ route('login') }}" class="text-white">Login Now &nbsp</a>
+                                    <a href="{{ route('register') }}" class="text-white">Register </a>
+                                @endauth
+                            </div>
+                        @endif
                     </nav>
                 
             </header>
@@ -250,6 +262,6 @@
 </footer>
 <!--------------/Footer Section-------------->
         </div>
-        
+        <script src="js/app.js"></script>
     </body>
 </html>

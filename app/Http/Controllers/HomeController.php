@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -14,24 +16,17 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('auth:lecturer');
     }
-
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
+
+//---------------- Index----------------------
     public function index()
     {
         return view('welcome');
     }
-    public function student()
-    {
-        return view('student.Smaster');
-    }
-    public function tutor()
-    {
-        return view('lecturer.Lmaster');
-    }
+
 }

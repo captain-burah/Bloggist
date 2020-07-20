@@ -10,12 +10,19 @@ use Illuminate\Support\Facades\Auth;
 
 class LecturerController extends Controller
 {
-    /** 
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth:lecturer');
+    }
+
+//------------------ Index--------------------------------------
     public function index()
+    {
+        return view('welcome');
+    }
+    
+//------------------ Dashboard--------------------------------------
+    public function dashboard()
     {   //$Lecturer_Fname = Lecturer::findOrFail($Fname);
         //$Lecturer_Lname = Lecturer::findOrFail($Lname);
 
@@ -26,9 +33,17 @@ class LecturerController extends Controller
         );
         */
         //$lecturerName = Lecturer::findOrFail($id);
+        
         return view('/lecturer.Lmaster');
     }
 
+//------------------ Going Home--------------------------------------
+    public function home_tutor()
+    {
+        return view('welcome', ['url' => '/tutor']);
+    }
+
+//------------------ After Registered--------------------------------------
     public function registered()
     {
         return view('welcome');

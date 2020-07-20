@@ -37,7 +37,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('guest:lecturer')->except('logout');
-    }
+    } 
 
     
     //------------------ Tutor Controllers -----------------------
@@ -55,7 +55,7 @@ class LoginController extends Controller
 
         if (Auth::guard('lecturer')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/tutor_dashboard');
+            return redirect('/tutor_dashboard');
         }
         return back()->withInput($request->only('email', 'remember'));
     }

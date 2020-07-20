@@ -40,7 +40,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary sideMenu elevation-4 border-right border-dark">
     <!-- Brand Logo -->
-    <a href="{{ url('/') }}" class="brand-link navbar-bg">
+    <a href="{{ url('/home_tutor') }}" class="brand-link navbar-bg">
       <img src="./img/rocket.png" alt="Larastart" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Venture 2021</span>
@@ -54,7 +54,7 @@
           <img src="./img/user1.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="/home" class="d-block "></a>
+          <a href="/home" class="d-block ">{{ Auth::guard('lecturer')->user()->Fname }}&nbsp{{ Auth::guard('lecturer')->user()->Lname }}</a>
         </div>
       </div>
 
