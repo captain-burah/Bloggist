@@ -32,12 +32,10 @@ Route::get('/tutor_registered', 'Lecturer\LecturerController@registered')->name(
 //Route::view('/join_tutor', 'lecturer.Lregister');
 //Route::post('/tutor_register', 'Lecturer\LecturerController@store');
 //Route::post('tutor_register', 'Lecturer\LecturerController@store')->name('tutor-register');
-
+//Route::post('tutor_logout', 'Auth\LoginController@lecLogOut')->name('tutor-logout');
 
 //------------------------------------------ Lecturer Auth-------------------------------------------------------
     Route::group(['middleware' => 'auth:lecturer'], function() {
-        Route::get('tutor_logout', 'Lecturer\LecturerController@logout')->name('tutor-logout');
-        
         Route::get('/', function () {
             return view('welcome');
         });
@@ -45,7 +43,6 @@ Route::get('/tutor_registered', 'Lecturer\LecturerController@registered')->name(
     });
 //------------------------------------------ Student Auth-------------------------------------------------------
     Route::group(['middleware' => 'auth'], function() {
-        
         Route::get('/', function () {
             return view('welcome');
         });
@@ -57,6 +54,7 @@ Route::get('/login/tutor', 'Auth\LoginController@showlecLoginForm');
 Route::get('/register/tutor', 'Auth\RegisterController@showlecRegisterForm');
 
 Route::post('/tutor/login', 'Auth\LoginController@lecLogin');
+Route::post('/student/login', 'Auth\LoginController@stuLogin');
 Route::post('/tutor/register', 'Auth\RegisterController@createLec');
 
 

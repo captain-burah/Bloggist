@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Lecturer;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 class LecturerController extends Controller
 {
@@ -40,7 +41,7 @@ class LecturerController extends Controller
 //------------------ Going Home--------------------------------------
     public function home_tutor()
     {
-        return view('welcome', ['url' => '/tutor']);
+        return view('welcome', ['url' => '/tutors']);
     }
 
 //------------------ After Registered--------------------------------------
@@ -134,9 +135,5 @@ class LecturerController extends Controller
     {
         //
     }
-    public function logout()
-    {
-        Auth::logout();
-        return Redirect::to('/');
-    }
+
 }

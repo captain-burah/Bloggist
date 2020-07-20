@@ -9,7 +9,7 @@ use Illuminate\Auth\AuthenticationException;
 use Auth; 
 class Handler extends ExceptionHandler
 {
-
+    
     protected function unauthenticated($request, AuthenticationException $exception)
         {
             if ($request->expectsJson()) {
@@ -18,8 +18,11 @@ class Handler extends ExceptionHandler
             if ($request->is('tutor') || $request->is('tutor/*')) {
                 return redirect()->guest('/login/tutor');
             }
+            if ($request->is('student') || $request->is('student/*')) {
+                return redirect()->guest('/login');
+            }
             
-            return redirect()->guest(route('login'));
+            return redirect()->guest('home');
         }
     /**
      * A list of the exception types that are not reported.
@@ -58,6 +61,8 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
+
+
     public function render($request, Exception $exception)
     {
         return parent::render($request, $exception);

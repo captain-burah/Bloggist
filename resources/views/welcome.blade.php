@@ -205,7 +205,7 @@
                                         @if ($url === "/student")
                                             <a href="{{ url('/student_dashboard') }}" class="home-link">Go to Dashboard</a>
 
-                                        @elseif ($url === "/tutor")
+                                        @elseif ($url === "/tutors")
                                             <a href="{{ url('/tutor_dashboard') }}" class="home-link">Go to Dashboard</a>
                                             
                                         @endif

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
+use Session;
 class LoginController extends Controller
 {
     /*
@@ -26,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/tutor_dashboard';
+    protected $redirectTo = '/student_dashboard';
 
     /**
      * Create a new controller instance.
@@ -39,13 +40,15 @@ class LoginController extends Controller
         $this->middleware('guest:lecturer')->except('logout');
     } 
 
-    
-    //------------------ Tutor Controllers -----------------------
+
+//------------------ Tutor Login Form -----------------------
     public function showLecLoginForm()
     {
         return view('auth.login', ['url' => '/tutor']);
     }
 
+
+//------------------ Tutor Login -----------------------
     public function lecLogin(Request $request)
     {
         $this->validate($request, [
@@ -56,6 +59,21 @@ class LoginController extends Controller
         if (Auth::guard('lecturer')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
             return redirect('/tutor_dashboard');
+        }
+        return back()->withInput($request->only('email', 'remember'));
+    }
+
+
+    public function stuLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+
+        if (Auth::guard()->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+
+            return redirect('/student_dashboard');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
