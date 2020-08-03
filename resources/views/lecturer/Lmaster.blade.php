@@ -54,7 +54,7 @@
           <img src="./img/user1.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="/home" class="d-block ">{{ Auth::guard('lecturer')->user()->Fname }}&nbsp{{ Auth::guard('lecturer')->user()->Lname }}</a>
+          <a href="/tutor_dashboard" class="d-block ">{{ Auth::guard('lecturer')->user()->Fname }}&nbsp{{ Auth::guard('lecturer')->user()->Lname }}</a>
         </div>
       </div>
 

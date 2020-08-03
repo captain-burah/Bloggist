@@ -79,7 +79,7 @@
     </div>
     <footer class=" col-12 mastfoot mt-auto text-center">
         <div class="inner">
-            <p>designed & developed | &copy <a href="www.instagram.com/captain_burah" class="footer-a">Captain Burah</a>. All rights reserved.</p>
+            <p>designed & developed | &copy <a href="//www.instagram.com/captain_burah" class="footer-a">Captain Burah</a>. All rights reserved.</p>
             </div>
     </footer>
     <!--------------/Footer Section-------------->

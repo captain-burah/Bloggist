@@ -109,7 +109,7 @@
             .cover {
                 padding: 0 0rem;
                 
-                height: 100vh;
+                height: 67vh;
                 align-items: center;
                 padding-bottom: 
                 margin-bottom: 0;
@@ -131,10 +131,7 @@
                 border: #19341e 3px solid;
             }
     
-    
-            /*
-            * Footer
-            */
+
             
             .mastMenu{
                 
@@ -257,7 +254,7 @@
 <!---------------Footer Section-------------->
 <footer class="mastfoot mt-auto">
     <div class="inner">
-        <p>designed & developed | &copy <a href="www.instagram.com/captain_burah" class="footer-a">Captain Burah</a>. All rights reserved.</p>
+        <p>designed & developed | &copy <a href="//www.instagram.com/captain_burah" class="footer-a">Captain Burah</a>. All rights reserved.</p>
         </div>
 </footer>
 <!--------------/Footer Section-------------->
