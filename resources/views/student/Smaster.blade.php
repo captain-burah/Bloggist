@@ -89,7 +89,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           
         <!------ Sub-Menu ----->
         <li class="nav-item">
-          <router-link to="/dashboard" class="nav-link text-light">
+          <router-link to="/student_dashboard" class="nav-link text-light">
             <i class="nav-icon fas fa-tachometer-alt text-info"></i>
             <p>
               My Dashboard

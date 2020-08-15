@@ -35200,7 +35200,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_4_vue_router__["a" /* default */]);
 
 var routes = [
 //------------------ Student-------------------------------//
-{ path: '/dashboard', component: __webpack_require__(181) }, { path: '/profile', component: __webpack_require__(184) }, { path: '/users', component: __webpack_require__(190) }, { path: '/students', component: __webpack_require__(193) }, { path: '/developer', component: __webpack_require__(196) }, { path: '/mylessons', component: __webpack_require__(199) }, { path: '/exams', component: __webpack_require__(202) }, { path: '/orders', component: __webpack_require__(205) }, { path: '/results', component: __webpack_require__(208) }, { path: '/assignments', component: __webpack_require__(211) }, { path: '/Student_Reg', component: __webpack_require__(214) },
+{ path: '/student_dashboard', component: __webpack_require__(181) }, { path: '/profile', component: __webpack_require__(184) }, { path: '/users', component: __webpack_require__(190) }, { path: '/students', component: __webpack_require__(193) }, { path: '/developer', component: __webpack_require__(196) }, { path: '/mylessons', component: __webpack_require__(199) }, { path: '/exams', component: __webpack_require__(202) }, { path: '/orders', component: __webpack_require__(205) }, { path: '/results', component: __webpack_require__(208) }, { path: '/assignments', component: __webpack_require__(211) }, { path: '/Student_Reg', component: __webpack_require__(214) },
 
 //------------------ Lecturer-------------------------------//
 
@@ -77575,6 +77575,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -77590,177 +77597,199 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-3 col-6 mt-3 pt-3" }, [
+        _c("div", { staticClass: "small-box bg-info" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "icon" },
+            [
+              _c("ion-icon", { attrs: { name: "document" } }),
+              _vm._v(" "),
+              _c("i", { staticClass: "ion ion-bag" })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(2)
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-6 mt-3 pt-3" }, [
+        _c("div", { staticClass: "small-box bg-success" }, [
+          _vm._m(3),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "icon" },
+            [
+              _c("ion-icon", { attrs: { name: "bar-chart" } }),
+              _vm._v(" "),
+              _c("i", { staticClass: "ion ion-stats-bars" })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(4)
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-6 mt-3 pt-3" }, [
+        _c("div", { staticClass: "small-box bg-warning" }, [
+          _vm._m(5),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "icon" },
+            [
+              _c("ion-icon", { attrs: { name: "people-circle" } }),
+              _vm._v(" "),
+              _c("i", { staticClass: "ion ion-person-add" })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(6)
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-3 col-6 mt-3 pt-3" }, [
+        _c("div", { staticClass: "small-box bg-danger" }, [
+          _vm._m(7),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "icon" },
+            [
+              _c("ion-icon", { attrs: { name: "walk-outline" } }),
+              _vm._v(" "),
+              _c("i", { staticClass: "ion ion-pie-graph" })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(8)
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "col-12 pt-3" }, [
-        _c("div", { staticClass: "card card-primary" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _c("h3", { staticClass: "card-title" }, [_vm._v("Starred Lessons")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "position-relative p-3 bg-gray",
-                    staticStyle: { height: "180px" }
-                  },
-                  [
-                    _c("div", { staticClass: "ribbon-wrapper" }, [
-                      _c("div", { staticClass: "ribbon bg-primary" }, [
-                        _vm._v(
-                          "\n                      Ribbon\n                    "
-                        )
-                      ])
-                    ]),
-                    _vm._v("\n                  Ribbon Default "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("small", [_vm._v(".ribbon-wrapper.ribbon-lg .ribbon")])
-                  ]
-                )
+    return _c("div", { staticClass: "overview pt-5 pb-4" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "intro" }, [
+          _c(
+            "div",
+            { staticClass: "row justify-content-center align-items-center" },
+            [
+              _c("div", { staticClass: " text-dark rounded col-md-6" }, [
+                _c("h2", [_vm._v("Home Page")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \n                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n                "
+                  )
+                ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "position-relative p-3 bg-gray",
-                    staticStyle: { height: "180px" }
-                  },
-                  [
-                    _c("div", { staticClass: "ribbon-wrapper ribbon-lg" }, [
-                      _c("div", { staticClass: "ribbon bg-info" }, [
-                        _vm._v(
-                          "\n                      Ribbon Large\n                    "
-                        )
-                      ])
-                    ]),
-                    _vm._v("\n                  Ribbon Large "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("small", [_vm._v(".ribbon-wrapper.ribbon-lg .ribbon")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "position-relative p-3 bg-gray",
-                    staticStyle: { height: "180px" }
-                  },
-                  [
-                    _c("div", { staticClass: "ribbon-wrapper ribbon-xl" }, [
-                      _c("div", { staticClass: "ribbon bg-secondary" }, [
-                        _vm._v(
-                          "\n                      Ribbon Extra Large\n                    "
-                        )
-                      ])
-                    ]),
-                    _vm._v("\n                  Ribbon Extra Large "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("small", [_vm._v(".ribbon-wrapper.ribbon-xl .ribbon")])
-                  ]
-                )
+              _c("div", { staticClass: "col-md-6 text-center" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "/img/svg/home.svg", alt: "" }
+                })
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mt-4" }, [
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "position-relative p-3 bg-gray",
-                    staticStyle: { height: "180px" }
-                  },
-                  [
-                    _c("div", { staticClass: "ribbon-wrapper ribbon-lg" }, [
-                      _c("div", { staticClass: "ribbon bg-success text-lg" }, [
-                        _vm._v(
-                          "\n                      Ribbon\n                    "
-                        )
-                      ])
-                    ]),
-                    _vm._v("\n                  Ribbon Large "),
-                    _c("br"),
-                    _vm._v(" with Large Text "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("small", [
-                      _vm._v(".ribbon-wrapper.ribbon-lg .ribbon.text-lg")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "position-relative p-3 bg-gray",
-                    staticStyle: { height: "180px" }
-                  },
-                  [
-                    _c("div", { staticClass: "ribbon-wrapper ribbon-xl" }, [
-                      _c("div", { staticClass: "ribbon bg-warning text-lg" }, [
-                        _vm._v(
-                          "\n                      Ribbon\n                    "
-                        )
-                      ])
-                    ]),
-                    _vm._v("\n                  Ribbon Extra Large "),
-                    _c("br"),
-                    _vm._v(" with Large Text "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("small", [
-                      _vm._v(".ribbon-wrapper.ribbon-xl .ribbon.text-lg")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-4" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "position-relative p-3 bg-gray",
-                    staticStyle: { height: "180px" }
-                  },
-                  [
-                    _c("div", { staticClass: "ribbon-wrapper ribbon-xl" }, [
-                      _c("div", { staticClass: "ribbon bg-danger text-xl" }, [
-                        _vm._v(
-                          "\n                      Ribbon\n                    "
-                        )
-                      ])
-                    ]),
-                    _vm._v("\n                  Ribbon Extra Large "),
-                    _c("br"),
-                    _vm._v(" with Extra Large Text "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("small", [
-                      _vm._v(".ribbon-wrapper.ribbon-xl .ribbon.text-xl")
-                    ])
-                  ]
-                )
-              ])
-            ])
-          ])
+            ]
+          )
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "inner" }, [
+      _c("h3", [_vm._v("25")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Lessons Registered")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
+      _vm._v("More info "),
+      _c("i", { staticClass: "fas fa-arrow-circle-right" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "inner" }, [
+      _c("h3", [
+        _vm._v("53"),
+        _c("sup", { staticStyle: { "font-size": "20px" } }, [_vm._v("%")])
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Paper Analysis")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
+      _vm._v("More info "),
+      _c("i", { staticClass: "fas fa-arrow-circle-right" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "inner" }, [
+      _c("h3", [_vm._v("44")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Exams Registered")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
+      _vm._v("More info "),
+      _c("i", { staticClass: "fas fa-arrow-circle-right" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "inner" }, [
+      _c("h3", [_vm._v("03")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Pending Orders")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
+      _vm._v("More info "),
+      _c("i", { staticClass: "fas fa-arrow-circle-right" })
     ])
   }
 ]

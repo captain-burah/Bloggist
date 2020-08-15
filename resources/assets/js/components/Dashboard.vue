@@ -1,88 +1,95 @@
 <template>
-    <div class="container">
-        <div class="col-12 pt-3">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Starred Lessons</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-4">
-                    <div class="position-relative p-3 bg-gray" style="height: 180px">
-                      <div class="ribbon-wrapper">
-                        <div class="ribbon bg-primary">
-                          Ribbon
-                        </div>
-                      </div>
-                      Ribbon Default <br>
-                      <small>.ribbon-wrapper.ribbon-lg .ribbon</small>
-                    </div>
+    <div>
+          <div class="overview pt-5 pb-4">
+            <div class="container">
+              <div class="intro">
+                <div class="row justify-content-center align-items-center">
+                  <div class=" text-dark rounded col-md-6">
+                    <h2>Home Page</h2>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
                   </div>
-                  <div class="col-sm-4">
-                    <div class="position-relative p-3 bg-gray" style="height: 180px">
-                      <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-info">
-                          Ribbon Large
-                        </div>
-                      </div>
-                      Ribbon Large <br>
-                      <small>.ribbon-wrapper.ribbon-lg .ribbon</small>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="position-relative p-3 bg-gray" style="height: 180px">
-                      <div class="ribbon-wrapper ribbon-xl">
-                        <div class="ribbon bg-secondary">
-                          Ribbon Extra Large
-                        </div>
-                      </div>
-                      Ribbon Extra Large <br>
-                      <small>.ribbon-wrapper.ribbon-xl .ribbon</small>
-                    </div>
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <div class="col-sm-4">
-                    <div class="position-relative p-3 bg-gray" style="height: 180px">
-                      <div class="ribbon-wrapper ribbon-lg">
-                        <div class="ribbon bg-success text-lg">
-                          Ribbon
-                        </div>
-                      </div>
-                      Ribbon Large <br> with Large Text <br>
-                      <small>.ribbon-wrapper.ribbon-lg .ribbon.text-lg</small>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="position-relative p-3 bg-gray" style="height: 180px">
-                      <div class="ribbon-wrapper ribbon-xl">
-                        <div class="ribbon bg-warning text-lg">
-                          Ribbon
-                        </div>
-                      </div>
-                      Ribbon Extra Large <br> with Large Text <br>
-                      <small>.ribbon-wrapper.ribbon-xl .ribbon.text-lg</small>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="position-relative p-3 bg-gray" style="height: 180px">
-                      <div class="ribbon-wrapper ribbon-xl">
-                        <div class="ribbon bg-danger text-xl">
-                          Ribbon
-                        </div>
-                      </div>
-                      Ribbon Extra Large <br> with Extra Large Text <br>
-                      <small>.ribbon-wrapper.ribbon-xl .ribbon.text-xl</small>
-                    </div>
+                  <div class="col-md-6 text-center">
+                    <img src="/img/svg/home.svg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
           </div>
-    </div>
+
+
+        <div class="row">
+          <div class="col-lg-3 col-6 mt-3 pt-3">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>25</h3>
+
+                <p>Lessons Registered</p>
+              </div>
+
+              <div class="icon">
+                <ion-icon name="document"></ion-icon>
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6 mt-3 pt-3">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                <p>Paper Analysis</p>
+              </div>
+              <div class="icon">
+                <ion-icon name="bar-chart"></ion-icon>
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6 mt-3 pt-3">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
+
+                <p>Exams Registered</p>
+              </div>
+              <div class="icon">
+                <ion-icon name="people-circle"></ion-icon>
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6 mt-3 pt-3">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>03</h3>
+
+                <p>Pending Orders</p>
+              </div>
+              <div class="icon">
+                <ion-icon name="walk-outline"></ion-icon>
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          </div>
+        </div>
 </template>
 
 <script>
