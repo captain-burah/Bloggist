@@ -25,7 +25,7 @@ Route::get('/home_student', 'Student\StudentController@home_student')->name('hom
 
 //--------------------------- Dashboard Routes------------------------------------------------>
 Route::get('/student_dashboard', 'Student\StudentController@dashboard')->name('student-home');
-Route::get('/tutor_dashboard', 'Lecturer\LecturerController@dashboard')->name('tutor-home');
+Route::get('/tutor', 'Lecturer\LecturerController@dashboard')->name('tutor-home');
 Route::get('/tutor_registered', 'Lecturer\LecturerController@registered')->name('tutor-registered');
 //--------------------------- /Dashboard Routes------------------------------------------------>
 
@@ -58,8 +58,10 @@ Route::post('/student/login', 'Auth\LoginController@stuLogin');
 Route::post('/tutor/register', 'Auth\RegisterController@createLec');
 
 
-//------------------------------------------------------------------------------------------0-----------------------
+//------------------------------------------------
 Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );
 Route::get('{path}','Student\StudentController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );
 Route::get('{path}','Lecturer\LecturerController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );
+Route::get('{path}','Lecturer\LecturerController@dashboard')->where( 'path', '([A-z\d\-\/_.]+)?' );
+
 

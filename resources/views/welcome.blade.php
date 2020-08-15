@@ -38,29 +38,30 @@
     
             html,
             body {
-            height: 100%;
-            font-family: 'Raleway', sans-serif;
-            color: #636b6f;
-            height: 100vh;
-            margin: 0;
-            font-weight: 100;
-            font-size: 1.25rem;
+                height: 100%;
+                font-family: 'Raleway', sans-serif;
+                color: #636b6f;
+                margin: 0;
+                font-weight: 100;
+                font-size: 1.25rem;
             }
             body{
-                background-color: #28a745;
+                background: radial-gradient(circle, #28a745, #145222);
+                text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+                opacity: .9;
+                -ms-flex-pack: center;
+                -webkit-box-pack: center;
+                justify-content: center;
             }
          
             .cover-container {
-                max-width: 42em;      
+                max-width: 42em;
+                padding: 0%;
             }
     
     
-            /*
-            * Header
-            */
-            .masthead {
-            margin-bottom: 2rem;
-            } 
+            
+            
     
             @font-face {
                 font-family: 'playlist';
@@ -119,6 +120,8 @@
             padding: .75rem 1.25rem;
             font-weight: 700;
             }
+
+            /*---------- Heading-------------*/
             .cover-heading{
                 max-width: 100%;
                 font-weight: 400;
@@ -132,6 +135,10 @@
             }
     
 
+            /*---------- Menu-------------*/
+            .masthead {
+                margin-bottom: 2rem;
+            } 
             
             .mastMenu{
                 
@@ -164,19 +171,21 @@
                 transition: color .25s;
             }
             .mastfoot{
-                color: #214528;
+                color: #000;
                 font-weight: 700;
                 font-size: .7rem;
                 position: relative;
                 margin-bottom: 0;
                 top: 0;
             }
+
+            /*---------- Footer-------------*/
             .footer-a{
                 text-decoration: none;
-                color: #214528;
+                color: #000;
             }
             .footer-a:hover{
-                color: #000;
+                color: #fff;
                 font-weight: 900;
             }
             .home-link{
@@ -188,8 +197,8 @@
             }
         </style>
     </head>
-    <body class="text-center " >
-        <div class="cover-container d-flex h-100 p-3 mx-auto flex-container flex-column ">
+    <body class="text-center" >
+        <div class="cover-container d-flex h-100 px-3 pt-2 mx-auto flex-container flex-column ">
 <!--------------Header Section-------------->
             <header class="container-fluid  mb-auto border-bottom">
                 
@@ -203,7 +212,7 @@
                                             <a href="{{ url('/student_dashboard') }}" class="home-link">Go to Dashboard</a>
 
                                         @elseif ($url === "/tutors")
-                                            <a href="{{ url('/tutor_dashboard') }}" class="home-link">Go to Dashboard</a>
+                                            <a href="{{ url('/tutor') }}" class="home-link">Go to Dashboard</a>
                                             
                                         @endif
                                     @endisset
@@ -226,7 +235,7 @@
 
                 <div class="row mastMenu text-light my-0 " style="opacity: .9;;">
                     <div class="col-md-3 my-0 py-3 mastMenu-item" >
-                        <a href="#Home" class=" mastMenu-a text-light"><i class="fas fa-school text-warning "></i>&nbsp Academy</a>
+                        <a href="//www.google.com" class=" mastMenu-a text-light"><i class="fas fa-school text-warning "></i>&nbsp Academy</a>
                     </div>
                     <div class="col-md-3 my-0 py-3 mastMenu-item">
                         <a href="#Venturecast" class=" mastMenu-a text-light"><i class="fas fa-chalkboard-teacher text-info  "></i>&nbsp Tutor Panel</a>

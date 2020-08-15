@@ -18,7 +18,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if ($guard == "lecturer" && Auth::guard($guard)->check()) {
-            return redirect('/tutor_dashboard');
+            return redirect('/tutor');
         }
         if (Auth::guard($guard)->check()) {
             return redirect('/student_dashboard');

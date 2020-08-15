@@ -17,9 +17,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();    
 });
 
+Route::middleware('auth:api')->get('/exampapers', function (Request $request) {
+    return $request->exampapers();    
+});
+
 Route::group(['middleware' => 'auth:api'], function() {
     Route::apiResources([
         'user'=> 'API\UserController',
+        'exampapers'=> 'API\ExamPapers',
+
         
     ]);
     Route::get('profile', 'API\UserController@profile');

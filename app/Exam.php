@@ -3,22 +3,21 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 
-class Lecturer extends Authenticatable
+class Exam extends Authenticatable
 {
-    use HasApiTokens, Notifiable; 
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $guard = 'lecturer';
-
     protected $fillable = [
-        'Fname', 'Lname', 'email', 'password', 'subdomain'
+        'title',
     ];
 
     /**
@@ -27,6 +26,6 @@ class Lecturer extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'title',
     ];
 }
