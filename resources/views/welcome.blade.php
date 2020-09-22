@@ -12,6 +12,7 @@
         
         <!-- Fonts -->
         <link rel="stylesheet" href="css/app.css">
+
         <!-- Styles -->
         <style>
             a:hover,

@@ -2,13 +2,22 @@
 <div class="wrapper" id="app">
 
   <!-- Navbar -->
-  <nav class="main-header elevation-2 navbar sideMenu navbar-expand navbar-bg navbar-white navbar-dark border-bottom border-dark">
+  <nav class="main-header elevation-2  navbar sideMenu navbar-expand navbar-bg navbar-white navbar-dark border-bottom border-dark">
     <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i>&nbsp; &nbsp; Tutor Dashboard</a>
-      </li>
-    </ul>
+      
+      <ul class="navbar-nav mr-auto mb-0">
+        <li class="nav-item mt-1">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i>&nbsp; &nbsp; Tutor Dashboard</a>
+        </li>
+      </ul>
+      <div class="navbar-nav mt-1 ">
+        <p class="px-2 pt-1 mb-0 mt-1 text-secondary " for="language">Language</p>
+        <select class="custom-select text-right bg-secondary ml-1" id="language" v-model="lang" @change="handleChange($event)">
+          <option value="en">English</option>
+          <option value="si">Sinhala</option>
+          <option value="ta">Tamil</option>
+        </select>
+      </div>
   </nav>
 
   <!-- Main Sidebar Container -->
@@ -28,7 +37,7 @@
           <img src="img/user1.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="/tutor" class="d-block "></a>
+          <a href="/tutor" class="d-block ">Tutor Name Here</a>
         </div>
       </div>
 
@@ -39,13 +48,13 @@
                with font-awesome or any other icon font library -->
           
           <li class="nav-item">
-            <router-link to="#academy" class="nav-link text-light">
+            <a href="/academy" class="nav-link text-light">
               <i class="nav-icon fas fa-school text-warning"></i>
               <p>
                 My Academy
                 
               </p>
-            </router-link>
+            </a>
           </li>
           <li class="nav-item border-bottom border-secondary">
             <router-link to="#studentcast" class="nav-link text-light">
@@ -72,7 +81,7 @@
           <router-link to="/Lessons" class="nav-link text-light">
             <i class="nav-icon fas fa-book purple"></i>
             <p>
-              My Lessons
+              Lesson Builder
               
             </p>
           </router-link>
@@ -199,14 +208,29 @@
 </div>
 
 </template>
-<script>export default {
+<script>
+
+    
+    export default {
         name: 'Logout',
+        
+        data: function(){
+          const lang = localStorage.getItem('lang') || 'en';
+          return {
+            lang: lang
+          }
+        },
+
         methods: {
             logout() {
                 axios.post('/logout')
                     .catch(error => {
                        window.location.href = '/tutor/login';
                     });
+            },
+            handleChange(event){
+              localStorage.setItem('lang', event.target.value);
+              window.location.reload();
             }
         },
         mounted() {

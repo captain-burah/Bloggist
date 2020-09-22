@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 Auth::routes();
@@ -22,6 +22,19 @@ Route::get('/home', 'HomeController@index')->name('home-guest-auth');
 Route::get('/home_tutor', 'Lecturer\LecturerController@home_tutor')->name('home-tutor-auth');
 Route::get('/home_student', 'Student\StudentController@home_student')->name('home-student-auth');
 //--------------------------- /Home Routes Auths------------------------------------------------>
+
+
+
+//--------------------------- Academy Routes Auths------------------------------------------------->
+Route::get('/Landing', 'HomeController@Landing')->name('academy-guest-auth');
+Route::get('/Landing4', function(){
+    return view('Landing2');
+});
+
+
+//--------------------------- /Home Routes Auths------------------------------------------------>
+
+
 
 //--------------------------- Dashboard Routes------------------------------------------------>
 Route::get('/student_dashboard', 'Student\StudentController@dashboard')->name('student-home');
@@ -39,6 +52,7 @@ Route::get('/tutor_registered', 'Lecturer\LecturerController@registered')->name(
         Route::get('/', function () {
             return view('welcome');
         });
+        Route::get('/Landing3', 'HomeController@Landing3')->name('academy-guest-auth');
         
     });
 //------------------------------------------ Student Auth-------------------------------------------------------
@@ -46,7 +60,7 @@ Route::get('/tutor_registered', 'Lecturer\LecturerController@registered')->name(
         Route::get('/', function () {
             return view('welcome');
         });
-        
+        Route::get('/Landing2', 'HomeController@Landing2')->name('academy-guest-auth');
     });
 
 //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------

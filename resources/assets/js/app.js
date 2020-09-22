@@ -49,11 +49,18 @@ window.Form = Form;
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 
+//-------------- Vue CKeditor -------------------------------------------------->
+import Vue from 'vue';
+import CKEditor from '@ckeditor/ckeditor5-vue';
+Vue.use( CKEditor );
+
 //-------------- Vue-Routers--------------------------------------------------//
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 let routes = [
+  { path: '/academy', component: require('./components/Academy.vue')},
+
   //------------------ Student-------------------------------//
   { path: '/student_dashboard', component: require('./components/Dashboard.vue')},
   { path: '/profile', component: require('./components/Profile.vue') },
@@ -67,12 +74,27 @@ let routes = [
   { path: '/assignments', component: require('./components/Assignments.vue') },
   { path: '/Student_Reg', component: require('./components/Student_Reg.vue') },
 
+  
+  
   //------------------ Lecturer-------------------------------//
+  { path: '/Lessons', component: require('./lecturerComp/Lessons/Lesson.vue'), 
+    children: [
+      { path: '/', component: require('./lecturerComp/Lessons/Overview.vue') },
+      { path: 'Overview', component: require('./lecturerComp/Lessons/Overview.vue') },
+      { path: 'Analysis', component: require('./lecturerComp/Lessons/Analysis.vue') },
+      { path: 'Syllabus', component: require('./lecturerComp/Lessons/Syllabus.vue') },
+      
+    ] },
   
+  { path: '/CreateLessons', component: require('./lecturerComp/Lessons/CreateLessons/CreateLesson.vue'),
+  children: [
+    { path: '/', component: require('./lecturerComp/Lessons/CreateLessons/WelcomePage.vue') },
+    { path: 'Design', component: require('./lecturerComp/Lessons/CreateLessons/Design.vue') },
+    { path: 'Content', component: require('./lecturerComp/Lessons/CreateLessons/Content.vue') },
   
-  //{ path: 'tutor_dashboard/', component: require('./lecturerComp/Home.vue') },
-  //{ path: '/myDashboard', component: require('./lecturerComp/Dashboard.vue')},
-  
+  ] },
+
+
   { path: '/createPapers', component: require('./lecturerComp/createPapers/CreatePaper.vue'), 
     children: [
       { path: '/', component: require('./lecturerComp/createPapers/WelcomePage.vue') },
@@ -83,11 +105,12 @@ let routes = [
       { path: 'grading', component: require('./lecturerComp/createPapers/Grading.vue') },
     
     ] },
-
+  
+    
 
     { path: '/tutor', component: require('./lecturerComp/Dashboard.vue')},
     { path: '/tutor/lecProfile',  component: require('./lecturerComp/Profile.vue')},
-    { path: '/Lessons',  component: require('./lecturerComp/MyLessons.vue')},
+    //{ path: '/Lessons',  component: require('./lecturerComp/MyLessons.vue')},
     { path: '/Schedules',  component: require('./lecturerComp/MySchedules.vue')},
     { path: '/Layout',  component: require('./lecturerComp/SiteLayout.vue')},
     { path: '/Staff',  component: require('./lecturerComp/StaffMgt.vue')},
@@ -130,12 +153,27 @@ window.Fire = Fire;
   })
 
 
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+//-------------- Vue i18N-------------------------------------------------//
+/**
+import i18n from 'i18n'
+import axios from 'axios'
+const lang = localStorage.getItem('lang') || 'en';
+axios.defaults.headers['Accept-Language'] = lang;
+*/
+
+
+
+
+
+
+
+
 
 
 const router = new VueRouter({

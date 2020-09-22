@@ -23,7 +23,18 @@ class HomeController extends Controller
 //---------------- Index----------------------
     public function index()
     {
-        return view('welcome');
+        return view('landing');
     }
 
+
+
+    public function Landing(){
+        return view('landing');
+    }
+    public function Landing2(){
+        return view('landing', ['url' => '/student']);
+    }
+    public function Landing3(){
+        return view('landing', ['url' => '/tutors']);
+    }
 }

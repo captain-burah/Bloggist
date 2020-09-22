@@ -28,15 +28,18 @@
     }
   </style>
 </head>
-<body class="hold-transition sidebar-mini sidebar-collapse">
+<body class="hold-transition sidebar-mini">
   <div id="app">
     <main>
       @yield('lecContent')
     </main>
     
   </div>
+  
   <script rel="stylesheet" src="{{ asset('/js/app.js') }}"></script>
   <!--<script src="/js/app.js"></script>-->
 <script  src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
 </body>
 </html>
