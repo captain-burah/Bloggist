@@ -27,8 +27,11 @@ Route::get('/home_student', 'Student\StudentController@home_student')->name('hom
 
 //--------------------------- Academy Routes Auths------------------------------------------------->
 Route::get('/Landing', 'HomeController@Landing')->name('academy-guest-auth');
-Route::get('/Landing4', function(){
-    return view('Landing2');
+Route::get('/student_registration', function(){
+    return view('studentReg');
+});
+Route::get('/tutor_registration', function(){
+    return view('/tutorReg');
 });
 
 

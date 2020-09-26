@@ -21,6 +21,7 @@
 
     <!-- CSS Files -->
     <link href="css/material-kit.min.css?v=2.0.7" rel="stylesheet" />
+    <link rel="stylesheet" href="sweetalert2.min.css" />
     <style>
       .separator {
         color: #c5a47e;
@@ -69,7 +70,7 @@
       }
       
       @media screen and (min-width: 720px){
-        .mobile-view{ display: none !important; }
+        .mobile-view{ display: none !important;}
       }
 
 
@@ -104,7 +105,31 @@
         font-size: 80%;
         line-height: 1.42857143;
         color: #777;
-}
+      }
+
+      .fontOne{
+          font-size: 1rem;
+        }
+
+      #progressBar {
+        position: relative;
+        width: 100%;
+        height: 5px;
+        background-color: #ddd;
+      }
+
+      #barStatus1 {
+        position: absolute;
+        width: 0%;
+        height: 100%;
+        background-color: #4CAF50;
+      }
+      #barStatus2 {
+        position: absolute;
+        width: 0%;
+        height: 100%;
+        background-color: #F44336;
+      }
     </style>
     
     
@@ -130,16 +155,15 @@
           <!---   Navbar Right   --->
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
+                        <i class="material-icons">apps</i> Features
+                    </a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)" onclick="scrollToWhoAreWe()">
                         <i class="material-icons">supervisor_account</i> Who are we?
                     </a>
                   </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
-                          <i class="material-icons">apps</i> Features
-                      </a>
-                  </li>
-                  
                   <li class="nav-item">
                       <a class="nav-link" href="javascript:void(0)" onclick="scrollToPayAsYouGo()">
                       <i class="material-icons">attach_money</i> Pricing
@@ -210,68 +234,6 @@
                           @endif
                       <!-----   Log In Auth   ----->
                   </li>
-              
-                  <li class="dropdown nav-item">
-                    <!-----   Register Dropdown   ----->
-                      @if (Route::has('login'))
-                        @isset($url)
-                          <!----------------------------   Student Landing   -------------->
-                          @if ($url === "/student")
-                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                              <i class="material-icons">how_to_reg</i> Register
-                            </a>
-                            <div class="dropdown-menu dropdown-with-icons">
-                              
-                              <a href="{{ url('/student_dashboard') }}" class="dropdown-item"> 
-                                <i class="material-icons">child_care</i> Log Out to Register
-                              </a>
-                            </div>
-
-                          <!----------------------------   Tutor Landing   -------------->
-                          @elseif ($url === "/tutors")
-                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                              <i class="material-icons">how_to_reg</i> Register
-                            </a>
-                            <div class="dropdown-menu dropdown-with-icons">
-
-                              <a href="{{ url('/tutor') }}" class="dropdown-item"> 
-                                <i class="material-icons">school</i> Log Out to Register
-                              </a>
-                            </div>
-                          @endif
-                        @endisset
-
-                        <!----------------------------   Empty URL Landing   -------------->
-                        @empty($url)
-                          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <i class="material-icons">how_to_reg</i> Register
-                          </a>
-                          <div class="dropdown-menu dropdown-with-icons">
-                            <a href="{{ route('register') }}" class="dropdown-item">
-                              <i class="material-icons">child_care</i> Student
-                            </a>
-                            <a href="{{ url('/register/tutor') }}" class="dropdown-item">
-                              <i class="material-icons">school</i> Tutor
-                            </a>
-                          </div>
-                        @endempty
-
-                      @else 
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                          <i class="material-icons">how_to_reg</i> Register
-                        </a>
-                        <div class="dropdown-menu dropdown-with-icons">
-                          <a href="{{ route('register') }}" class="dropdown-item">
-                            <i class="material-icons">child_care</i> Student
-                          </a>
-                          <a href="{{ url('/register/tutor') }}" class="dropdown-item">
-                            <i class="material-icons">school</i> Tutor
-                          </a>
-                        </div>
-                      @endif
-                    <!-----   Register Dropdown   ----->
-                  </li>
-
                   <li class="nav-item">
                       <a class="nav-link text-center" rel="tooltip" title="" data-placement="bottom" 
                       href="https://www.facebook.com/CaptainBurah" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
@@ -290,7 +252,6 @@
       </div>
     </nav>
   <!--  Nav  -->
-
   <!---   Cover   --->
     <div class="page-header header-filter" data-parallax="true" 
     style="background-image: url(img/bg13.jpg); transform: translate3d(0px, 0px, 0px);">
@@ -327,7 +288,7 @@
                   - my father -
                 </small>
               </div>
-              <a href="#" target="_blank" 
+              <a href="#" onclick="scrollToContactUs()"
               class="btn btn-danger btn-raised btn-lg text-capitalize ">
                 <i class="fa fa-play"></i> Hurry! Join asap
               </a>
@@ -385,26 +346,25 @@
         </div>
       </div>
     <!---   /Section 04  Standard Pricing --->
-    
+  
 
     <!---   Section 05  Contact Us --->
         <div class="section section-ContactUs" style="background-image: url('img/bg19.jpg'); 
         background-size: cover; background-position: top center; min-height: 700px;"  id="ContactUs">
           <div class="container">
             <div class="title text-center pb-4">
-                <h1><span class="text-warning font-weight-bold">Hurry!</span> Sign Up Now</h1>
+                <h1><span class="text-warning font-weight-bold ">Hurry!</span> Sign Up Now</h1>
             </div>
             <div class="row pt-5">
               <!--  Student Button -->
                 <div class="col-lg-5 mx-auto">
                   <div class="card  ">
-                      <div class="card-header card-header-warning text-center">
-                        <button class="btn btn-block btn-white text-dark"  data-toggle="modal" 
-                        data-target="#studentReg">
-                          <h4 class=" text-capitalize" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
-                            <i class="material-icons">child_care</i> Create a Student Account</h4>
-                          <div class="ripple-container"></div>
-                        </button>
+                      <div class="card-header card-header-warning text-center " >
+                        <a id="studentReg" class="btn btn-white btn-block fontOne text-capitalize text-dark" 
+                        data-toggle="modal" data-target="#" onclick="detectScreen(1)">
+                          <i class="fa fa-university"></i>&nbsp Join As Student
+                        </a>
+
                       </div>
                       <div class="card-body ">
                       </div>
@@ -416,12 +376,10 @@
                 <div class="col-lg-5 mx-auto">
                   <div class="card  ">
                       <div class="card-header card-header-info text-center">
-                        <button class="btn btn-block btn-white text-dark"  data-toggle="modal" 
-                        data-target="#tutorReg">
-                          <h4 class=" text-capitalize" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
-                            <i class="material-icons">school</i> Join Our Tutor Panel</h4>
-                          <div class="ripple-container"></div>
-                        </button>
+                        <a id="tutorReg" class="btn btn-white btn-block fontOne text-capitalize text-dark" 
+                        data-toggle="modal" data-target="#" onclick="detectScreen(2)">
+                          <i class="fa fa-graduation-cap"></i>&nbsp Become a Tutor
+                        </a>
                       </div>
                       <div class="card-body ">
                       </div>
@@ -437,316 +395,355 @@
 
 
   <!-- Student Modal -->
-    <div class="modal fade" id="studentReg" tabindex="-1" role="dialog">
+    <div class="modal fade " id="studentRegModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="card card-login">
-          <form class="form">
-            <!-- Register with API -->
+        <div class="modal-content">
+          <div class="card card-signup card-plain">
+            <div class="modal-header bg-dark pb-2 border-bottom border-dark">
+
               <div class="card-header card-header-warning text-center">
-                <h4 class="card-title">Join with</h4>
-                <div class="social-line">
-                  <a href="javascript:;" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-facebook-square"></i>
-                  </a>
-                  <a href="javascript:;" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                  <a href="javascript:;" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-google-plus"></i>
-                  </a>
-                </div>
+                <div>
+                  <h2 class="modal-title mb-0 pb-0 font-weight-bold" >
+                    Sign Up 
+                  </h2>
+                  <span class="" style="font-size: 1.1rem;">
+                    It's quick & easy
+                  </span>
+                </div>  
               </div>
-            <!-- Register with API -->
-
-            <!-- Register Classic -->
-              <p class="description text-center">Or Be Classical</p>
-              <div class="card-body">
-                <!-- First Name -->
-                  <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">face</i>
-                        </span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="First Name">
-                    </div>
-                  </span>
-                <!-- /First Name -->
-
-                <!-- Second Name -->
-                  <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons"> &nbsp&nbsp&nbsp&nbsp</i>
-                        </span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="Last Name">
-                    </div>
-                  </span>
-                <!-- /Second Name -->
-
-                <!-- Email -->
-                  <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">mail</i>
-                        </span>
-                      </div>
-                      <input type="email" class="form-control" placeholder="Email">
-                    </div>
-                  </span>
-                <!-- /Email -->
-
-                <!-- DOB ---
-                  <span class="bmd-form-group">
-                    <div class="input-group">                      
-                      <div class="form-row">
-                        <div class="form-group col-md-12 mx-auto">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="material-icons">date_range</i>
-                            </span>
-                            <div class="form-group col-md-4 mx-auto">
-                              <label for="dobDate">Date</label>
-                              <select id="dobDate" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>01</option>
-                                <option>02</option>
-                                <option>03</option>
-                                <option>04</option>
-                                <option>05</option>
-                                <option>06</option>
-                                <option>07</option>
-                                <option>08</option>
-                                <option>09</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                                <option>15</option>
-                                <option>16</option>
-                                <option>17</option>
-                                <option>18</option>
-                                <option>19</option>
-                                <option>20</option>
-                                <option>21</option>
-                                <option>22</option>
-                                <option>23</option>
-                                <option>24</option>
-                                <option>25</option>
-                                <option>26</option>
-                                <option>27</option>
-                                <option>28</option>
-                                <option>29</option>
-                                <option>30</option>
-                                <option>31</option>
-                              </select>
-                            </div>
-                            <div class="form-group col-md-4 mx-auto">
-                              <label for="dobMonth">Month</label>
-                              <select id="dobMonth" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>Jan</option>
-                                <option>Feb</option>
-                                <option>Mar</option>
-                                <option>Apr</option>
-                                <option>May</option>
-                                <option>Jun</option>
-                                <option>Jul</option>
-                                <option>Aug</option>
-                                <option>Sep</option>
-                                <option>Oct</option>
-                                <option>Nov</option>
-                                <option>Dec</option>
-                              </select>
-                            </div>
-                            <div class="form-group col-md-4 mx-auto">
-                              <label for="dobYear">Year</label>
-                              <select id="dobYear" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>2020</option>
-                                <option>2019</option>
-                                <option>2018</option>
-                                <option>2017</option>
-                                <option>2016</option>
-                                <option>2015</option>
-                                <option>2014</option>
-                                <option>2013</option>
-                                <option>2012</option>
-                                <option>2011</option>
-                                <option>2010</option>
-
-                                <option>2009</option>
-                                <option>2008</option>
-                                <option>2007</option>
-                                <option>2006</option>
-                                <option>2005</option>
-                                <option>2004</option>
-                                <option>2003</option>
-                                <option>2002</option>
-                                <option>2001</option>
-                                <option>2000</option>
-                                
-                                <option>1999</option>
-                                <option>1998</option>
-                                <option>1997</option>
-                                <option>1996</option>
-                                <option>1995</option>
-                                <option>1994</option>
-                                <option>1993</option>
-                                <option>1992</option>
-                                <option>1991</option>
-                                <option>1990</option>
-
-                                <option>1989</option>
-                                <option>1988</option>
-                                <option>1987</option>
-                                <option>1986</option>
-                                <option>1985</option>
-                                <option>1984</option>
-                                <option>1983</option>
-                                <option>1982</option>
-                                <option>1981</option>
-                                <option>1980</option>
-
-                                <option>1979</option>
-                                <option>1978</option>
-                                <option>1977</option>
-                                <option>1976</option>
-                                <option>1975</option>
-                                <option>1974</option>
-                                <option>1973</option>
-                                <option>1972</option>
-                                <option>1971</option>
-                                <option>1970</option>
-
-                                <option>1969</option>
-                                <option>1968</option>
-                                <option>1967</option>
-                                <option>1966</option>
-                                <option>1965</option>
-                                <option>1964</option>
-                                <option>1963</option>
-                                <option>1962</option>
-                                <option>1961</option>
-                                <option>1960</option>
-
-                                <option>1959</option>
-                                <option>1958</option>
-                                <option>1957</option>
-                                <option>1956</option>
-                                <option>1955</option>
-                                <option>1954</option>
-                                <option>1953</option>
-                                <option>1952</option>
-                                <option>1951</option>
-                                <option>1950</option>
-
-                                <option>1949</option>
-                                <option>1948</option>
-                                <option>1947</option>
-                                <option>1946</option>
-                                <option>1945</option>
-                                <option>1944</option>
-                                <option>1943</option>
-                                <option>1942</option>
-                                <option>1941</option>
-                                <option>1940</option>
-
-                                <option>1939</option>
-                                <option>1938</option>
-                                <option>1937</option>
-                                <option>1936</option>
-                                <option>1935</option>
-                                <option>1934</option>
-                                <option>1933</option>
-                                <option>1932</option>
-                                <option>1931</option>
-                                <option>1930</option>
-
-                                <option>1929</option>
-                                <option>1928</option>
-                                <option>1927</option>
-                                <option>1926</option>
-                                <option>1925</option>
-                                <option>1924</option>
-                                <option>1923</option>
-                                <option>1922</option>
-                                <option>1921</option>
-                                <option>1920</option>
-
-                                <option>1919</option>
-                                <option>1918</option>
-                                <option>1917</option>
-                                <option>1916</option>
-                                <option>1915</option>
-                                <option>1914</option>
-                                <option>1913</option>
-                                <option>1912</option>
-                                <option>1911</option>
-                                <option>1910</option>
-
-                                <option>1909</option>
-                                <option>1908</option>
-                                <option>1907</option>
-                                <option>1906</option>
-                                <option>1905</option>
-                                <option>1904</option>
-                                <option>1903</option>
-                                <option>1902</option>
-                                <option>1901</option>
-                                <option>1900</option>
-                                
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                  </span>
-                --- /DOB -->
-
-                <!-- Password -->
-                  <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">lock_outline</i>
-                        </span>
-                      </div>
-                      <input type="password" class="form-control" placeholder="Password" autocomplete="">
-                    </div>
-                  </span>
-                <!-- /Password -->
-
-              <!-- Confirm Password -->
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">lock_outline</i>
-                      </span>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Confirm Password" autocomplete="">
-                  </div>
-                </span>
-              <!-- /Confirm Password -->
-              </div>
-              
-            <!-- Register Classic -->
-            <div class="footer text-center">
-              <a href="javascript:;" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a>
+              <button type="button" class="close mt-2 pt-4" data-dismiss="modal" aria-label="Close">
+                <i class="material-icons mt-3 text-white" style="font-size: 1.5rem">clear</i>
+              </button>
             </div>
-          </form>
+            <div id="progressBar">
+              <div id="barStatus1"></div>
+              <div id="barStatus2"></div>
+            </div>
+            <div class="modal-body">
+
+
+              <form  method="POST" id="studentForm" name="studentForm" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                @csrf
+                <div class="form-row">
+
+                  <!--  First Name  -->
+                    <div class="form-group col-md-6">
+                      <label for="fname">{{ __('First Name') }}</label>
+                      <input type="text" class="form-control{{ $errors->has('fname') ? ' is-invalid' : '' }}" 
+                      name="fname" placeholder="Sherlock" value="{{ old('fname') }}" required autofocus>
+
+                      @if ($errors->has('fname'))
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $errors->first('fname') }}</strong>
+                          </span>
+                      @endif
+                    </div>
+                  <!--  /First Name  -->
+
+                  <!--  Last Name  -->
+                    <div class="form-group col-md-6">
+                      <label for="lname">{{ __('Last Name') }}</label>
+                      <input type="text" class="form-control{{ $errors->has('lname') ? ' is-invalid' : '' }}" 
+                      name="lname" placeholder="Holmes" value="{{ old('lname') }}" required autofocus>
+
+                      @if ($errors->has('lname'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('lname') }}</strong>
+                        </span>
+                      @endif
+                    </div>
+                  <!--  /Last Name  -->
+                </div>
+                <div class="mt-2">
+                  <!--  Email  -->
+                    <div class="form-group">
+                      <label for="email">{{ __('E-Mail Address') }}</label>
+                      <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" 
+                      name="email" placeholder="someone@somemail.com"
+                      autocomplete="username" value="{{ old('email') }}" required>
+
+                      @if ($errors->has('email'))
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $errors->first('email') }}</strong>
+                          </span>
+                      @endif
+                    </div>
+                  <!--  /Email  -->
+                </div>
+
+                <div class="form-row mt-2">
+                  <!--  DOB  -->
+                    <div class="col-md-6">
+                      <div class="form-group bmd-form-group is-filled">
+                        <label class="label-control bmd-label-static">{{ __('Date Of Birth') }}</label>
+                        <input type="text" class="form-control datetimepicker {{ $errors->has('dob') ? ' is-invalid' : '' }}" 
+                        name="dob" value="{{ old('dob') }}" autocomplete="off" required >
+
+                        @if ($errors->has('dob'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('dob') }}</strong>
+                            </span>
+                        @endif
+                      </div>
+                    </div>
+                  <!--  /DOB  -->
+
+                  <!--  /Gender  -->
+                    <div class="form-group col-md-6">
+                      <label for="gender">{{ __('Gender') }}</label>
+                      <select name="gender" class="form-control {{ $errors->has('gender') ? ' is-invalid' : '' }}" 
+                        value="{{ old('gender') }}" required >
+                        <option value="">Choose..</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+
+                      @if ($errors->has('gender'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('gender') }}</strong>
+                        </span>
+                      @endif
+                    </div>
+                  <!--  /Gender  -->
+                </div>
+
+                <div class="row">
+                  <!--  Batch 01  -->
+                      <div class="col-md-6">
+                        <div class="form-check form-check-radio">
+                          <label class="form-check-label">
+                              <input class="form-check-input " 
+                              type="radio" name="batch1" id="batch1" 
+                              value="option1" checked>
+                              {{ __('Advanced Level') }}
+                              <span class="circle">
+                                  <span class="check"></span>
+                              </span>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-radio">
+                          <label class="form-check-label">
+                              <input class="form-check-input " 
+                              type="radio" name="batch1" id="batch2" 
+                              value="option1"  >
+                              {{ __('Ordinary Level') }}
+                              <span class="circle">
+                                  <span class="check"></span>
+                              </span>
+                          </label>
+                        </div>
+                        <div class="form-check form-check-radio">
+                          <label class="form-check-label">
+                              <input class="form-check-input " 
+                              type="radio" name="batch1" id="batch3" 
+                              value="option1"  >
+                              {{ __('Scholarship') }}
+                              <span class="circle">
+                                  <span class="check"></span>
+                              </span>
+                          </label>
+                        </div>
+
+                        
+                    </div>
+                  <!--  /Batch 01  -->
+
+                  <!--  Batch 02 -->
+                      <div class="form-group col-md-6 mt-2 pt-1">
+                        <label for="batch2">{{ __('Year Of Examination') }}</label>
+                        <select name="batch2" class="form-control {{ $errors->has('batch2') ? ' is-invalid' : '' }}" required>
+                          <option value="">Choose..</option>
+                          <option value="2024">2024</option>
+                          <option value="2023">2023</option>
+                          <option value="2022">2022</option>
+                          <option value="2021">2021</option>
+                          <option value="2020">2020</option>
+                          <option value="2019">2019</option>
+                          <option value="2018">2018</option>
+                          <option value="2017">2017</option>
+                          <option value="2016">2016</option>
+                          <option value="2015">2015</option>
+                          <option value="2014">2014</option>
+                          <option value="2013">2013</option>
+                          <option value="2012">2012</option>
+                          <option value="2011">2011</option>
+                          <option value="2010">2010</option>
+                          <option value="2009">2009</option>
+                          <option value="2008">2008</option>
+                          <option value="2007">2007</option>
+                          <option value="2006">2006</option>
+                          <option value="2005">2005</option>
+                          <option value="2004">2004</option>
+                          <option value="2003">2003</option>
+                          <option value="2002">2002</option>
+                          <option value="2001">2001</option>
+                          <option value="2000">2000</option>
+                          <option value="1999">1999</option>
+                          <option value="1998">1998</option>
+                          <option value="1997">1997</option>
+                          <option value="1996">1996</option>
+                          <option value="1995">1995</option>
+                          <option value="1994">1994</option>
+                          <option value="1993">1993</option>
+                          <option value="1992">1992</option>
+                          <option value="1991">1991</option>
+                          <option value="1990">1990</option>
+                          <option value="1989">1989</option>
+                          <option value="1988">1988</option>
+                          <option value="1987">1987</option>
+                          <option value="1986">1986</option>
+                          <option value="1985">1985</option>
+                          <option value="1984">1984</option>
+                          <option value="1983">1983</option>
+                          <option value="1982">1982</option>
+                          <option value="1981">1981</option>
+                          <option value="1980">1980</option>
+                        </select>
+                        @if ($errors->has('batch2'))
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $errors->first('batch2') }}</strong>
+                          </span>
+                        @endif
+                      </div>
+                  <!--  /Batch 02 -->
+                </div>
+                <div class="row mt-3">
+                  <!--  Password  -->
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="password">{{ __('Password') }}</label>
+                        <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" 
+                        name="password" id="stuPass" autocomplete="off" required>
+                        @if ($errors->has('password'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
+                      </div>
+                    </div>
+                  <!--  /Password  -->
+                </div>
+
+                
+                <button onclick="submitStudent()"  class="btn btn-block btn-success">
+                  {{ __('Register') }}
+                </button>
+              </form>
+
+
+            </div>
+            <div class="modal-footer bg-dark mb-0 p-2">
+              <button type="button" class="btn btn-white btn-link" data-dismiss="modal">Close</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   <!--  End Student Modal -->
 
   <!-- Tutor Modal -->
+    <div class="modal fade " id="tutorRegModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="card card-signup card-plain">
+            <div class="modal-header bg-dark pb-2 border-bottom border-dark">
+
+              <div class="card-header card-header-info text-center">
+                <div>
+                  <h2 class="modal-title mb-0 pb-0 font-weight-bold" >
+                    Sign Up 
+                  </h2>
+                  <span class="" style="font-size: 1.1rem;">
+                    It's quick & easy
+                  </span>
+                </div>
+              </div>
+              <button type="button" class="close mt-2 pt-4" data-dismiss="modal" aria-label="Close">
+                <i class="material-icons mt-3 text-white" style="font-size: 1.5rem">clear</i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                
+                <div class="form-row">
+                  <!--  First Name  -->
+                    <div class="form-group col-md-6">
+                      <label for="email">First Name</label>
+                      <input type="text" class="form-control" id="Fname" placeholder="Sherlock">
+                    </div>
+                  <!--  /First Name  -->
+
+                  <!--  Last Name  -->
+                    <div class="form-group col-md-6">
+                      <label for="email">Last Name</label>
+                        <input type="text" class="form-control" id="Lname" placeholder="Holmes  ">
+                    </div>
+                  <!--  /Last Name  -->
+                </div>
+                <div class="mt-2">
+                  <!--  Email  -->
+                    <div class="form-group">
+                      <label for="email">Email Address</label>
+                      <input type="email" class="form-control" id="email" placeholder="someone@somemail.com"
+                      autocomplete="username">
+                    </div>
+                  <!--  /Email  -->
+                </div>
+
+                <div class="form-row mt-2">
+                  <!--  DOB  -->
+                    <div class="col-md-6">
+                      <div class="form-group bmd-form-group is-filled">
+                        <label class="label-control bmd-label-static">Date Of Birth</label>
+                        <input type="text" class="form-control datetimepicker" id="dob" value="10/05/2016">
+                      </div>
+                    </div>
+                  <!--  /DOB  -->
+
+                  <!--  /Gender  -->
+                    <div class="form-group col-md-6">
+                      <label for="gender">Gender</label>
+                      <select id="gender" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Female</option>
+                      </select>
+                    </div>
+                  <!--  /Gender  -->
+                </div>
+
+                <div class="row mt-3">
+                  <!--  Password  -->
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control" id="tutorPassword" autocomplete="new-password">
+                      </div>
+                    </div>
+                  <!--  /Password  -->
+                  
+                  <!--  Confirm Password  -->
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="stuPassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="tutorConPassword" autocomplete="confrim-password">
+                      </div>
+                    </div>
+                  <!--  /Confrim Password  -->
+                </div>
+
+                
+                <button type="submit" class="btn btn-block btn-success">Sign Up</button>
+              </form>
+            </div>
+            <div class="modal-footer bg-dark mb-0 p-2">
+              <button type="button" class="btn btn-white btn-link" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <!--  End Tutor Modal -->
 
   <footer class="footer" data-background-color="black">
@@ -797,6 +794,8 @@
     <script src="js/core/popper.min.js" type="text/javascript"></script>
     <script src="js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
     <script src="js/plugins/moment.min.js"></script>
+    <script src="sweetalert2.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
     <script src="js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
@@ -807,8 +806,196 @@
     <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
     <script src="js/material-kit.min.js?v=2.0.7" type="text/javascript"></script>
 
+    
+
    
     <script>
+        
+
+          function submitStudent(){
+            $('#studentForm').submit(function (e) {
+              
+
+              
+              if (passValidate() == true ){
+                  let url = '/register';
+                  let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                  var formData = $(this).serialize() // get form data
+                  fetch(url, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json, text-plain, */*",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRF-TOKEN": token
+                        },
+                    method: 'post',
+                    credentials: "same-origin",
+                    body: formData
+                  })
+                  .then((data) => {
+                      window.location.href = '/login';
+                      
+                      
+                  })
+                  .catch(function(error) {
+                      Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        showConfirmButton: false,
+                        timer: 1000
+                      })
+                      console.log('error');
+                  });
+              } else {
+                    e.preventDefault(); // prevent the form from 'submitting'
+                    Swal.fire({
+                      position: 'top-end',
+                      icon: 'error',
+                      title: 'Password Error',
+                      text: 'Please enter a valid password',
+                      showConfirmButton: false,
+                      timer: 3000
+                    })
+              }
+              
+            })
+          }
+
+          function passValidate() { 
+            var res; 
+            var str = document.getElementById("stuPass").value; 
+            if (str.match(/[a-z]/g) && str.match(/[A-Z]/g) && 
+              str.match(/[0-9]/g) && str.match(/[^a-zA-Z\d]/g) && str.length >= 8) 
+                return true;
+            else 
+                return false;
+          } 
+
+        function lol(){
+          $('#studentForm').submit(function (e) {
+            e.preventDefault()  // prevent the form from 'submitting'
+            
+            var url = ('api/user')// get the target
+            var formData = $(this).serialize() // get form data
+            if ($.post(url, formData) == true){ // send; response.data will be what is returned
+              console.log('successful')
+              move(1)
+
+            } else {
+              move(2);
+              console.log('failled to post data')
+
+              let timerInterval
+              Swal.fire({
+                title: 'Validating!',
+                html: 'Give us a few <b></b> milliseconds.',
+                timer: 1500,
+                timerProgressBar: true,
+                willOpen: () => {
+                  Swal.showLoading()
+                  timerInterval = setInterval(() => {
+                    const content = Swal.getContent()
+                    if (content) {
+                      const b = content.querySelector('b')
+                      if (b) {
+                        b.textContent = Swal.getTimerLeft()
+                      }
+                    }
+                  }, 100)
+                },
+                willClose: () => {
+                  clearInterval(timerInterval)
+                }
+              }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                  console.log('I was closed by the timer')
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    showConfirmButton: false,
+                    timer: 3000
+                  })
+                }
+                else{
+                  console.log('I was closed by the User')
+                }
+              })
+              
+            }
+              
+          })
+        }
+
+      function move(y) {
+        if (y == 1){
+          var width = 0;
+          var elem = document.getElementById("barStatus1"); 
+          
+          var id = setInterval(frame, 5);
+          function frame() {
+            if (width >= 100) {
+              //clearInterval(id);
+            } else {
+              width++; 
+              elem.style.width = width + '%'; 
+            }
+          }
+        } else if (y == 2){
+          var width = 0;
+          var elem = document.getElementById("barStatus2"); 
+          
+          var id = setInterval(frame, 5);
+          function frame() {
+            if (width >= 100) {
+              //clearInterval(id);
+            } else {
+              width++; 
+              elem.style.width = width + '%'; 
+            }
+          }
+        }
+      }
+
+
+      function detectScreen(x){
+        if (x == 1){
+          if (( window.innerWidth <= 700 ) || ( window.innerHeight <= 600 )){
+            var screenSize = 'mobile';
+            //return document.getElementById('studentReg').style.display='block';
+            window.location.href = '/student_registration';
+          }
+          else{
+            //var screenSize = 'notMobile';
+            //return window.location.href = 'http://www.google.com';
+
+            var studentRegModal = document.getElementById('studentReg');
+            //console.log(studentRegModal.dataset.target);
+            studentRegModal.dataset.target = "#studentRegModal";
+            //console.log(studentRegModal.dataset.target);
+          }
+        }
+        else if (x == 2){
+          if (( window.innerWidth <= 800 ) || ( window.innerHeight <= 600 )){
+            //var screenSize = 'mobile';
+            //return document.getElementById('studentReg').style.display='block';
+            window.location.href = '/tutor_registration';
+          }
+          else{
+            //var screenSize = 'notMobile';
+            //return window.location.href = 'http://www.google.com';
+            var studentRegModal = document.getElementById('tutorReg');
+            console.log(studentRegModal.dataset.target);
+            studentRegModal.dataset.target = "#tutorRegModal";
+            console.log(studentRegModal.dataset.target);
+          }
+        }
+      }
+
       $(document).ready(function() {
         if ($('.datetimepicker').length != 0) {
           //init DateTimePickers
@@ -828,6 +1015,7 @@
           }, 1000);
         }
       }
+
       function scrollToFeatures() {
         if ($('.section-feature').length != 0) {
           $("html, body").animate({
@@ -835,6 +1023,7 @@
           }, 1000);
         }
       }
+
       function scrollToPayAsYouGo() {
         if ($('.section-PayAsYouGo').length != 0) {
           $("html, body").animate({
@@ -842,7 +1031,7 @@
           }, 1000);
         }
       }
-      ContactUs
+      
       function scrollToContactUs() {
         if ($('.section-ContactUs').length != 0) {
           $("html, body").animate({
