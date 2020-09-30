@@ -33,7 +33,6 @@
         "sweetalert": "^2.1.2",
         "sweetalert2": "^9.17.2",
         "vform": "^1.0.1",
-        "vue-i18n": "^8.21.1",
         "vue-progressbar": "^0.7.5",
         "vue-router": "^3.3.2"
     }
