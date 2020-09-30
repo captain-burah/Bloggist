@@ -1,4 +1,4 @@
-@extends('layouts.app3')
+@extends('layouts.appS')
 
 @section('content')
 <div class="container ">
@@ -7,7 +7,7 @@
   </div>
   
   <div class="row col-md-12 ml-auto mr-auto">
-    <div class="col-md-5">
+    <div class="col-md-6">
       <div class="card ">
         <form class="form" method="POST" id="studentForm" action="{{ route('register')}}" name="studentForm">
           <div class="card-header card-header-primary text-center ">
@@ -227,10 +227,18 @@
         </form>
       </div>
     </div>
-    <div class="col-md-2"></div>
-    <div class="col-md-5 ml-auto mr-auto">
-      <h1 class="text-center">Hello World</h1>
-      <img src="/img/svg/mobile_login2.svg" alt="" class="img-fluid">
+    <div class="col-md-1"></div>
+    <div class="col-md-5 ml-auto mr-auto ">
+      <div class="py-4 my-1">
+        <h2 class="text-dark">{{ __('Join the Student Cast') }}</h2>
+        <img src="/img/svg/mobile_login2.svg" alt="" class="img-fluid" style="height: 300px;">
+        <div class="text-right">
+          <h4>Watch a video on,</h4>
+          <a href="#" target="" class="btn btn-danger btn-lg mobile-view " rel="nofollow">
+            <i class="fa fa-play"></i>&nbsp {{ __('How to register? ') }}
+          </a>
+      </div>
+      </div>
     </div>
     
   </div>

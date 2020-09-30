@@ -377,8 +377,7 @@
                 <div class="col-lg-5 mx-auto">
                   <div class="card  ">
                       <div class="card-header card-header-info text-center">
-                        <a id="tutorReg" class="btn btn-white btn-block fontOne text-capitalize text-dark" 
-                        data-toggle="modal" data-target="#" onclick="detectScreen(2)">
+                        <a href="/tutor_registration"  class="btn btn-white btn-block fontOne text-capitalize text-dark">
                           <i class="fa fa-graduation-cap"></i>&nbsp Become a Tutor
                         </a>
                       </div>

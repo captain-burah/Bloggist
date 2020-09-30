@@ -26,7 +26,7 @@
 </head>
 
 
-<body class="bg-warning login-page sidebar-collapse">
+<body class="bg-info login-page sidebar-collapse">
     <nav class="navbar fixed-top navbar-expand-lg" id="sectionsNav">
         <div class="container ">
             <div class="navbar-translate">
@@ -60,6 +60,23 @@
                     </div>
                 </li>
 
+                
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="">
+        @yield('content')
+    </main>
+
+    <footer class="pt-0 mt-0">
+        <div class="container text-dark  pb-0 mb-0">
+          <nav class=" pb-0">
+            <ul>
+                
                 <li class="nav-item">
                     <a class="nav-link" rel="tooltip" title="" data-placement="bottom" 
                     href="#" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">
@@ -80,43 +97,23 @@
                     <i class="fa fa-instagram"></i> <span class="text-capitalize">instagram</span>
                     </a>
                 </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    
-    <main class="">
-        @yield('content')
-    </main>
-
-    <footer class="pt-0 mt-0">
-        <div class="container text-dark  pb-0 mb-0">
-          <nav class=" pb-0">
-            <ul>
-              <li class="pb-0 mb-0">
-                <a href="#" class="pb-0 mb-0">
-                  About Us
-                </a>
-              </li>
-              <li class="pb-0 mb-0">
-                <a href="#" class="pb-0 mb-0">
-                  Licenses
-                </a>
-              </li>
-              <li class="pb-0 mb-0">
-                <a href="#" class="pb-0 mb-0">
-                  Terms & Conditions
-                </a>
-              </li>
+                <li class="pb-0 mb-0">
+                    <a href="#" class="pb-0 mb-0">
+                    Licenses
+                    </a>
+                </li>
+                <li class="pb-0 mb-0">
+                    <a href="#" class="pb-0 mb-0">
+                    Terms & Conditions
+                    </a>
+                </li>
             </ul>
           </nav>
           <div class="copyright pt-0 mt-0  pb-0 mb-0">
             &copy;
               <script>
                 document.write(new Date().getFullYear())
-              </script> developed by <a href="https://www.instagram.com/captain_burah" target="_blank" class="text-primary" >
+              </script> developed by <a href="https://www.instagram.com/captain_burah" target="_blank" class="text-dark" >
               Captain Burah
             </a> for a better world.
           </div>
