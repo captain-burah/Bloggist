@@ -36,7 +36,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i>&nbsp &nbsp {{ Auth::user()->name }}'s' Dashboard</a>
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i>&nbsp &nbsp {{ Auth::user()->name }} Dashboard</a>
       </li>
     </ul>
   </nav>

@@ -360,8 +360,9 @@
                 <div class="col-lg-5 mx-auto">
                   <div class="card  ">
                       <div class="card-header card-header-warning text-center " >
-                        <a id="studentReg" class="btn btn-white btn-block fontOne text-capitalize text-dark" 
-                        data-toggle="modal" data-target="#" onclick="detectScreen(1)">
+                        <a href="/student_registration" 
+                        class="btn btn-white btn-block fontOne text-capitalize text-dark" 
+                        >
                           <i class="fa fa-university"></i>&nbsp Join As Student
                         </a>
 
@@ -422,7 +423,7 @@
             <div class="modal-body">
 
 
-              <form  method="POST" id="studentForm" name="studentForm" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+              <form  method="POST" id="studentForm" action="{{ route('register')}}" name="studentForm">
                 @csrf
                 <div class="form-row">
 
@@ -442,15 +443,15 @@
 
                   <!--  Last Name  -->
                     <div class="form-group col-md-6">
-                      <label for="lname">{{ __('Last Name') }}</label>
-                      <input type="text" class="form-control{{ $errors->has('lname') ? ' is-invalid' : '' }}" 
-                      name="lname" placeholder="Holmes" value="{{ old('lname') }}" required autofocus>
+                    <label for="lname">{{ __('Last Name') }}</label>
+                    <input type="text" class="form-control{{ $errors->has('lname') ? ' is-invalid' : '' }}" 
+                    name="lname" placeholder="Holmes" value="{{ old('lname') }}" required autofocus>
 
-                      @if ($errors->has('lname'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('lname') }}</strong>
-                        </span>
-                      @endif
+                    @if ($errors->has('lname'))
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $errors->first('lname') }}</strong>
+                      </span>
+                    @endif
                     </div>
                   <!--  /Last Name  -->
                 </div>
@@ -460,7 +461,7 @@
                       <label for="email">{{ __('E-Mail Address') }}</label>
                       <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" 
                       name="email" placeholder="someone@somemail.com"
-                      autocomplete="username" value="{{ old('email') }}" required>
+                      autocomplete="off" value="{{ old('email') }}" required>
 
                       @if ($errors->has('email'))
                           <span class="invalid-feedback" role="alert">
@@ -625,7 +626,7 @@
                 </div>
 
                 
-                <button onclick="submitStudent()"  class="btn btn-block btn-success">
+                <button type="submit" class="btn btn-block btn-success">
                   {{ __('Register') }}
                 </button>
               </form>
@@ -776,8 +777,7 @@
         &copy;
           <script>
             document.write(new Date().getFullYear())
-          </script>, All rights reserved, <br>
-        made with <i class="material-icons text-danger">favorite</i> by
+          </script>, <i class="material-icons text-danger">favorite</i> by
         <a href="https://www.instagram.com/captain_burah" target="_blank" >
           Captain Burah
         </a> for a better world.
@@ -796,140 +796,145 @@
     <script src="js/plugins/moment.min.js"></script>
     <script src="sweetalert2.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
     <script src="js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
     <script src="js/plugins/nouislider.min.js" type="text/javascript"></script>
-    
-    <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
     <script src="js/material-kit.min.js?v=2.0.7" type="text/javascript"></script>
 
     
 
    
     <script>
-        
-
-          function submitStudent(){
-            $('#studentForm').submit(function (e) {
-              
-
-              
-              if (passValidate() == true ){
-                  let url = '/register';
-                  let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                  var formData = $(this).serialize() // get form data
-                  fetch(url, {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json, text-plain, */*",
-                        "X-Requested-With": "XMLHttpRequest",
-                        "X-CSRF-TOKEN": token
-                        },
-                    method: 'post',
-                    credentials: "same-origin",
-                    body: formData
-                  })
-                  .then((data) => {
-                      window.location.href = '/login';
-                      
-                      
-                  })
-                  .catch(function(error) {
-                      Swal.fire({
-                        position: 'top-end',
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong!',
-                        showConfirmButton: false,
-                        timer: 1000
-                      })
-                      console.log('error');
-                  });
-              } else {
-                    e.preventDefault(); // prevent the form from 'submitting'
-                    Swal.fire({
-                      position: 'top-end',
-                      icon: 'error',
-                      title: 'Password Error',
-                      text: 'Please enter a valid password',
-                      showConfirmButton: false,
-                      timer: 3000
-                    })
-              }
-              
-            })
-          }
-
-          function passValidate() { 
-            var res; 
-            var str = document.getElementById("stuPass").value; 
-            if (str.match(/[a-z]/g) && str.match(/[A-Z]/g) && 
-              str.match(/[0-9]/g) && str.match(/[^a-zA-Z\d]/g) && str.length >= 8) 
-                return true;
-            else 
-                return false;
-          } 
-
-        function lol(){
-          $('#studentForm').submit(function (e) {
-            e.preventDefault()  // prevent the form from 'submitting'
+      $('#studentForm').submit(function (e) {
+        if (passValidate() == true ){
             
-            var url = ('api/user')// get the target
-            var formData = $(this).serialize() // get form data
-            if ($.post(url, formData) == true){ // send; response.data will be what is returned
-              console.log('successful')
-              move(1)
+            let url = '';
+            let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            var formData = $(this).serialize(); // get form data
+            if ( fetch(url, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json, text-plain, */*",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-CSRF-TOKEN": token
+                    },
+                method: 'post',
+                credentials: "same-origin",
+                body: formData
+                }).then ((data) => {
+                  console.log('Reg Success');
+                }) == true) {
+                  console.log('true statement works')
 
-            } else {
-              move(2);
-              console.log('failled to post data')
-
-              let timerInterval
+            } else (function(response) {
+                e.preventDefault(); // prevent the form from 'submitting'
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Something went wrong!',
+                  showConfirmButton: false,
+                  timer: 2000
+                });
+                console.log('error');
+                $('#studentRegModal').modal('show');
+            });
+        } else {
+              e.preventDefault(); // prevent the form from 'submitting'
               Swal.fire({
-                title: 'Validating!',
-                html: 'Give us a few <b></b> milliseconds.',
-                timer: 1500,
-                timerProgressBar: true,
-                willOpen: () => {
-                  Swal.showLoading()
-                  timerInterval = setInterval(() => {
-                    const content = Swal.getContent()
-                    if (content) {
-                      const b = content.querySelector('b')
-                      if (b) {
-                        b.textContent = Swal.getTimerLeft()
-                      }
-                    }
-                  }, 100)
-                },
-                willClose: () => {
-                  clearInterval(timerInterval)
-                }
-              }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                  console.log('I was closed by the timer')
-                  Swal.fire({
-                    position: 'top-end',
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    showConfirmButton: false,
-                    timer: 3000
-                  })
-                }
-                else{
-                  console.log('I was closed by the User')
-                }
+                position: 'top-end',
+                icon: 'error',
+                title: 'Password Error',
+                text: 'Please enter a valid password',
+                showConfirmButton: false,
+                timer: 2000
               })
-              
-            }
-              
-          })
         }
+        
+      })
+      
+          
+
+      function associate_errors(errors, $form) {
+          //remove existing error classes and error messages from form groups
+          $form.find('.form-group').removeClass('has-errors').find('.help-text').text('');
+          errors.foreach(function(value, index)
+          {
+              //find each form group, which is given a unique id based on the form field's name
+              var $group = $form.find('#' + index + '-group');
+
+              //add the error class and set the error text
+              $group.addClass('has-errors').find('.help-text').text(value);
+          })
+      }
+
+
+      function passValidate() { 
+        var res; 
+        var str = document.getElementById("stuPass").value; 
+        if (str.match(/[a-z]/g) && str.match(/[A-Z]/g) && 
+          str.match(/[0-9]/g) && str.match(/[^a-zA-Z\d]/g) && str.length >= 8) 
+            return true;
+        else 
+            return false;
+      } 
+
+      function lol(){
+        $('#studentForm').submit(function (e) {
+          e.preventDefault()  // prevent the form from 'submitting'
+          
+          var url = ('api/user')// get the target
+          var formData = $(this).serialize() // get form data
+          if ($.post(url, formData) == true){ // send; response.data will be what is returned
+            console.log('successful')
+            move(1)
+
+          } else {
+            move(2);
+            console.log('failled to post data')
+
+            let timerInterval
+            Swal.fire({
+              title: 'Validating!',
+              html: 'Give us a few <b></b> milliseconds.',
+              timer: 1500,
+              timerProgressBar: true,
+              willOpen: () => {
+                Swal.showLoading()
+                timerInterval = setInterval(() => {
+                  const content = Swal.getContent()
+                  if (content) {
+                    const b = content.querySelector('b')
+                    if (b) {
+                      b.textContent = Swal.getTimerLeft()
+                    }
+                  }
+                }, 100)
+              },
+              willClose: () => {
+                clearInterval(timerInterval)
+              }
+            }).then((result) => {
+              /* Read more about handling dismissals below */
+              if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Something went wrong!',
+                  showConfirmButton: false,
+                  timer: 3000
+                })
+              }
+              else{
+                console.log('I was closed by the User')
+              }
+            })
+            
+          }
+            
+        })
+      }
 
       function move(y) {
         if (y == 1){

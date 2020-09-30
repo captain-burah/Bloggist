@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/student_dashboard';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -73,7 +73,7 @@ class LoginController extends Controller
 
         if (Auth::guard()->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect('/student_dashboard');
+            return ('console.log("Student Logged In")');
         }
         return back()->withInput($request->only('email', 'remember'));
     }

@@ -18,31 +18,30 @@ Route::get('/', function () {
 Auth::routes();
 
 //--------------------------- Home Routes Auths------------------------------------------------->
-Route::get('/home', 'HomeController@index')->name('home-guest-auth');
-Route::get('/home_tutor', 'Lecturer\LecturerController@home_tutor')->name('home-tutor-auth');
-Route::get('/home_student', 'Student\StudentController@home_student')->name('home-student-auth');
+    Route::get('/home', 'HomeController@index')->name('home-guest-auth');
+    Route::get('/home_tutor', 'Lecturer\LecturerController@home_tutor')->name('home-tutor-auth');
+    Route::get('/home_student', 'Student\StudentController@home_student')->name('home-student-auth');
 //--------------------------- /Home Routes Auths------------------------------------------------>
 
 
 
 //--------------------------- Academy Routes Auths------------------------------------------------->
-Route::get('/Landing', 'HomeController@Landing')->name('academy-guest-auth');
-Route::get('/student_registration', function(){
-    return view('studentReg');
-});
-Route::get('/tutor_registration', function(){
-    return view('/tutorReg');
-});
+    Route::get('/Landing', 'HomeController@Landing')->name('academy-guest-auth');
+    Route::get('/student_registration', function(){
+        return view('studentReg');
+    });
+    Route::get('/tutor_registration', function(){
+        return view('/tutorReg');
+    });
+//--------------------------- /Academy Routes Auths------------------------------------------------->
 
-
-//--------------------------- /Home Routes Auths------------------------------------------------>
 
 
 
 //--------------------------- Dashboard Routes------------------------------------------------>
-Route::get('/student_dashboard', 'Student\StudentController@dashboard')->name('student-home');
-Route::get('/tutor', 'Lecturer\LecturerController@dashboard')->name('tutor-home');
-Route::get('/tutor_registered', 'Lecturer\LecturerController@registered')->name('tutor-registered');
+    //Route::get('/student_dashboard', 'Student\StudentController@dashboard')->name('student-home');
+    Route::get('/tutor', 'Lecturer\LecturerController@dashboard')->name('tutor-home');
+    //Route::get('/tutor_registered', 'Lecturer\LecturerController@registered')->name('tutor-registered');
 //--------------------------- /Dashboard Routes------------------------------------------------>
 
 //Route::view('/join_tutor', 'lecturer.Lregister');
@@ -67,12 +66,12 @@ Route::get('/tutor_registered', 'Lecturer\LecturerController@registered')->name(
     });
 
 //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
-Route::get('/login/tutor', 'Auth\LoginController@showlecLoginForm');
-Route::get('/register/tutor', 'Auth\RegisterController@showlecRegisterForm');
+    Route::get('/login/tutor', 'Auth\LoginController@showlecLoginForm');
+    Route::get('/register/tutor', 'Auth\RegisterController@showlecRegisterForm');
 
-Route::post('/tutor/login', 'Auth\LoginController@lecLogin');
-Route::post('/student/login', 'Auth\LoginController@stuLogin');
-Route::post('/tutor/register', 'Auth\RegisterController@createLec');
+    Route::post('/tutor/login', 'Auth\LoginController@lecLogin');
+    Route::post('/student/login', 'Auth\LoginController@stuLogin');
+    Route::post('/tutor/register', 'Auth\RegisterController@createLec');
 
 
 //------------------------------------------------
