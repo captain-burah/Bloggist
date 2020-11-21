@@ -136,13 +136,12 @@
     <!--   Core JS Files   -->
     <script>
         function scrollLecReg() {
-                if ($('.section-LecReg').length != 0) {
-                    $("html, body").animate({
-                        scrollTop: $('.section-LecReg').offset().top
-                    }, 1000);
-                    }
-                };
-                
+            if ($('.section-LecReg').length != 0) {
+                $("html, body").animate({
+                    scrollTop: $('.section-LecReg').offset().top
+                }, 1000);
+                }
+            };
     </script>
   </body>
 

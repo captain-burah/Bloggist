@@ -46,9 +46,9 @@ Route::get('/setup', function()
         //------- Student Log-In uses laravel default /login route---//
 
         //------- Tutor Sign Up
-                Route::get('/tutor_registration', function(){
-                    return view('/tutorReg');
-                });
+                //Route::get('/tutor_registration', function(){
+                //    return view('/tutorReg');
+                //});
 
         //------- Tutor Login
                 Route::get('/tutor_login', function(){
