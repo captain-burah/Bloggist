@@ -15,11 +15,13 @@ class CreateLecturersTable extends Migration
     {
         Schema::create('lecturers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Fname');
-            $table->string('Lname');
+            $table->string('fname');
+            $table->string('lname');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('subdomain');
+            $table->string('regStatus')->default("false");
+            //$table->string('privacyPolicy');
+
             
             $table->string('bio')->nullable(true);
             $table->string('gender')->default('Prefer Not To Say')->nullable(true);

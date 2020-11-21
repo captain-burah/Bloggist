@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<html  lang="{{ app()->getLocale() }}">
+<html  lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+    
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script> window.laravel = { csrfToken: '{{ csrf_token() }}' } </script>
-    <title>
-        Virtual Venture 2021
-    </title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 
-    <!--     Fonts and icons     -->
+    <!-- Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link href="css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
 
     <!-- CSS Files -->
     <link href="css/material-kit.min.css?v=2.0.7" rel="stylesheet" />
-    <link rel="stylesheet" href="sweetalert2.min.css" />
+
     <style>
       .separator {
         color: #c5a47e;
@@ -130,10 +129,7 @@
         height: 100%;
         background-color: #F44336;
       }
-    </style>
-    
-    
-    
+    </style>  
 </head>
 
 <body class="landing-page sidebar-collapse">
@@ -169,82 +165,56 @@
                       <i class="material-icons">attach_money</i> Pricing
                       </a>
                   </li>
-                  
-                  <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
-                    <i class="material-icons">person_add</i> Register
-                    </a>
+
+                  <li class="nav-item">  <!---- Register item--->
+                    @if (Route::has('login'))
+                        <div>
+                            @auth
+                                @isset($url)
+                                    @if ($url === "/student")
+                                      <li class="nav-item">
+                                        <a href="{{ url('/student_dashboard') }}" class="nav-link">
+                                          <i class="material-icons">dashboard</i> Go to Dashboard
+                                        </a>
+                                      </li>
+                                    @elseif ($url === "/tutors")
+                                      <li class="nav-item">
+                                        <a href="{{ url('/tutor') }}" class="nav-link">
+                                          <i class="material-icons">dashboard</i> Go to Dashboard
+                                        </a>
+                                      </li>
+                                    @endif
+                                @endisset
+                                @empty($url)
+                                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
+                                      <i class="material-icons">person_add</i> Register
+                                    </a>
+                                @endempty
+                            @else
+                                <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
+                                  <i class="material-icons">person_add</i> Register
+                                </a>
+                            @endauth
+                        </div>
+                    @endif
                   </li>
 
-                  <li class="dropdown nav-item">
-                      <!-----   Log In Auth   ----->
-                          @if (Route::has('login'))
-                              @isset($url)
-                                  <!----------------------------   Student Landing   -------------->
-                                  @if ($url === "/student")
-                                      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                          <i class="material-icons">apps</i> {{ Auth::user()->name}}
-                                      </a>
-                                      <div class="dropdown-menu dropdown-with-icons">
-                                          <a href="{{ url('/student_dashboard') }}" class="dropdown-item"> 
-                                              <i class="material-icons">child_care</i> My Dashboard
-                                          </a>
-                                      </div>
-
-                                  <!----------------------------   Tutor Landing   -------------->
-                                  @elseif ($url === "/tutors")
-                                      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                          <i class="material-icons">apps</i> {{ Auth::guard('lecturer')->user()->Fname }}
-                                      </a>
-                                      <div class="dropdown-menu dropdown-with-icons">
-                                          <a href="{{ url('/tutor') }}" class="dropdown-item"> 
-                                              <i class="material-icons">school</i> My Dashboard
-                                          </a>
-                                      </div>
-                                  @endif
-                              @endisset
-
-                              <!----------------------------   Empty URL Landing   -------------->
-                              @empty($url)
-                                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                      <i class="material-icons">apps</i> Log In
-                                  </a>
-                                  <div class="dropdown-menu dropdown-with-icons">
-                                      <a href="{{ route('login') }}" class="dropdown-item">
-                                          <i class="material-icons">child_care</i> Student
-                                      </a>
-                                      <a href="{{ url('/login/tutor') }}" class="dropdown-item">
-                                          <i class="material-icons">school</i> Tutor
-                                      </a>
-                                  </div>
-                              @endempty
-
-                          @else 
-                              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                  <i class="material-icons">apps</i> Log In
-                              </a>
-                              <div class="dropdown-menu dropdown-with-icons">
-                                  <a href="{{ route('login') }}" class="dropdown-item">
-                                      <i class="material-icons">child_care</i> Student
-                                  </a>
-                                  <a href="{{ url('/login/tutor') }}" class="dropdown-item">
-                                      <i class="material-icons">school</i> Tutor
-                                  </a>
-                              </div>
-                          @endif
-                      <!-----   Log In Auth   ----->
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link text-center" rel="tooltip" title="" data-placement="bottom" 
-                      href="https://www.facebook.com/CaptainBurah" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
-                      <i class="fa fa-facebook-square"></i>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link text-center" rel="tooltip" title="" data-placement="bottom" 
-                      href="https://www.instagram.com/captain_burah" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">
-                      <i class="fa fa-instagram"></i>
-                      </a>
+                  <li class="nav-item">  <!---- Log-In item--->
+                    @if (Route::has('login'))
+                        <div>
+                            @auth
+                                @empty($url)
+                                    <a class="nav-link"  href="{{ route('login') }}">
+                                      <i class="material-icons">login</i> Log-In
+                                    </a>
+                                @endempty
+                            @else
+                                <a class="nav-link" href="{{ route('login') }}">
+                                  <i class="material-icons">login</i> Log-In
+                                </a>
+                            @endauth
+                        </div>
+                    @endif
                   </li>
               </ul>
           <!---   Navbar Right   --->
@@ -252,6 +222,7 @@
       </div>
     </nav>
   <!--  Nav  -->
+
   <!---   Cover   --->
     <div class="page-header header-filter" data-parallax="true" 
     style="background-image: url(img/bg13.jpg); transform: translate3d(0px, 0px, 0px);">
@@ -282,7 +253,7 @@
               <h1 class="title text-right">Your Story Starts Now</h1>
               <div class="blockquote bg-dark">
                 <p>
-                  You are born to the future (today), now forge your future you <br>want to live with what you have today.
+                  You are born to the future (today), now forge your future you want to live with what you have today.
                 </p>
                 <small class="">
                   - my father -
@@ -360,7 +331,7 @@
                 <div class="col-lg-5 mx-auto">
                   <div class="card  ">
                       <div class="card-header card-header-warning text-center " >
-                        <a href="/student_registration" 
+                        <a href="/register" 
                         class="btn btn-white btn-block fontOne text-capitalize text-dark" 
                         >
                           <i class="fa fa-university"></i>&nbsp Join As Student
@@ -793,7 +764,6 @@
     <script src="js/core/popper.min.js" type="text/javascript"></script>
     <script src="js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
     <script src="js/plugins/moment.min.js"></script>
-    <script src="sweetalert2.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
     <script src="js/plugins/nouislider.min.js" type="text/javascript"></script>

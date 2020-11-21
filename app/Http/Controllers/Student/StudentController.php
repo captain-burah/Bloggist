@@ -16,7 +16,7 @@ class StudentController extends Controller
     }
     public function index()
     {
-        return view('landing');
+        return view('layout.tutorReg');
     }
 //---------------- Student----------------------
     public function dashboard()
@@ -27,7 +27,7 @@ class StudentController extends Controller
 //---------------- home_student----------------------
     public function home_student()
     {
-        return view('welcome',  ['url' => '/student']);
+        return view('landing',  ['url' => '/student']);
     }
 
 

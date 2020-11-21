@@ -97,6 +97,15 @@ class LecturerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function setup_submit(request $request)
+    {
+
+
+        
+    }
+
+    
     public function show($id)
     {
         //

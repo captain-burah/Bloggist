@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
 use Session;
+use App\Lecturer;
 class LoginController extends Controller
 {
     /*
@@ -27,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -57,7 +58,6 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('lecturer')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
             return redirect('/tutor');
         }
         return back()->withInput($request->only('email', 'remember'));
@@ -72,7 +72,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard()->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
+            
             return ('console.log("Student Logged In")');
         }
         return back()->withInput($request->only('email', 'remember'));

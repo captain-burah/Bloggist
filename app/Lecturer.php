@@ -18,7 +18,7 @@ class Lecturer extends Authenticatable
     protected $guard = 'lecturer';
 
     protected $fillable = [
-        'Fname', 'Lname', 'email', 'password', 'subdomain'
+        'fname', 'lname', 'email', 'password', 'regStatus'
     ];
 
     /**

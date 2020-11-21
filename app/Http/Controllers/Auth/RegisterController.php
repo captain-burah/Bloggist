@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/student_dashboard';
     
 
     /**
@@ -61,7 +61,9 @@ class RegisterController extends Controller
             'gender' => 'required',
             'batch1'  => 'required',
             'batch2'  => 'required',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string|min:6|confirmed',
+            'password_confirmation' => 'required| min:6',
+
         ]);
     }
 
@@ -80,40 +82,52 @@ class RegisterController extends Controller
             'dob' => $data['dob'],
             'gender' => $data['gender'],
             'batch1'  => $data['batch1'],
-            'batch2'  => $data['batch1'],
+            'batch2'  => $data['batch2'],
             'password' => Hash::make($data['password']),
         ]);
     }
 
 
-    //--------------- Tutor Controllers ----------------
-    public function showLecRegisterForm()
-    {
-        return view('lecturer.Lregister');
-    }
 
-    protected function createLec(Request $request)
-    {
-        $validate = $this->validate($request, [
-            'Fname'  => 'required|string|max:191',
-            'Lname'  => 'required|string|max:191',
-            'email'  => 'required|string|email|max:191|unique:lecturers',
-            'password'  => 'required|string|min:8',
-            'subdomain' => 'required',
-        ]);
-        if ($validate == true):
-            Lecturer::create([
-                'Fname' => $request['Fname'],
-                'Lname' => $request['Lname'],
-                'email' => $request['email'],
-                'password' => Hash::make($request['password']),
-                'subdomain' => $request['subdomain']
-                
+
+
+
+
+
+
+    //--------------- Tutor Controllers ----------------
+        public function showLecRegisterForm()
+        {
+            return view('tutorReg');
+        }
+        
+
+        protected function createLec(Request $request)
+        {
+            $validate = $this->validate($request, [
+                'fname'  => 'required|string|max:191',
+                'lname'  => 'required|string|max:191',
+                'email'  => 'required|string|email|max:191|unique:lecturers',
+                'gender' => 'required|string',
+                'password' => 'required|string|min:6|confirmed',
+                'password_confirmation' => 'required| min:6',
+                //'privacyPolicy' => 'required|string',
             ]);
-            return redirect('/login/tutor');
-        else:
-            return ('Failled');
-        endif;
-    }
+            if ($validate == true):
+                
+                Lecturer::create([
+                    'fname' => $request['fname'],
+                    'lname' => $request['lname'],
+                    'email' => $request['email'],
+                    'password' => Hash::make($request['password']),
+                    //'privacyPolicy' => $request['privacyPolicy'],
+                    
+                ]);
+                return redirect('/login/tutor');
+            else:
+                return ('Failled');
+            endif;
+        }
+    //--------------- Tutor Controllers ----------------
 
 }

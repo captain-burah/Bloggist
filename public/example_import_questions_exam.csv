@@ -1,0 +1,5 @@
+question,points,answer_1,explanation_1,correct_1,answer_2,explanation_2,correct_2,answer_3,explanation_3,correct_3,answer_4,explanation_4,correct_4,answer_5,explanation_5,correct_5,answer_6,explanation_6,correct_6,answer_7,explanation_7,correct_7,answer_8,explanation_8,correct_8,answer_9,explanation_9,correct_9,answer_10,explanation_10,correct_10,explanation,category_1,category_2,category_3
+Enter your question here,2,Right answer,Explanation to answer 1,1,Right answer,Explanation to answer 2,1,Wrong answer,Explanation to answer 3,0,,,,,,,,,,,,,,,,,,,,,,You can enter a general explanation to the question here,Category name,Another Category,A third Category
+Another question,4,Right answer,Explanation to answer 1,1,Wrong answer,Explanation to answer 2,0,Wrong answer,Explanation to answer 3,0,,,,,,,,,,,,,,,,,,,,,,,Maybe yet another Category,,
+A third question,1,Wrong answer,Explanation to answer 1,0,Wrong answer,Explanation to answer 2,0,Right answer,Explanation to answer 3,1,,,,,,,,,,,,,,,,,,,,,,,,,
+Last question,3,Right answer,Explanation to answer 1,1,Wrong answer,Explanation to answer 2,0,Right answer,Explanation to answer 3,1,,,,,,,,,,,,,,,,,,,,,,,,,
