@@ -26,8 +26,7 @@ Route::get('/login/tutor', 'Auth\LoginController@showlecLoginForm');
 Route::post('/tutor/login', 'Auth\LoginController@lecLogin');
 Route::post('/student/login', 'Auth\LoginController@stuLogin');
 //Route::post('/setup_submit', 'Lecturer\LecturerController@setup_submit');
-Route::get('/setup', function()
-{
+Route::get('/setup', function () {
     return view('lecturer.setup.lecSetup');
 });
 
