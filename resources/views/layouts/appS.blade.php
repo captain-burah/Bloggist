@@ -138,16 +138,7 @@
         <script src="js/material-kit.js?v=2.0.7" type="text/javascript"></script>
 
         <script>
-            $(document).ready(function() {
-                if ($('.datetimepicker').length != 0) {
-                //init DateTimePickers
-                materialKit.initFormExtendedDatetimepickers();
-                }
-                if ($('.slider').length != 0) {
-                // Sliders Init
-                materialKit.initSliders();
-                }
-            });
+            
 
             function scrollStuReg() {
                 if ($('.section-StuReg').length != 0) {

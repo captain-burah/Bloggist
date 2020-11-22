@@ -19,7 +19,7 @@
                         
                     </div>
                     <div class="card-body p-0">
-                        <form id="regForm" action="{{ ('/setup_submit')}}">
+                        <form id="regForm" action="">
                             <p class="text-center p-3">
                                 The information is vital for us to analyse, track and monitor the progress of all our users, with professional practice and code of ethics, in order to create a better system of use. Please be known, that all the data gathered will be gauranteed to be used in respect to the Data Protection Act 1998, as described in the privacy policy.
                             </p>
