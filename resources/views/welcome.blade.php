@@ -234,7 +234,7 @@
 <!---------------Main Section---------------->
             <main role="main" class="inner cover rounded">
 
-                <div class="row mastMenu text-light my-0 " style="opacity: .9;;">
+                <div class="row mastMenu text-light my-0 " style="opacity: .9;">
                     <div class="col-md-3 my-0 py-3 mastMenu-item" >
                         <a href="//www.google.com" class=" mastMenu-a text-light"><i class="fas fa-school text-warning "></i>&nbsp Academy</a>
                     </div>
