@@ -174,7 +174,13 @@
         <script src="js/material-kit.js?v=2.0.7" type="text/javascript"></script>
     <!--   Core JS Files   -->
     <script>
-        
+        function scrollLecReg() {
+                if ($('.section-LecReg').length != 0) {
+                    $("html, body").animate({
+                        scrollTop: $('.section-LecReg').offset().top
+                    }, 1000);
+                    }
+                };
                 
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab

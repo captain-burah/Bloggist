@@ -140,7 +140,13 @@
         <script>
             
 
-            
+            function scrollStuReg() {
+                if ($('.section-StuReg').length != 0) {
+                $("html, body").animate({
+                    scrollTop: $('.section-StuReg').offset().top
+                }, 1000);
+                }
+            }
         </script>
     <!--   Core JS Files   -->
   </body>

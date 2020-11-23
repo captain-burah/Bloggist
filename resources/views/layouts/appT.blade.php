@@ -135,13 +135,13 @@
         <script src="js/material-kit.js?v=2.0.7" type="text/javascript"></script>
     <!--   Core JS Files   -->
     <script>
-        //function scrollLecReg() {
-        //    if ($('.section-LecReg').length != 0) {
-         //       $("html, body").animate({
-         //           scrollTop: $('.section-LecReg').offset().top
-         //       }, 1000);
-         //       }
-         //   };
+        function scrollLecReg() {
+            if ($('.section-LecReg').length != 0) {
+                $("html, body").animate({
+                    scrollTop: $('.section-LecReg').offset().top
+                }, 1000);
+                }
+            };
     </script>
   </body>
 
