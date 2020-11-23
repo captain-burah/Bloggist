@@ -251,8 +251,8 @@
                         </div>
                         <p class="text-center">Please have yourself read through the privacy policy article before you make any further actions.</p>
                         <div class="form-group p-0">
-                            <input type="checkbox"/> {{_("I have read & agreed to the ")}} 
-                            <a href="">{{_("Privacy Policy")}}</a>{{_(" article and i give my consent to withold & use my information.")}}
+                            <input type="checkbox"/> {{ __("I have read & agreed to the ")}} 
+                            <a href="">{{ __("Privacy Policy")}}</a>{{ __(" article and i give my consent to withold & use my information.")}}
                         </div>
                         <button type="submit" class="btn btn-block btn-success">
                         {{ __('Register') }}
