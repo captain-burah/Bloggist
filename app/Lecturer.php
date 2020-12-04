@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+
 
 class Lecturer extends Authenticatable
 {
@@ -18,7 +20,7 @@ class Lecturer extends Authenticatable
     protected $guard = 'lecturer';
 
     protected $fillable = [
-        'fname', 'lname', 'email', 'password', 'regStatus'
+        'fname', 'lname', 'email', 'password', 'regStatus', 'gender'
     ];
 
     /**
@@ -28,5 +30,10 @@ class Lecturer extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
-    ];
+    ]; 
+
+    public function lecturerInfo()
+    {
+        return $this->hasOne('App\LecturerInfo', 'lec_email', 'email');
+    }
 }

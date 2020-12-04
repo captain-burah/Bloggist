@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Lecturer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Lecturer;
+use App\LecturerInfo;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -54,6 +57,41 @@ class LecturerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+//----------------- Tutor Setup Page Submission ----------------------------
+    public function setupSubmit(Request $request){
+        
+    }
+
+//----------------- Tutor Setup Page Submission ----------------------------
+
+
+    //public function test(){
+    //    $id = Lecturer::select('id')->where('email', 'mazda@gmail.com')->first();
+    //    $phone = Lecturer::find($id->id)->lecturerInfo;
+    //    return dd($phone);
+    //}
+
+
+
+    public function error(){
+        try {
+            $user = Lecturer::where('email', 'lec2@gmail.com')->firstOrFail();
+            $user->load(['LecturerInfo']);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $exception ){
+            $message = 'Failled to create a new database record for ';
+            return view('errors.something', compact('message'));
+            //return view('errors.notFound');
+        } catch (\Illuminate\Database\Eloquent\RelationNotFoundException $exception ){
+            //dd(get_class($exception));
+            return view('errors.relations');
+        };
+        
+        
+        return view('errors.404', compact('user'));
+    }
+
+
     public function create()
     {
         //
@@ -65,6 +103,8 @@ class LecturerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function store(Request $request)
     {
         
@@ -112,6 +152,7 @@ class LecturerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
         //
@@ -124,6 +165,7 @@ class LecturerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //
@@ -135,6 +177,7 @@ class LecturerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         //

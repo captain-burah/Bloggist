@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Lecturer;
+use App\LecturerInfo;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -113,20 +116,27 @@ class RegisterController extends Controller
                 'password_confirmation' => 'required| min:6',
                 //'privacyPolicy' => 'required|string',
             ]);
-            if ($validate == true):
-                
-                Lecturer::create([
-                    'fname' => $request['fname'],
-                    'lname' => $request['lname'],
-                    'email' => $request['email'],
-                    'password' => Hash::make($request['password']),
-                    //'privacyPolicy' => $request['privacyPolicy'],
-                    
-                ]);
-                return redirect('/login/tutor');
-            else:
-                return ('Failled');
-            endif;
+            if ($validate == true){
+                try{
+                    Lecturer::create([
+                        'fname' => $request['fname'],
+                        'lname' => $request['lname'],
+                        'email' => $request['email'],
+                        'password' => Hash::make($request['password']),
+                        
+                    ]);
+                } catch (\Exception $exception) {
+                    $message = 'Failled to create a new database record for '.$request->email;
+                    return view('errors.notFound', compact('message'));
+                }
+
+                $user = new LecturerInfo();
+                $user->lec_email = $request['email'];
+                $user->gender = $request['gender'];
+                $user->push();
+                return redirect('/tutor/login');
+            }
+        //Else statement not required, Laravel redirects USER back with flash messages
         }
     //--------------- Tutor Controllers ----------------
 

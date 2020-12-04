@@ -22,50 +22,78 @@
     <link href="css/material-kit.min.css?v=2.0.7" rel="stylesheet" />
     <link href="demo/demo.css" rel="stylesheet" />
     <style>
-        /* Style the form */
-        
-
-        /* Style the input fields */
-        
+        /*Profile Image CSS ---------------*/
+            .image-preview__image{
+                max-width: 400px;
+                max-height: 400px;
+                border-radius: 50%;
+                border: 2px solid #dddddd;
+            }
+            .image-preview{
+                min-width: 200px;
+                min-height: 200px;
+                border-radius: 50%;
+                
+                
+                                
+                /* default text */
+                display: flex;
+                align-items: center;
+                justify-contents: center;
+                font-weight: bold;
+                color: #cccccc;
+            }
+            
+            .image-preview__image{
+                display: block;
+                width: 100%;
+            }
+            .image-preview__default-text{
+                display: none;
+                width: 100%;
+            }
 
         /* Mark input boxes that gets an error on validation: */
-        input.invalid {
-        background-color: #ffdddd;
-        }
+            input.invalid {
+                background-color: #ffdddd;
+            }
+            textarea.invalid{
+                background-color: #ffdddd;
+            }
 
         /* Hide all steps by default: */
-        .tab {
-        display: none;
-        }
+            .tab {
+            display: none;
+            }
 
         /* Make circles that indicate the steps of the form: */
-        .step {
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
-        background-color: #bbbbbb;
-        border: none;
-        border-radius: 50%;
-        display: inline-block;
-        opacity: 0.5;
-        }
+            .step {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.5;
+            }
 
         /* Mark the active step: */
-        .step.active {
-        opacity: 1;
-        }
+            .step.active {
+            opacity: 1;
+            }
 
         /* Mark the steps that are finished and valid: */
-        .step.finish {
-        background-color: #4CAF50;
-        }
+            .step.finish {
+            background-color: #4CAF50;
+            }
     </style>
 
 </head>
 
 
 <body class="bg-info login-page sidebar-collapse">
-    <nav class="navbar fixed-top navbar-expand-lg" id="sectionsNav">
+    <nav class="navbar  navbar-expand-lg" id="sectionsNav">
         <div class="container ">
             <div class="navbar-translate">
                 <a class="navbar-brand" href="/Landing">
@@ -81,25 +109,27 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link text-capitalize" data-toggle="dropdown">
-                    <i class="material-icons">apps</i> Choose Your Language
-                    </a>
-                    <div class="dropdown-menu dropdown-with-icons">
-                    <a href="../index.html" class="dropdown-item">
-                        <i class="material-icons">layers</i>English
-                    </a>
-                    <a href="#l" class="dropdown-item">
-                        <i class="material-icons">content_paste</i> Sinhala
-                    </a>
-                    <a href="#l" class="dropdown-item">
-                        <i class="material-icons">content_paste</i> Tamil
-                    </a>
-                    </div>
-                </li>
-
-                
-
+                    <li class="nav-item">
+                        <a class="navbar-brand">
+                            <span class="text-capitalize">Welcome {{ Auth::user()->fname }} {{ Auth::user()->lname }}</span>
+                        </a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link text-capitalize" data-toggle="dropdown">
+                            <i class="material-icons">apps</i> Choose Your Language
+                        </a>
+                        <div class="dropdown-menu dropdown-with-icons">
+                            <a href="../index.html" class="dropdown-item">
+                                <i class="material-icons">layers</i>English
+                            </a>
+                            <a href="#l" class="dropdown-item">
+                                <i class="material-icons">content_paste</i> Sinhala
+                            </a>
+                            <a href="#l" class="dropdown-item">
+                                <i class="material-icons">content_paste</i> Tamil
+                            </a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -174,86 +204,172 @@
         <script src="js/material-kit.js?v=2.0.7" type="text/javascript"></script>
     <!--   Core JS Files   -->
     <script>
+
+        // ---------------- FileInput -----------------------------
+            $('.form-file-simple .inputFileVisible').click(function() {
+            $(this).siblings('.inputFileHidden').trigger('click');
+            });
+
+            $('.form-file-simple .inputFileHidden').change(function() {
+            var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
+            $(this).siblings('.inputFileVisible').val(filename);
+            });
+
+            $('.form-file-multiple .inputFileVisible, .form-file-multiple .input-group-btn').click(function() {
+            $(this).parent().parent().find('.inputFileHidden').trigger('click');
+            $(this).parent().parent().addClass('is-focused');
+            });
+
+            $('.form-file-multiple .inputFileHidden').change(function() {
+            var names = '';
+            for (var i = 0; i < $(this).get(0).files.length; ++i) {
+                if (i < $(this).get(0).files.length - 1) {
+                names += $(this).get(0).files.item(i).name + ',';
+                } else {
+                names += $(this).get(0).files.item(i).name;
+                }
+            }
+            $(this).siblings('.input-group').find('.inputFileVisible').val(names);
+            });
+
+            $('.form-file-multiple .btn').on('focus', function() {
+            $(this).parent().siblings().trigger('focus');
+            });
+
+            $('.form-file-multiple .btn').on('focusout', function() {
+            $(this).parent().siblings().trigger('focusout');
+            });
+        // --------------- /FileInput -----------------------------
+
+        // ---------------- Tab 01: Image preview -----------------------------
+            const inpFile = document.getElementById('inpFile');
+            const previewContainer = document.getElementById('imagePreview');
+            const previewImage = previewContainer.querySelector(".image-preview__image");
+            const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+
+            inpFile.addEventListener("change", function(){
+                const file = this.files[0];
+
+                if (file){
+                    const reader = new FileReader();
+
+                    previewDefaultText.style.display = "none";
+                    previewImage.style.display = "block";
+
+                    reader.addEventListener("load", function(){
+                        console.log(this);
+                        previewImage.setAttribute("src", this.result);
+                    });
+
+                    reader.readAsDataURL(file);
+                } else{
+                    previewDefaultText.style.display = null;
+                    previewImage.style.display = null;
+                    previewImage.setAttribute("src", "{{ asset('img/profile/tutors.png')}}");
+                }
+            });
+        // --------------- /Tab 01: Image preview -----------------------------
+            
         function scrollLecReg() {
                 if ($('.section-LecReg').length != 0) {
                     $("html, body").animate({
                         scrollTop: $('.section-LecReg').offset().top
                     }, 1000);
-                    }
-                };
-                
-        var currentTab = 0; // Current tab is set to be the first tab (0)
-        showTab(currentTab); // Display the current tab
-
-        function showTab(n) {
-        // This function will display the specified tab of the form ...
-        var x = document.getElementsByClassName("tab");
-        x[n].style.display = "block";
-        // ... and fix the Previous/Next buttons:
-        if (n == 0) {
-            document.getElementById("prevBtn").style.display = "none";
-        } else {
-            document.getElementById("prevBtn").style.display = "inline";
-        }
-        if (n == (x.length - 1)) {
-            document.getElementById("nextBtn").innerHTML = "Submit";
-        } else {
-            document.getElementById("nextBtn").innerHTML = "Next";
-        }
-        // ... and run a function that displays the correct step indicator:
-        fixStepIndicator(n)
-        }
-
-        function nextPrev(n) {
-        // This function will figure out which tab to display
-        var x = document.getElementsByClassName("tab");
-        // Exit the function if any field in the current tab is invalid:
-        if (n == 1 && !validateForm()) return false;
-        // Hide the current tab:
-        x[currentTab].style.display = "none";
-        // Increase or decrease the current tab by 1:
-        currentTab = currentTab + n;
-        // if you have reached the end of the form... :
-        if (currentTab >= x.length) {
-            //...the form gets submitted:
-            document.getElementById("regForm").submit();
-            return false;
-        }
-        // Otherwise, display the correct tab:
-        showTab(currentTab);
-        }
-
-        function validateForm() {
-        // This function deals with validation of the form fields
-        var x, y, i, valid = true;
-        x = document.getElementsByClassName("tab");
-        y = x[currentTab].getElementsByTagName("input");
-        // A loop that checks every input field in the current tab:
-        for (i = 0; i < y.length; i++) {
-            // If a field is empty...
-            if (y[i].value == "") {
-            // add an "invalid" class to the field:
-            y[i].className += " invalid";
-            // and set the current valid status to false:
-            valid = false;
+                }
+            };
+        
+        
+        //--------- Setup Page multi-form -------------
+            var currentTab = 0; // Current tab is set to be the first tab (0)
+            showTab(currentTab); // Display the current tab
+            function showTab(n) {
+                // This function will display the specified tab of the form ...
+                var x = document.getElementsByClassName("tab");
+                x[n].style.display = "block";
+                // ... and fix the Previous/Next buttons:
+                if (n == 0) {
+                    document.getElementById("prevBtn").style.display = "none";
+                } else {
+                    document.getElementById("prevBtn").style.display = "inline";
+                }
+                if (n == (x.length - 1)) {
+                    document.getElementById("nextBtn").innerHTML = "Submit";
+                } else {
+                    document.getElementById("nextBtn").innerHTML = "Next";
+                }
+                // ... and run a function that displays the correct step indicator:
+                fixStepIndicator(n)
             }
-        }
-        // If the valid status is true, mark the step as finished and valid:
-        if (valid) {
-            document.getElementsByClassName("step")[currentTab].className += " finish";
-        }
-        return valid; // return the valid status
-        }
 
-        function fixStepIndicator(n) {
-        // This function removes the "active" class of all steps...
-        var i, x = document.getElementsByClassName("step");
-        for (i = 0; i < x.length; i++) {
-            x[i].className = x[i].className.replace(" active", "");
-        }
-        //... and adds the "active" class to the current step:
-        x[n].className += " active";
-        }
+            function nextPrev(n) {
+                // This function will figure out which tab to display
+                var x = document.getElementsByClassName("tab");
+
+                // Exit the function if any field in the current tab is invalid:
+                if (n == 1 && !validateForm()) return false;
+
+                // Hide the current tab:
+                x[currentTab].style.display = "none";
+
+                // Increase or decrease the current tab by 1:
+                currentTab = currentTab + n;
+
+                // if you have reached the end of the form... :
+                if (currentTab >= x.length) {
+                    //...the form gets submitted:
+                    document.getElementById("regForm").submit();
+                    return false;
+                }
+
+                // Otherwise, display the correct tab:
+                showTab(currentTab);
+            }
+
+            function validateForm() {
+                // This function deals with validation of the form fields
+                var x, y, i, valid = true;
+                x = document.getElementsByClassName("tab");
+                y = x[currentTab].getElementsByTagName("input");
+
+                // A loop that checks every input field in the current tab:
+                for (i = 0; i < y.length; i++) {
+                    // If a field is empty...
+                    if (y[i].value == "") {
+                        // add an "invalid" class to the field:
+                        y[i].className += " invalid";
+                        // and set the current valid status to false:
+                        valid = false;
+                    }
+                }
+                
+                // If the valid status is true, mark the step as finished and valid:
+                if (valid) {
+                    document.getElementsByClassName("step")[currentTab].className += " finish";
+                }
+                return valid; // return the valid status
+            }
+
+            function fixStepIndicator(n) {
+                // This function removes the "active" class of all steps...
+                var i, x = document.getElementsByClassName("step");
+                for (i = 0; i < x.length; i++) {
+                    x[i].className = x[i].className.replace(" active", "");
+                }
+                //... and adds the "active" class to the current step:
+                x[n].className += " active";
+            }
+        //--------- Setup Page multi-form -------------
+
+        //--------- Tab 01: other option --------------
+            function yesnoCheck(that) {
+                if (that.value == "Other") {
+                    
+                    document.getElementById("ifYes").style.display = "block";
+                } else {
+                    document.getElementById("ifYes").style.display = "none";
+                }
+            }
+
     </script>
   </body>
 

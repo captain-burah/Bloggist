@@ -21,9 +21,14 @@ class Handler extends ExceptionHandler
             if ($request->is('student') || $request->is('student/*')) {
                 return redirect()->guest('/login');
             }
-            
+            if ($request->is('setup') || $request->is('setup/*')) {
+                return redirect()->guest('/login/tutor');
+            }
+
             return redirect()->guest('home');
         }
+
+
     /**
      * A list of the exception types that are not reported.
      *
@@ -43,6 +48,7 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
+
     /**
      * Report or log an exception.
      *
@@ -53,6 +59,7 @@ class Handler extends ExceptionHandler
     {
         parent::report($exception);
     }
+
 
     /**
      * Render an exception into an HTTP response.

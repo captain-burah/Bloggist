@@ -14,20 +14,24 @@
 Route::get('/', function () {
     return view('landing');
 });
-
 Auth::routes();
 
 
+
+
+
 //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
-    
 Route::get('/tutor_registration', 'Auth\RegisterController@showlecRegisterForm'); 
 Route::post('/tutor/register', 'Auth\RegisterController@createLec');
 Route::get('/login/tutor', 'Auth\LoginController@showlecLoginForm');
 Route::post('/tutor/login', 'Auth\LoginController@lecLogin');
 Route::post('/student/login', 'Auth\LoginController@stuLogin');
-Route::get('/setup', function () {
-    return view('lecturer.setup.lecSetup');
-});
+
+Route::get('/testPage', 'Lecturer\LecturerController@test');
+//---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
+
+
+
 
 
 
@@ -36,6 +40,11 @@ Route::get('/setup', function () {
         Route::get('/home_tutor', 'Lecturer\LecturerController@home_tutor')->name('home-tutor-auth');
         Route::get('/home_student', 'Student\StudentController@home_student')->name('home-student-auth');
 //--------------------------- /Home Routes Auths------------------------------------------------>
+
+
+
+
+
 
 //--------------------------- Academy Routes Auths------------------------------------------------->
         Route::get('/landing', 'HomeController@Landing')->name('landing'); //------- Home Page
@@ -49,9 +58,9 @@ Route::get('/setup', function () {
                 //});
 
         //------- Tutor Login
-                Route::get('/tutor_login', function(){
-                    return view('/tutorLog'); 
-                });
+        Route::get('/tutor_login', function(){
+            return view('/tutorLog'); 
+        });
 
 
         Route::get('/welcome', function(){
@@ -59,33 +68,69 @@ Route::get('/setup', function () {
         });
 //--------------------------- /Academy Routes Auths------------------------------------------------->
 
+
+
+
+
+
 //---------------------------- Lecturer Auths------------------------------------------------------->
         Route::group(['middleware' => 'auth:lecturer'], function() {
             Route::get('/', function () {
                 return view('welcome');
             });
+            
+            Route::get('/setup', function () {              //---- Loading of the step page
+                return view('lecturer.setup.lecSetup');     //---- This is controlled by App/Exceptions/Handler.php
+            });
+
+            Route::get('/setup_finish', 'Lecturer\LecturerController@setupSubmit')->name('Tsetup-Submit');
+            //Route::get('/testPage', 'Lecturer\LecturerController@test');
         });
 
 //--------------------------- /Lecturer Auths------------------------------------------------------->
+
+
+
+
+
+//--------------------------- /Error URLs------------------------------------------------------->
+Route::get('/404', function()
+{   $message = 'error fdsajdkf';
+    return view('errors.404', compact('message'));
+});
+
+Route::get('/test', 'Lecturer\LecturerController@error');
+//--------------------------- /Error URLs------------------------------------------------------->
+
+
+
+
 
 //---------------------------- Student Auths------------------------------------------------------->
         Route::group(['middleware' => 'auth'], function() {
             Route::get('/', function () {
                 return view('landing');
             });
-            
         });
 //--------------------------- /Student Auths------------------------------------------------------->
 
 
-Route::get('/student_dashboard', 'Student\StudentController@dashboard')->name('student-home');
+
+
+
+
 
 
 //--------------------------- Dashboard Routes------------------------------------------------>
-    
+    Route::get('/student_dashboard', 'Student\StudentController@dashboard')->name('student-home');
     Route::get('/tutor', 'Lecturer\LecturerController@dashboard')->name('tutor-home');
     //Route::get('/tutor_registered', 'Lecturer\LecturerController@registered')->name('tutor-registered');
 //--------------------------- /Dashboard Routes------------------------------------------------>
+
+
+
+
+
 
 //Route::view('/join_tutor', 'lecturer.Lregister');
 //Route::post('/tutor_register', 'Lecturer\LecturerController@store');

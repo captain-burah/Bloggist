@@ -225,7 +225,7 @@
 
   <!---   Cover   --->
     <div class="page-header header-filter" data-parallax="true" 
-    style="background-image: url(img/bg13.jpg); transform: translate3d(0px, 0px, 0px);">
+    style="background-image: url(img/city3.jpg); transform: translate3d(0px, 0px, 0px);">
       <div class="container">
         <div class="row ">
             <div class="col-md-5 text-center">
@@ -251,14 +251,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-6 text-right mobile-hide" >
               <h1 class="title text-right">Your Story Starts Now</h1>
-              <div class="blockquote bg-dark">
-                <p>
-                  You are born to the future (today), now forge your future you want to live with what you have today.
-                </p>
-                <small class="">
-                  - my father -
-                </small>
-              </div>
+              
               <a href="#" onclick="scrollToContactUs()"
               class="btn btn-danger btn-raised btn-lg text-capitalize ">
                 <i class="fa fa-play"></i> Hurry! Join asap
@@ -275,9 +268,55 @@
     <!---   Section 02  Features --->
         <div class="section pt-1 section-feature" id="featureSection">
           <div class="container">
-              <div class="title">
-                  <h1>Enligthen Your Features</h1>
-              </div>
+			<div class="section text-center">
+				<div class="row">
+				  <div class="col-md-8 ml-auto mr-auto">
+					<h2 class="title">Let's talk product</h2>
+					<h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.</h5>
+				  </div>
+				</div>
+				<div class="features">
+				  <div class="row">
+					  
+					<div class="col-md-4">
+					  <div class="info">
+						<div class="icon icon-info">
+						  <i class="material-icons">chat</i>
+						</div>
+						<h4 class="info-title">StudentCast</h4>
+						<p>A discussion forum that connects tutors and students together.
+						</p>
+					  </div>
+					</div>
+					
+					<div class="col-md-4">
+					  <div class="info">
+						<div class="icon icon-success">
+						  <i class="material-icons">verified_user</i>
+						</div>
+						<h4 class="info-title">Virtual Learning Environment</h4>
+						<p>
+							A user friendly environment with unrealistic facilities to satisfy 
+							both the students and tutors, to function all your everyday needs.
+						</p>
+					  </div>
+					</div>
+					
+					<div class="col-md-4">
+					  <div class="info">
+						<div class="icon icon-danger">
+						  <i class="material-icons">fingerprint</i>
+						</div>
+						<h4 class="info-title">Free Registrations</h4>
+						<p>
+							All tutors and students can register for free.
+						</p>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+              
           
           </div>
       </div>

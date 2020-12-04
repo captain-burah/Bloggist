@@ -22,11 +22,6 @@ class CreateLecturersTable extends Migration
             $table->string('regStatus')->default("false");
             //$table->string('privacyPolicy');
 
-            
-            $table->string('bio')->nullable(true);
-            $table->string('gender')->default('Prefer Not To Say')->nullable(true);
-            $table->string('contact')->nullable(true);
-            $table->string('photo')->default('profile.png');
             $table->rememberToken();
             $table->timestamps();
         });

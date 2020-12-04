@@ -7,7 +7,10 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
 use Session;
+use Illuminate\Support\Facades\DB;
 use App\Lecturer;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 class LoginController extends Controller
 {
     /*
@@ -58,7 +61,24 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('lecturer')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-            return redirect('/tutor');
+            
+            //we must validate the "tutor setup page" here before displaying
+            //the "dashboard" with an if clause accessing the DB lec table column name "regStatus"
+            $getArray = Lecturer::select('regStatus')->where('email', $request->email)->first();
+
+            if ($getArray->regStatus == 'false') {
+                //redirect to SETUP page
+                return redirect('/setup');
+            } 
+            elseif ($getArray->regStatus == 'true') {
+                //redirect to TUTOR DASHBOARD page
+                return redirect('/tutor');
+            } 
+            else {
+                return 'something wrong in "regStatus" page load';
+            };
+            
+            //return redirect('/tutor');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
