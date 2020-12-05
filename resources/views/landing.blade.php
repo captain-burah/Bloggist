@@ -335,10 +335,39 @@
 					 scroll to get here. Add a button if you want the user to see more.
 				</h5>
 			  </div>
-			</div>
+      </div>
+      <div class="row col-md-8 mx-1 mx-auto">
+        <div class="card border border-warning">
+          <div class="card-header card-header-warning">
+            <h3 class="card-title">Starter Plan</h3>
+          </div>
+          <div class="card-body">
+            <h5>
+              Storage: Unlimited
+              <br><hr class="bg-warning">
+              
+              Personalised Subdomain
+              <br><hr class="bg-warning">
+                          
+              Fast & Easy Exam & Lesson Module
+              <br><hr class="bg-warning">
+                          
+              Staff Accounts: 10
+              <br><hr class="bg-warning">
+                          
+              Transaction fee: 03 %
+              <br><hr class="bg-warning">
+              
+              Minimum LKR 2,500 /mo onwards
+            </h5>
+            <a href="#" class="btn btn-white border border-warning text-warning text-capitalize">
+              <h5 class="p-0 m-0">Go with Starter Plan</h5>
+            </a>
+          </div>
+        </div>
+      </div>
 			<div class="features">
-			  <div class="row mx-1">
-				  
+			  <div class="row mx-1">			  
 				<div class="col-md-3">
 					<div class="card border border-warning">
 						<div class="card-header card-header-warning">
@@ -347,25 +376,19 @@
 						</div>
 						<div class="card-body">
 							<h5>
-								Storage: Unlimited
+                With EV you only pay for what use, helping your 
+                career remain agile, responsive and always 
+                able to meet scale demands.
                 <br><hr class="bg-warning">
                 
-                Personalised Subdomain
+                Pay-as-you-go pricing allows you to easily adapt to 
+                changing needs without overcommitting budgets 
+                and improving your responsiveness to changes.
 								<br><hr class="bg-warning">
-                            
-                Fast & Easy Exam & Lesson Module
-                <br><hr class="bg-warning">
-                            
-                Staff Accounts: 10
-                <br><hr class="bg-warning">
-                            
-                Transaction fee: 03 %
-                <br><hr class="bg-warning">
                 
-								Minimum LKR 2,500 /mo onwards
 							</h5>
-							<a href="#" class="btn btn-white border border-warning text-warning text-capitalize">
-                <h5 class="p-0 m-0">Go with Starter Plan</h5>
+							<a href="#" class="btn btn-white border border-warning text-dark  text-capitalize">
+                <h5 class="p-0 m-0 font-weight-bold ">Read More</h5>
               </a>
 						</div>
 					</div>
