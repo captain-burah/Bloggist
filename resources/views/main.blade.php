@@ -267,11 +267,11 @@
   <div class="main main-raised">
 	<div class="container">
     <!---   Section 02  Features --->
-        <div class="pt-1 section-feature" id="featureSection">
+        <div class="section pt-1 section-feature" id="featureSection">
 			<div class="text-center">
 				<div class="row">
 				  <div class="col-md-8 ml-auto mr-auto">
-					<h1 class="title">Let's talk product</h1>
+					<h2 class="title">Let's talk product</h2>
 					<h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.</h5>
 				  </div>
 				</div>
@@ -319,153 +319,140 @@
 				  </div>
 				</div>
 			  </div>
+          
       </div>
     <!---   /Section 02  Features --->
-</div>
+
+    <!---   Section 01  WhoAreWe? --->
+        <div class="section section-whoAreWe" id="whoAreWeSection">
+            <div class=" text-center">
+				<h2 class="title">Who are we?</h2>
+				<div class="team">
+				  <div class="row">
+					<div class="col-md-4">
+					  <div class="team-player">
+						<div class="card card-plain">
+						  <div class="col-md-6 ml-auto mr-auto">
+							<img src="/img/faces/avatar.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+						  </div>
+						  <h4 class="card-title">Gigi Hadid
+							<br>
+							<small class="card-description text-muted">Model</small>
+						  </h4>
+						  <div class="card-body">
+							<p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+							  <a href="#">links</a> for people to be able to follow them outside the site.</p>
+						  </div>
+						  <div class="card-footer justify-content-center">
+							<a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+							<a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+							<a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<!---------- Khaazen ----------------->
+						<div class="col-md-4">
+							<div class="team-player">
+							<div class="card card-plain">
+								<div class="col-md-6 ml-auto mr-auto">
+								<img src="/img/faces/tkb4.jpeg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+								</div>
+								<h4 class="card-title">Khaazen Burah
+								<br>
+								<small class="card-description text-muted">Developer</small>
+								</h4>
+								<div class="card-body">
+								<p class="card-description">
+									His hunger for knowledge and determination to turn information 
+									into action has contributed to his most recent success at Enlighten Venture as 
+									a member of the British Computer Society.</p>
+								</div>
+								<div class="card-footer justify-content-center">
+								<a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+								<a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+								<a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-linkedin"></i></a>
+								</div>
+							</div>
+							</div>
+						</div>
+					<!--------- /Khaazen ----------------->
+					
+					<div class="col-md-4">
+					  <div class="team-player">
+						<div class="card card-plain">
+						  <div class="col-md-6 ml-auto mr-auto">
+							<img src="/img/faces/kendall.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+						  </div>
+						  <h4 class="card-title">Kendall Jenner
+							<br>
+							<small class="card-description text-muted">Model</small>
+						  </h4>
+						  <div class="card-body">
+							<p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+							  <a href="#">links</a> for people to be able to follow them outside the site.</p>
+						  </div>
+						  <div class="card-footer justify-content-center">
+							<a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+							<a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+							<a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>            
+            
+        </div>
+    <!---   /Section 01  WhoAreWe? --->
+
+
     <!---   Section 03  PayAsYouGo --->
       <div class="section section-PayAsYouGo" id="PayAsYouGo">
+        
 		<div class="text-center">
 			<div class="row">
 			  <div class="col-md-8 ml-auto mr-auto">
-				<h1 class="title">Pricing</h1>
-				<h5 class="description">
-					This is the paragraph where you can write more details about 
-					your product. Keep you user engaged by providing meaningful information.
-					 Remember that by this time, the user is curious, otherwise he wouldn't 
-					 scroll to get here. Add a button if you want the user to see more.
-				</h5>
+				<h2 class="title">Pay As You Go</h2>
+				<h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.</h5>
 			  </div>
 			</div>
 			<div class="features">
-			  <div class="row mx-1">
+			  <div class="row">
 				  
-				<div class="col-md-3">
-					<div class="card border border-warning">
-						<div class="card-header card-header-warning">
-							<h3 class="card-title">Pay As You Go</h3>
-							<h4 class="category ">Students: Unlimited</h4>
+				<div class="col-md-4">
+					<div class="card">
+						<div class="card-header card-header-danger">
+							<h4 class="card-title">Full header coloured</h4>
+							<p class="category">Category subtitle</p>
 						</div>
 						<div class="card-body">
-							<h5>
-								Storage: Unlimited
-                <br><hr class="bg-warning">
-                
-                Personalised Subdomain
-								<br><hr class="bg-warning">
-                            
-                Fast & Easy Exam & Lesson Module
-                <br><hr class="bg-warning">
-                            
-                Staff Accounts: 10
-                <br><hr class="bg-warning">
-                            
-                Transaction fee: 03 %
-                <br><hr class="bg-warning">
-                
-								Minimum LKR 2,500 /mo onwards
-							</h5>
-							<a href="#" class="btn btn-white border border-warning text-warning text-capitalize">
-                <h5 class="p-0 m-0">Go with Starter Plan</h5>
-              </a>
+							  The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona...
 						</div>
 					</div>
 				</div>
 				
-				<div class="col-md-3">
-					<div class="card border border-primary">
-						<div class="card-header card-header-primary">
-							<h3 class="card-title">Beginners Path</h3>
-							<h4 class="category">Students: Up to 25</h4>
+				<div class="col-md-4">
+					<div class="card">
+						<div class="card-header card-header-danger">
+							<h4 class="card-title">Full header coloured</h4>
+							<p class="category">Category subtitle</p>
 						</div>
 						<div class="card-body">
-              <h5>
-								Storage: 5 GB
-                <br><hr class="bg-primary">
-                
-                Personalised Subdomain
-								<br><hr class="bg-primary">
-                            
-                Fast & Easy Exam & Lesson Module
-                <br><hr class="bg-primary">
-                            
-                Staff Accounts: 2
-                <br><hr class="bg-primary">
-                            
-                Transaction Fee: Free
-                <br><hr class="bg-primary">
-                
-                LKR 5,000 /mo
-                <br>
-							</h5>
-							<a href="#" class="btn btn-white border border-primary text-primary text-capitalize">
-                <h5 class="p-0 m-0">Go with Starter Plan</h5>
-              </a>
+							  The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona...
 						</div>
 					</div>
 				</div>
 				
-				<div class="col-md-3">
-					<div class="card border border-info">
-						<div class="card-header card-header-info">
-							<h3 class="card-title">Leaders Paths</h3>
-							<h4 class="category">Students: Up to 250</h4>
+				<div class="col-md-4">
+					<div class="card">
+						<div class="card-header card-header-danger">
+							<h4 class="card-title">Full header coloured</h4>
+							<p class="category">Category subtitle</p>
 						</div>
 						<div class="card-body">
-              <h5>
-								Storage: 10 GB
-                <br><hr class="bg-info">
-                
-                Personalised Subdomain
-								<br><hr class="bg-info">
-                            
-                Fast & Easy Exam & Lesson Module
-                <br><hr class="bg-info">
-                            
-                Staff Accounts: 5
-                <br><hr class="bg-info">
-                            
-                Transaction Fee: 05 %
-                <br><hr class="bg-info">
-                
-                LKR 10,000 /mo
-                <br>
-							</h5>
-							<a href="#" class="btn btn-white border border-info text-info text-capitalize">
-                <h5 class="p-0 m-0">Go with Starter Plan</h5>
-              </a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<div class="card border border-success">
-						<div class="card-header card-header-success">
-							<h3 class="card-title">Masters Path</h3>
-							<h4 class="category">Students: Unlimited</h4>
-						</div>
-						<div class="card-body">
-              <h5>
-								Storage: 15 GB
-                <br><hr class="bg-info">
-                
-                Personalised Subdomain
-								<br><hr class="bg-info">
-                            
-                Fast & Easy Exam & Lesson Module
-                <br><hr class="bg-info">
-                            
-                Staff Accounts: 10
-                <br><hr class="bg-info">
-                            
-                Transaction Fee: 05 %
-                <br><hr class="bg-info">
-                
-                LKR 20,000 /mo
-                <br>
-							</h5>
-							<a href="#" class="btn btn-white border border-success text-success text-capitalize">
-                <h5 class="p-0 m-0">Go with Starter Plan</h5>
-              </a>
+							  The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona...
 						</div>
 					</div>
 				</div>
@@ -488,7 +475,7 @@
         
       </div>
     <!---   /Section 04  Standard Pricing --->
-
+</div>
 
     <!---   Section 05  Contact Us --->
         <div class="section section-ContactUs" style="background-image: url('img/bg19.jpg'); 
