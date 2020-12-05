@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('main');
 });
 Auth::routes();
 
@@ -28,6 +28,7 @@ Route::post('/tutor/login', 'Auth\LoginController@lecLogin');
 Route::post('/student/login', 'Auth\LoginController@stuLogin');
 
 Route::get('/testPage', 'Lecturer\LecturerController@test');
+
 //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
 
 
@@ -39,6 +40,8 @@ Route::get('/testPage', 'Lecturer\LecturerController@test');
         Route::get('/home', 'HomeController@index')->name('home-guest-auth');
         Route::get('/home_tutor', 'Lecturer\LecturerController@home_tutor')->name('home-tutor-auth');
         Route::get('/home_student', 'Student\StudentController@home_student')->name('home-student-auth');
+
+        Route::get('/JoinAsTutor', 'HomeController@JoinAsTutor')->name('home-student-auth');
 //--------------------------- /Home Routes Auths------------------------------------------------>
 
 

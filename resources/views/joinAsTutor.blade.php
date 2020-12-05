@@ -134,386 +134,382 @@
 
 <body class="landing-page sidebar-collapse">
   <!--  Nav  -->
-    <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-md" color-on-scroll="100" id="sectionsNav">
-      <div class="container">
-        <div class="navbar-translate">
-          <a class="navbar-brand" href="/Landing">
-            Enlighten Venture 
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse">
-          <!---   Navbar Right   --->
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
-                        <i class="material-icons">apps</i> Features
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToWhoAreWe()">
-                        <i class="material-icons">supervisor_account</i> Who are we?
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="javascript:void(0)" onclick="scrollToPayAsYouGo()">
-                      <i class="material-icons">attach_money</i> Pricing
-                      </a>
-                  </li>
-
-                  <li class="nav-item">  <!---- Register item--->
-                    @if (Route::has('login'))
-                        <div>
-                            @auth
-                                @isset($url)
-                                    @if ($url === "/student")
-                                      <li class="nav-item">
-                                        <a href="{{ url('/student_dashboard') }}" class="nav-link">
-                                          <i class="material-icons">dashboard</i> Go to Dashboard
-                                        </a>
-                                      </li>
-                                    @elseif ($url === "/tutors")
-                                      <li class="nav-item">
-                                        <a href="{{ url('/tutor') }}" class="nav-link">
-                                          <i class="material-icons">dashboard</i> Go to Dashboard
-                                        </a>
-                                      </li>
-                                    @endif
-                                @endisset
-                                @empty($url)
-                                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
-                                      <i class="material-icons">person_add</i> Register
-                                    </a>
-                                @endempty
-                            @else
-                                <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
-                                  <i class="material-icons">person_add</i> Register
-                                </a>
-                            @endauth
-                        </div>
-                    @endif
-                  </li>
-
-                  <li class="nav-item">  <!---- Log-In item--->
-                    @if (Route::has('login'))
-                        <div>
-                            @auth
-                                @empty($url)
-                                    <a class="nav-link"  href="{{ route('login') }}">
-                                      <i class="material-icons">login</i> Log-In
-                                    </a>
-                                @endempty
-                            @else
-                                <a class="nav-link" href="{{ route('login') }}">
-                                  <i class="material-icons">login</i> Log-In
-                                </a>
-                            @endauth
-                        </div>
-                    @endif
-                  </li>
-              </ul>
-          <!---   Navbar Right   --->
-        </div>
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-md" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="/Landing">
+          Enlighten Venture 
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
-    </nav>
+      <div class="collapse navbar-collapse">
+        <!---   Navbar Right   --->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
+                      <i class="material-icons">apps</i> Features
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToWhoAreWe()">
+                      <i class="material-icons">supervisor_account</i> Who are we?
+                  </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToPayAsYouGo()">
+                    <i class="material-icons">attach_money</i> Pricing
+                    </a>
+                </li>
+
+                <li class="nav-item">  <!---- Register item--->
+                  @if (Route::has('login'))
+                      <div>
+                          @auth
+                              @isset($url)
+                                  @if ($url === "/student")
+                                    <li class="nav-item">
+                                      <a href="{{ url('/student_dashboard') }}" class="nav-link">
+                                        <i class="material-icons">dashboard</i> Go to Dashboard
+                                      </a>
+                                    </li>
+                                  @elseif ($url === "/tutors")
+                                    <li class="nav-item">
+                                      <a href="{{ url('/tutor') }}" class="nav-link">
+                                        <i class="material-icons">dashboard</i> Go to Dashboard
+                                      </a>
+                                    </li>
+                                  @endif
+                              @endisset
+                              @empty($url)
+                                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
+                                    <i class="material-icons">person_add</i> Register
+                                  </a>
+                              @endempty
+                          @else
+                              <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
+                                <i class="material-icons">person_add</i> Register
+                              </a>
+                          @endauth
+                      </div>
+                  @endif
+                </li>
+
+                <li class="nav-item">  <!---- Log-In item--->
+                  @if (Route::has('login'))
+                      <div>
+                          @auth
+                              @empty($url)
+                                  <a class="nav-link"  href="{{ route('login') }}">
+                                    <i class="material-icons">login</i> Log-In
+                                  </a>
+                              @endempty
+                          @else
+                              <a class="nav-link" href="{{ route('login') }}">
+                                <i class="material-icons">login</i> Log-In
+                              </a>
+                          @endauth
+                      </div>
+                  @endif
+                </li>
+            </ul>
+        <!---   Navbar Right   --->
+      </div>
+    </div>
+  </nav>
   <!--  Nav  -->
 
   <!---   Cover   --->
-    <div class="page-header header-filter" data-parallax="true" 
-    style="background-image: url(img/city3.jpg); transform: translate3d(0px, 0px, 0px);">
-      <div class="container">
-        <div class="row ">
-            <div class="col-md-5 text-center">
-                <div class="brand">
-                    <h3 class="">Sri Lanka's Next Peak of Education.</h3>
-                    <div class="separator line-separator text-white  pb-0 pt-0">♦</div>
-                </div>
-                <div class="">
-                  <a href="#" class="btn btn-info btn-lg">
-                    <i class="fa fa-university"></i>&nbsp Go To Academy
-                  </a>
-                  <a href="#" target="" class="btn btn-success btn-lg" rel="nofollow">
-                      <i class="fa fa-hashtag"></i>&nbsp Go To StudentCast
-                  </a>
-                  <a href="#" target="_blank" class="btn btn-warning btn-lg" rel="nofollow">
-                      <i class="fa fa-graduation-cap"></i>&nbsp View Tutor Panel
-                  </a>
-                  <a href="#" onclick="scrollToContactUs()" class="btn btn-danger btn-lg mobile-view" rel="nofollow">
-                    <i class="fa fa-play"></i>&nbsp Hurry! Join ASAP
-                </a>
+  <div class="page-header header-filter" data-parallax="true" 
+  style="background-image: url(img/city3.jpg); transform: translate3d(0px, 0px, 0px);">
+    <div class="container">
+      <div class="row ">
+          <div class="col-md-5 text-center">
+              <div class="brand mobile-view">
+                  <h3 class="">Your Story Starts Now</h3>
+                  <div class="separator line-separator text-white  pb-0 pt-0">♦</div>
               </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-6 text-right mobile-hide" >
-              <h1 class="title text-right">Your Story Starts Now</h1>
-              
-              <a href="#" onclick="scrollToContactUs()"
-              class="btn btn-danger btn-raised btn-lg ">
-                <i class="fa fa-play"></i> Hurry! Join ASAP
+              <div class="">
+                <a href="#" class="btn btn-info btn-lg">
+                  <i class="fa fa-university"></i>&nbsp Go To Academy
+                </a>
+                <a href="#" target="" class="btn btn-success btn-lg" rel="nofollow">
+                    <i class="fa fa-hashtag"></i>&nbsp Go To StudentCast
+                </a>
+                <a href="#" target="_blank" class="btn btn-warning btn-lg" rel="nofollow">
+                    <i class="fa fa-graduation-cap"></i>&nbsp View Tutor Panel
+                </a>
+                <a href="#" onclick="scrollToContactUs()" class="btn btn-danger btn-lg mobile-view" rel="nofollow">
+                  <i class="fa fa-play"></i>&nbsp Hurry! Join ASAP
               </a>
             </div>
-        </div>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-6 text-right mobile-hide" >
+            <h1 class="title text-right">Your Story Starts Now</h1>
+            
+            <a href="#" onclick="scrollToContactUs()"
+            class="btn btn-danger btn-raised btn-lg ">
+              <i class="fa fa-play"></i> Hurry! Join ASAP
+            </a>
+          </div>
       </div>
     </div>
+  </div>
   <!---   Cover   --->
 
 
-
+  <!---------- Body ----------->
   <div class="main main-raised">
-	<div class="container">
-    <!---   Section 02  Features --->
-        <div class="pt-1 section-feature" id="featureSection">
-			<div class="text-center">
-				<div class="row">
-				  <div class="col-md-8 ml-auto mr-auto">
-					<h1 class="title">Let's talk product</h1>
-					<h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.</h5>
-				  </div>
-				</div>
-				<div class="features">
-				  <div class="row">
-					  
-					<div class="col-md-4">
-					  <div class="info">
-						<div class="icon icon-info">
-						  <i class="material-icons">chat</i>
-						</div>
-						<h4 class="info-title">StudentCast</h4>
-						<p>A discussion forum that connects tutors and students together. All 
-							discussions have been categorized under subjects where tutors will
-							be notified of their respective subjects.
-						</p>
-					  </div>
-					</div>
-					
-					<div class="col-md-4">
-					  <div class="info">
-						<div class="icon icon-success">
-						  <i class="material-icons">verified_user</i>
-						</div>
-						<h4 class="info-title">Virtual Learning Environment</h4>
-						<p>
-							A user friendly environment with unrealistic facilities to satisfy 
-							both the students and tutors, to function all your everyday needs.
-						</p>
-					  </div>
-					</div>
-					
-					<div class="col-md-4">
-					  <div class="info">
-						<div class="icon icon-danger">
-						  <i class="material-icons">people_outline</i>
-						</div>
-						<h4 class="info-title">Free Registrations</h4>
-						<p>
-							All tutors and students can register for free. Use this opportunity 
-							to explore the interface and feel the experience of this masterpiece.
-						</p>
-					  </div>
-					</div>
-				  </div>
-				</div>
-			  </div>
-      </div>
-    <!---   /Section 02  Features --->
-</div>
-    <!---   Section 03  PayAsYouGo --->
-      <div class="section section-PayAsYouGo" id="PayAsYouGo">
-		<div class="text-center">
-			<div class="row">
-			  <div class="col-md-8 ml-auto mr-auto">
-				<h1 class="title">Pricing</h1>
-				<h5 class="description">
-					This is the paragraph where you can write more details about 
-					your product. Keep you user engaged by providing meaningful information.
-					 Remember that by this time, the user is curious, otherwise he wouldn't 
-					 scroll to get here. Add a button if you want the user to see more.
-				</h5>
-			  </div>
-      </div>
-      <div class="row col-md-8 mx-1 mx-auto">
-        <div class="card border border-warning">
-          <div class="card-header card-header-warning">
-            <h3 class="card-title">Starter Plan</h3>
+    <div class="container">
+      <!---   Section 01  Features --->
+      <div class="pt-1 section-feature" id="featureSection">
+        <div class="text-center">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+            <h1 class="title">Let's talk product</h1>
+            <h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.</h5>
+            </div>
           </div>
-          <div class="card-body">
-            <h5>
-              Storage: Unlimited
-              <br><hr class="bg-warning">
+          <div class="features">
+            <div class="row">
               
-              Personalised Subdomain
-              <br><hr class="bg-warning">
-                          
-              Fast & Easy Exam & Lesson Module
-              <br><hr class="bg-warning">
-                          
-              Staff Accounts: 10
-              <br><hr class="bg-warning">
-                          
-              Transaction fee: 03 %
-              <br><hr class="bg-warning">
-              
-              Minimum LKR 2,500 /mo onwards
-            </h5>
-            <a href="#" class="btn btn-white border border-warning text-warning text-capitalize">
-              <h5 class="p-0 m-0">Go with Starter Plan</h5>
-            </a>
+            <div class="col-md-4">
+              <div class="info">
+              <div class="icon icon-info">
+                <i class="material-icons">chat</i>
+              </div>
+              <h4 class="info-title">StudentCast</h4>
+              <p>A discussion forum that connects tutors and students together. All 
+                discussions have been categorized under subjects where tutors will
+                be notified of their respective subjects.
+              </p>
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <div class="info">
+              <div class="icon icon-success">
+                <i class="material-icons">verified_user</i>
+              </div>
+              <h4 class="info-title">Virtual Learning Environment</h4>
+              <p>
+                A user friendly environment with unrealistic facilities to satisfy 
+                both the students and tutors, to function all your everyday needs.
+              </p>
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <div class="info">
+              <div class="icon icon-danger">
+                <i class="material-icons">people_outline</i>
+              </div>
+              <h4 class="info-title">Free Registrations</h4>
+              <p>
+                All tutors and students can register for free. Use this opportunity 
+                to explore the interface and feel the experience of this masterpiece.
+              </p>
+              </div>
+            </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      <!---   /Section 01  Features --->
+    </div>
+
+    <!---   Section 02  PayAsYouGo --->
+    <div class="section section-PayAsYouGo" id="PayAsYouGo">
+      <div class="text-center">
+        <!---------- Description Plan ----------->
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+          <h1 class="title">Pricing</h1>
+          <h5 class="description">
+            This is the paragraph where you can write more details about 
+            your product. Keep you user engaged by providing meaningful information.
+            Remember that by this time, the user is curious, otherwise he wouldn't 
+            scroll to get here. Add a button if you want the user to see more.
+          </h5>
+          </div>
+        </div>
+        <!---------- Description Plan ----------->
+        <!---------- Starter Plan ----------->
+        <div class="row col-md-8 mx-1 mx-auto">
+          <div class="card border border-warning">
+            <div class="card-header card-header-warning">
+              <h3 class="card-title">Starter Plan</h3>
+            </div>
+            <div class="card-body">
+              <h5>
+                Storage: Unlimited
+                <br><hr class="bg-warning">
+                
+                Personalised Subdomain
+                <br><hr class="bg-warning">
+                            
+                Fast & Easy Exam & Lesson Module
+                <br><hr class="bg-warning">
+                            
+                Staff Accounts: 10
+                <br><hr class="bg-warning">
+                            
+                Transaction fee: 03 %
+                <br><hr class="bg-warning">
+                
+                Minimum LKR 2,500 /mo onwards
+              </h5>
+              <a href="#" class="btn btn-white border border-warning text-warning text-capitalize">
+                <h5 class="p-0 m-0">Go with Starter Plan</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!---------- Starter Plan ----------->
+
+        <div class="features">
+          <div class="row mx-1">
+            <!---------- Pay As You Go ----------->		  
+            <div class="col-lg-3">
+              <div class="card border border-warning">
+                <div class="card-header card-header-warning">
+                  <h3 class="card-title">Pay As You Go</h3>
+                  <h4 class="category ">Students: Unlimited</h4>
+                </div>
+                <div class="card-body">
+                  <h5>
+                    With EV you only pay for what use, helping your 
+                    career remain agile, responsive and always 
+                    able to meet scale demands.
+                    <br><hr class="bg-warning">
+                    
+                    Pay-as-you-go pricing allows you to easily adapt to 
+                    changing needs without overcommitting budgets 
+                    and improving your responsiveness to changes.
+                    <br><hr class="bg-warning">
+                    
+                  </h5>
+                  <a href="#" class="btn btn-white border border-warning text-dark  text-capitalize">
+                    <h5 class="p-0 m-0 font-weight-bold ">Read More</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!---------- Pay As You Go ----------->
+            <!---------- Beginner ----------->
+            <div class="col-lg-3">
+              <div class="card border border-primary">
+                <div class="card-header card-header-primary">
+                  <h3 class="card-title">Beginners Path</h3>
+                  <h4 class="category">Students: Up to 25</h4>
+                </div>
+                <div class="card-body">
+                  <h5>
+                    Storage: 5 GB
+                    <br><hr class="bg-primary">
+                    
+                    Personalised Subdomain
+                    <br><hr class="bg-primary">
+                                
+                    Fast & Easy Exam & Lesson Module
+                    <br><hr class="bg-primary">
+                                
+                    Staff Accounts: 2
+                    <br><hr class="bg-primary">
+                                
+                    Transaction Fee: Free
+                    <br><hr class="bg-primary">
+                    
+                    LKR 5,000 /mo
+                    <br>
+                  </h5>
+                  <a href="#" class="btn btn-white border border-primary text-primary text-capitalize">
+                    <h5 class="p-0 m-0">Go with Starter Plan</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!---------- Beginner ----------->
+            <!---------- Professionals ----------->
+            <div class="col-lg-3">
+              <div class="card border border-info">
+                <div class="card-header card-header-info">
+                  <h3 class="card-title">Professionals Path</h3>
+                  <h4 class="category">Students: Up to 250</h4>
+                </div>
+                <div class="card-body">
+                  <h5>
+                    Storage: 10 GB
+                    <br><hr class="bg-info">
+                    
+                    Personalised Subdomain
+                    <br><hr class="bg-info">
+                                
+                    Fast & Easy Exam & Lesson Module
+                    <br><hr class="bg-info">
+                                
+                    Staff Accounts: 5
+                    <br><hr class="bg-info">
+                                
+                    Transaction Fee: 05 %
+                    <br><hr class="bg-info">
+                    
+                    LKR 10,000 /mo
+                    <br>
+                  </h5>
+                  <a href="#" class="btn btn-white border border-info text-info text-capitalize">
+                    <h5 class="p-0 m-0">Go with Starter Plan</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!---------- Professionals ----------->
+            <!---------- Masters Path ----------->
+            <div class="col-lg-3">
+              <div class="card border border-success">
+                <div class="card-header card-header-success">
+                  <h3 class="card-title">Masters Path</h3>
+                  <h4 class="category">Students: Unlimited</h4>
+                </div>
+                <div class="card-body">
+                  <h5>
+                    Storage: 15 GB
+                    <br><hr class="bg-info">
+                    
+                    Personalised Subdomain
+                    <br><hr class="bg-info">
+                                
+                    Fast & Easy Exam & Lesson Module
+                    <br><hr class="bg-info">
+                                
+                    Staff Accounts: 10
+                    <br><hr class="bg-info">
+                                
+                    Transaction Fee: 05 %
+                    <br><hr class="bg-info">
+                    
+                    LKR 20,000 /mo
+                    <br>
+                  </h5>
+                  <a href="#" class="btn btn-white border border-success text-success text-capitalize">
+                    <h5 class="p-0 m-0">Go with Starter Plan</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!---------- Masters Path ----------->
           </div>
         </div>
       </div>
-			<div class="features">
-			  <div class="row mx-1">			  
-				<div class="col-md-3">
-					<div class="card border border-warning">
-						<div class="card-header card-header-warning">
-							<h3 class="card-title">Pay As You Go</h3>
-							<h4 class="category ">Students: Unlimited</h4>
-						</div>
-						<div class="card-body">
-							<h5>
-                With EV you only pay for what use, helping your 
-                career remain agile, responsive and always 
-                able to meet scale demands.
-                <br><hr class="bg-warning">
-                
-                Pay-as-you-go pricing allows you to easily adapt to 
-                changing needs without overcommitting budgets 
-                and improving your responsiveness to changes.
-								<br><hr class="bg-warning">
-                
-							</h5>
-							<a href="#" class="btn btn-white border border-warning text-dark  text-capitalize">
-                <h5 class="p-0 m-0 font-weight-bold ">Read More</h5>
-              </a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-3">
-					<div class="card border border-primary">
-						<div class="card-header card-header-primary">
-							<h3 class="card-title">Beginners Path</h3>
-							<h4 class="category">Students: Up to 25</h4>
-						</div>
-						<div class="card-body">
-              <h5>
-								Storage: 5 GB
-                <br><hr class="bg-primary">
-                
-                Personalised Subdomain
-								<br><hr class="bg-primary">
-                            
-                Fast & Easy Exam & Lesson Module
-                <br><hr class="bg-primary">
-                            
-                Staff Accounts: 2
-                <br><hr class="bg-primary">
-                            
-                Transaction Fee: Free
-                <br><hr class="bg-primary">
-                
-                LKR 5,000 /mo
-                <br>
-							</h5>
-							<a href="#" class="btn btn-white border border-primary text-primary text-capitalize">
-                <h5 class="p-0 m-0">Go with Starter Plan</h5>
-              </a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-3">
-					<div class="card border border-info">
-						<div class="card-header card-header-info">
-							<h3 class="card-title">Leaders Paths</h3>
-							<h4 class="category">Students: Up to 250</h4>
-						</div>
-						<div class="card-body">
-              <h5>
-								Storage: 10 GB
-                <br><hr class="bg-info">
-                
-                Personalised Subdomain
-								<br><hr class="bg-info">
-                            
-                Fast & Easy Exam & Lesson Module
-                <br><hr class="bg-info">
-                            
-                Staff Accounts: 5
-                <br><hr class="bg-info">
-                            
-                Transaction Fee: 05 %
-                <br><hr class="bg-info">
-                
-                LKR 10,000 /mo
-                <br>
-							</h5>
-							<a href="#" class="btn btn-white border border-info text-info text-capitalize">
-                <h5 class="p-0 m-0">Go with Starter Plan</h5>
-              </a>
-						</div>
-					</div>
-				</div>
+    </div>
+    <!---   /Section 02  PayAsYouGo --->
 
-				<div class="col-md-3">
-					<div class="card border border-success">
-						<div class="card-header card-header-success">
-							<h3 class="card-title">Masters Path</h3>
-							<h4 class="category">Students: Unlimited</h4>
-						</div>
-						<div class="card-body">
-              <h5>
-								Storage: 15 GB
-                <br><hr class="bg-info">
-                
-                Personalised Subdomain
-								<br><hr class="bg-info">
-                            
-                Fast & Easy Exam & Lesson Module
-                <br><hr class="bg-info">
-                            
-                Staff Accounts: 10
-                <br><hr class="bg-info">
-                            
-                Transaction Fee: 05 %
-                <br><hr class="bg-info">
-                
-                LKR 20,000 /mo
-                <br>
-							</h5>
-							<a href="#" class="btn btn-white border border-success text-success text-capitalize">
-                <h5 class="p-0 m-0">Go with Starter Plan</h5>
-              </a>
-						</div>
-					</div>
-				</div>
-			  </div>
-			</div>
-		  </div>
-          
-        
-      </div>
-    <!---   /Section 03  PayAsYouGo --->
-
-
-    <!---   Section 04  Standard Pricing --->
-      <div class="section" id="#">
-        
-          <div class="title text-right">
-              <h1>Or Use Our Packages</h1>
-          </div>
-          
-        
-      </div>
-    <!---   /Section 04  Standard Pricing --->
-
-
-    <!---   Section 05  Contact Us --->
+    <!---   Section 03  Contact Us --->
         <div class="section section-ContactUs" style="background-image: url('img/bg19.jpg'); 
         background-size: cover; background-position: top center; min-height: 700px;"  id="ContactUs">
           <div class="container">
@@ -554,9 +550,9 @@
             </div>
           </div>
         </div>
-    <!---   /Section 05  Contact Us --->
+    <!---   /Section 03  Contact Us --->
   </div>
-    
+  <!---------- Body ----------->
 
 
   <!-- Student Modal -->
@@ -911,6 +907,7 @@
     </div>
   <!--  End Tutor Modal -->
 
+  <!---------- Footer ----------->
   <footer class="footer" data-background-color="black">
     <div class="container">
       <nav class="float-left ">
@@ -950,7 +947,7 @@
       </div>
     </div>
   </footer>
-
+  <!---------- Footer ----------->
 
   <!--  Scripts -->
     <!--   Core JS Files   -->
