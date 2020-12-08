@@ -223,10 +223,10 @@
               <div class="col-md-8 mx-auto">
                 <h2 class="section-heading">Discover what all the buzz is about!</h2>
                 <p >a Virtual Learning Environment to the knowledge seekers</p>
-                <div class="badges">
+                <!--<div class="badges">
                   <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
                   <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
-                </div>
+                </div>-->
               </div>
             </div>
           </div>
