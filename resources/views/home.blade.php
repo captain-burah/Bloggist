@@ -157,7 +157,7 @@
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-md" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="/Landing">
+        <a class="navbar-brand" href="/Landing" >
           Enlighten Venture 
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -176,8 +176,8 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToWhoAreWe()">
-                      <i class="material-icons">supervisor_account</i> Who are we?
+                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
+                    <i class="material-icons">person_add</i> Register ?
                   </a>
                 </li>
             </ul>
@@ -188,8 +188,8 @@
   <!--  Nav  -->
 
   <!---   Cover   --->
-  <div class="page-header header-filter clear-filter purple-filter " data-parallax="true" 
-  style="background-image: url(img/city3.jpg); transform: translate3d(0px, 0px, 0px);">
+  <div class="page-header header-filter clear-filter purple-filter section-cover" data-parallax="true" 
+  style="background-image: url(img/city3.jpg); transform: translate3d(0px, 0px, 0px);" id="coverSection">
     <div class="container text-center mx-auto my-auto d-flex align-content-center flex-wrap" >
       <h1 class="cover-heading mx-auto">Your journey starts now!</h1>
       <div class="col-md-6 mx-auto">
@@ -662,6 +662,13 @@
         }
       });
 
+      function scrollToCover() {
+        if ($('.section-cover').length != 0) {
+          $("html, body").animate({
+            scrollTop: $('.section-cover').offset().top
+          }, 1000);
+        }
+      }
 
       function scrollToWhoAreWe() {
         if ($('.section-whoAreWe').length != 0) {
