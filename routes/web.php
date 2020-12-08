@@ -42,6 +42,9 @@ Route::get('/testPage', 'Lecturer\LecturerController@test');
         Route::get('/home_student', 'Student\StudentController@home_student')->name('home-student-auth');
 
         Route::get('/JoinAsTutor', 'HomeController@JoinAsTutor')->name('home-student-auth');
+        Route::get('/landing2', function () {
+            return view('landing');
+        });
 //--------------------------- /Home Routes Auths------------------------------------------------>
 
 

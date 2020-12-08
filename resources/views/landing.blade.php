@@ -17,14 +17,9 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link href="css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
-    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- CSS Files -->
     <link href="css/material-kit.min.css?v=2.0.7" rel="stylesheet" />
-    <link href="css/new-age/new-age.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
-    <link href="css/new-age/landing-page.min.css" rel="stylesheet">
 
     <style>
       .separator {
@@ -134,21 +129,6 @@
         height: 100%;
         background-color: #F44336;
       }
-      
-      
-      .footer-aa:hover{
-        color: #ffffff;
-      }
-      .footer-aa:active {
-        color: #ffffff;
-      }
-      .footer-head {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-      }
     </style>  
 </head>
 
@@ -170,15 +150,25 @@
       <div class="collapse navbar-collapse">
         <!---   Navbar Right   --->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
-                      <i class="material-icons">apps</i> Features
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToWhoAreWe()">
-                      <i class="material-icons">supervisor_account</i> Who are we?
-                  </a>
+                
+                
+
+                <li class="nav-item">  <!---- Log-In item--->
+                  @if (Route::has('login'))
+                      <div>
+                          @auth
+                              @empty($url)
+                                  <a class="nav-link"  href="{{ route('login') }}">
+                                    <i class="material-icons">login</i> Log-In
+                                  </a>
+                              @endempty
+                          @else
+                              <a class="nav-link" href="{{ route('login') }}">
+                                <i class="material-icons">login</i> Log-In
+                              </a>
+                          @endauth
+                      </div>
+                  @endif
                 </li>
             </ul>
         <!---   Navbar Right   --->
@@ -188,256 +178,39 @@
   <!--  Nav  -->
 
   <!---   Cover   --->
-  <div class="page-header header-filter clear-filter purple-filter " data-parallax="true" 
+  <div class="page-header header-filter" data-parallax="true" 
   style="background-image: url(img/city3.jpg); transform: translate3d(0px, 0px, 0px);">
-    <div class="container text-center mx-auto my-auto d-flex align-content-center flex-wrap" >
-      <h1 class="cover-heading mx-auto">Your journey starts now!</h1>
-      <div class="col-md-6 mx-auto">
-        <a href="#" class="btn btn-danger btn-lg" style="min-width: 212.91px;">
-          <i class="fa fa-graduation-cap"></i>&nbsp I'm a Student
-        </a>
-        <a href="#" target="" class="btn btn-info btn-lg" rel="nofollow" style="min-width: 212.91px;">
-            <i class="fa fa-university"></i>&nbsp Im a Tutor
-        </a>
-        <a href="#" target="" class="btn btn-success btn-lg" rel="nofollow" style="min-width: 212.91px;">
-          <i class="fa fa-hashtag"></i>&nbsp See all Courses
-        </a>
-      </div>
-      <div class="footer-head">
-        <p class="p-4 text-light">Developed & Coded by <i class="fa fa-hashtag text-info"></i>Captain Burah</p>
+    <div class="container">
+      <div class="row mx-auto">
+          
+          <div class="col-md-5 text-center mx-auto d-flex align-content-center flex-wrap">
+              <div class="brand">
+                  <h2 class="title">Your Journey Starts Today</h2>
+                  <div class="separator line-separator text-white  pb-0 pt-0">♦</div>
+              </div>
+              <div class="">
+                <a href="#" class="btn btn-info btn-lg" style="width: 200px;">
+                  <i class="fa fa-university"></i>&nbsp Open Academy
+                </a>
+                <a href="#" target="" class="btn btn-danger btn-lg" rel="nofollow" style="min-width: 200px;">
+                    <i class="fa fa-hashtag"></i>&nbsp Im a Tutor
+                </a>
+                <a href="#" target="" class="btn btn-success btn-lg" rel="nofollow" style="min-width: 200px;">
+                  <i class="fa fa-hashtag"></i>&nbsp Im a Student
+              </a>
+                <a href="#" onclick="scrollToContactUs()" class="btn btn-danger btn-lg mobile-view" rel="nofollow">
+                  <i class="fa fa-play"></i>&nbsp Hurry! Join ASAP
+              </a>
+            </div>
+          </div>
+
+         
+          
       </div>
     </div>
-    
   </div>
   <!---   Cover   --->
 
-
-  <!---------- Body ----------->
-  <div class="main ">
-    <div class="bg-info">
-      <div class="container">
-        <!---   Section 01  Features --->
-        <section class="download text-center section-feature text-white" id="featureSection">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-8 mx-auto">
-                <h2 class="section-heading">Discover what all the buzz is about!</h2>
-                <p >a Virtual Learning Environment to the knowledge seekers</p>
-                <div class="badges">
-                  <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
-                  <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!---   /Section 01  Features --->
-      </div>
-    </div>
-    <!--- Section 02 Demonstration --->
-    <section class="features bg-white text-dark" id="features">
-      <div class="container">
-        <div class="section-heading text-center ">
-          <h2>Unlimited Features, Unlimited Fun</h2>
-          <p class="text-muted">Check out what you can do with this site!</p>
-          <hr>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 my-auto">
-            <div class="device-container">
-              <div class="device-mockup iphone6_plus portrait white">
-                <div class="device">
-                  <div class="screen">
-                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                    <img src="img/new-age/iphone5.jpg" class="img-fluid" alt="">
-                  </div>
-                  <div class="button">
-                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-8 my-auto">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="feature-item">
-                    <i class="icon-screen-smartphone text-primary"></i>
-                    <h3>StudentCast</h3>
-                    <p class="text-muted">A tailor made discussion forum dedicated for students & tutors islandwide!</p>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="feature-item">
-                    <i class="icon-emotsmile text-primary"></i>
-                    <h3>Flexible Use</h3>
-                    <p class="text-muted">Tutors have the freedom of moving to various subscriptions!</p>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="feature-item">
-                    <i class="icon-present text-primary"></i>
-                    <h3>Free</h3>
-                    <p class="text-muted">As always, this is free for all students & tutors!</p>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="feature-item">
-                    <i class="icon-lock-open text-primary"></i>
-                    <h3>Secured</h3>
-                    <p class="text-muted">All transactions are secured by the Sampath Bank PLC!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--- Section 02 Demonstration --->
-
-    <!---   Section 03  Technology --->
-    <section class="showcase">
-      <div class="container-fluid p-0">
-        <div class="row no-gutters">
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/new-age/bg-showcase-1.jpg');"></div>
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text container">
-            <h2>Responsive Helpdesk</h2>
-            <p class="lead mb-0">
-              If you encounter any uncomfortable situation, do remember the helpdesk is available for you 24hrs.
-            </p>
-          </div>
-        </div>
-        <div class="row no-gutters">
-          <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/new-age/bg-showcase-2.jpg');"></div>
-          <div class="col-lg-6 my-auto showcase-text">
-            <h2>Updated with the latest Ui & Ux</h2>
-            <p class="lead mb-0">
-              Newly improved with cutting edge and user friendly. 
-              EV is leading the way in responsive Virtual Learning Environment! 
-              
-            </p>
-          </div>
-        </div>
-        <div class="row no-gutters">
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/new-age/bg-showcase-3.jpg');"></div>
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-            <h2>Easy to Use &amp; Customize</h2>
-            <p class="lead mb-0">
-              Students need not to struggle anymore, you've to just login, choose your lessons & voila!
-              <br><br>Tutors have to add your lesson contents 
-              and medias  , and your new tutor page will be ready to go!
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!---   Section 03  Technology --->
-
-    <!---   Section 04  Contact Us --->
-    <div class="section section-ContactUs" style="background-image: url('img/bg19.jpg'); 
-    background-size: cover; background-position: top center; min-height: 700px;"  id="ContactUs">
-      <div class="container">
-        <div class="title text-center pb-4">
-            <h1><span class="text-warning font-weight-bold ">Hurry!</span> Sign Up Now</h1>
-        </div>
-        <div class="row pt-5">
-          <!--  Student Button -->
-            <div class="col-lg-5 mx-auto">
-              <div class="card  ">
-                  <div class="card-header card-header-warning text-center " >
-                    <a href="/register" 
-                    class="btn btn-white btn-block fontOne text-capitalize text-dark" 
-                    >
-                      <i class="fa fa-university"></i>&nbsp Join As Student
-                    </a>
-
-                  </div>
-                  <div class="card-body ">
-                  </div>
-              </div>
-            </div>
-          <!--  Student Button -->
-
-          <!--  Tutor Button -->
-            <div class="col-lg-5 mx-auto">
-              <div class="card  ">
-                  <div class="card-header card-header-info text-center">
-                    <a href="/tutor_registration"  class="btn btn-white btn-block fontOne text-capitalize text-dark">
-                      <i class="fa fa-graduation-cap"></i>&nbsp Become a Tutor
-                    </a>
-                  </div>
-                  <div class="card-body ">
-                  </div>
-              </div>
-            </div>
-          <!--  Tutor Button -->
-        </div>
-      </div>
-    </div>
-    <!---   /Section 04  Contact Us --->
-  </div>
-  <!---------- Body ----------->
-
-
-  <!---------- Footer ----------->
-  <footer class="bg-dark">
-    <div class="container">
-      <div class="py-5 row text-secondary">
-        <div class="col-12 col-md">
-          <small class="d-block mb-3 text-muted">
-            &copy; 
-            <script>
-              document.write(new Date().getFullYear())
-            </script>,
-          <a href="https://www.instagram.com/captain_burah" class="footer-a text-rose  " target="_blank" >
-            Captain Burah
-          </a>for a better world.
-          </small>
-        </div>
-        <div class="col-6 col-md text-left">
-          <h5 class="font-weight-bold m-0 mt-2">Features</h5>
-          <ul class="text-small text-secondary">
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Team feature</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Random feature</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Cool stuff</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Stuff for developers</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md text-left">
-          <h5 class="font-weight-bold m-0 mt-2">Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Resource</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Resource name</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Another resource</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Final resource</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md text-left">
-          <h5 class="font-weight-bold m-0 mt-2">Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Business</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Education</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Government</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Gaming</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md text-left">
-          <h5 class="font-weight-bold m-0 mt-2">About</h5>
-          <ul class="list-unstyled text-small">
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Team</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Locations</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Privacy</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Terms</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!---------- Footer ----------->
 
   <!--  Scripts -->
     <!--   Core JS Files   -->
