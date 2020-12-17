@@ -156,35 +156,14 @@
     <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
       <div class="container">
         <div class="navbar-translate">
-          <a class="navbar-brand" href="/Landing" >
+          <a class="navbar-brand" href="/" >
             Enlighten Venture 
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse">
-          <!---   Navbar Right   --->
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
-                        <i class="material-icons">apps</i> Features
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
-                      <i class="material-icons">person_add</i> Register ?
-                    </a>
-                  </li>
-              </ul>
-          <!---   Navbar Right   --->
-        </div>
+          </div>
       </div>
     </nav>
     <!--  Nav  -->
+
 
     <!-- Body -->
     <main>
@@ -192,6 +171,7 @@
     </main>
     <!-- Body -->
 
+    
     <!--  Scripts -->
         <!--   Core JS Files   -->
         <script src="{{ asset('js/core/popper.min.js')}}" type="text/javascript"></script>

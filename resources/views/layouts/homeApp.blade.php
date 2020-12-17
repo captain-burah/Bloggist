@@ -27,6 +27,11 @@
     <link href="{{asset('css/new-age/landing-page.min.css')}}" rel="stylesheet">
 
     <style>
+      #searchBar::placeholder {
+        font-size: 1.2rem;
+        color: white;
+      }
+
       .separator {
         color: #c5a47e;
         margin: 0 auto 20px;
@@ -185,7 +190,7 @@
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
-                        <i class="material-icons">apps</i> Features
+                        <i class="material-icons">apps</i> Who Are we ?
                     </a>
                     </li>
                     
