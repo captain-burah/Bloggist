@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     
     <!-- CSRF Token -->
@@ -14,17 +14,17 @@
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 
     <!-- Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <link href="css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
-    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="{{('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css')}}" rel="stylesheet" >
+    <link href="{{asset('css/fonts/pe-icon-7-stroke.css')}}" rel="stylesheet">
+    <link href="{{asset('vendor/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet" >
+    <link href="{{('https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic')}}" rel="stylesheet" type="text/css">
 
     <!-- CSS Files -->
-    <link href="css/material-kit.min.css?v=2.0.7" rel="stylesheet" />
-    <link href="css/new-age/new-age.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
-    <link href="css/new-age/landing-page.min.css" rel="stylesheet">
+    <link href="{{asset('css/material-kit.min.css?v=2.0.7')}}" rel="stylesheet" />
+    <link href="{{asset('css/new-age/new-age.min.css')}}" rel="stylesheet">
+    <link href="{{asset('device-mockups/device-mockups.min.css')}}" rel="stylesheet" >
+    <link href="{{asset('css/new-age/landing-page.min.css')}}" rel="stylesheet">
 
     <style>
       .separator {
@@ -180,6 +180,11 @@
                     <i class="material-icons">person_add</i> Register ?
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
+                    <i class="material-icons">person_add</i> Register ?
+                  </a>
+                </li>
             </ul>
         <!---   Navbar Right   --->
       </div>
@@ -188,23 +193,33 @@
   <!--  Nav  -->
 
   <!---   Cover   --->
-  <div class="page-header header-filter clear-filter purple-filter section-cover" data-parallax="true" 
-  style="background-image: url(img/city3.jpg); transform: translate3d(0px, 0px, 0px);" id="coverSection">
+  <div class="page-header header-filter section-cover" data-parallax="true" 
+  style="background-image: url({{asset('img/city3.jpg')}}); transform: translate3d(0px, 0px, 0px);" id="coverSection">
     <div class="container text-center mx-auto my-auto d-flex align-content-center flex-wrap" >
-      <h1 class="cover-heading mx-auto">Your journey starts now!</h1>
+      <h1 class="cover-heading mx-auto">
+        {{ __('Your journey starts now!')}}
+      </h1>
       <div class="col-md-6 mx-auto">
         <a href="#" class="btn btn-danger btn-lg" style="min-width: 212.91px;">
-          <i class="fa fa-graduation-cap"></i>&nbsp I'm a Student
+          <i class="fa fa-graduation-cap"></i>
+          &nbsp {{ __('I am a Student')}}
         </a>
         <a href="#" target="" class="btn btn-info btn-lg" rel="nofollow" style="min-width: 212.91px;">
-            <i class="fa fa-university"></i>&nbsp Im a Tutor
+            <i class="fa fa-university"></i>
+            &nbsp {{ __('I am a Tutor')}}
         </a>
         <a href="#" target="" class="btn btn-success btn-lg" rel="nofollow" style="min-width: 212.91px;">
-          <i class="fa fa-hashtag"></i>&nbsp See all Courses
+          <i class="fa fa-hashtag"></i>
+          &nbsp {{ __('See all Courses')}}
         </a>
       </div>
       <div class="footer-head">
-        <p class="p-4 text-light">Developed & Coded by <i class="fa fa-hashtag text-info"></i>Captain Burah</p>
+        <p class="p-4 text-light">
+          {{ __('Developed & Coded by')}} 
+          
+          <span class="badge badge badge-light text-dark">
+            <i class="fa fa-hashtag text-info"></i> Captain Burah</span>
+        </p>
       </div>
     </div>
     
@@ -216,17 +231,22 @@
   <div class="main ">
     <div class="bg-info">
       <div class="container">
+        
         <!---   Section 01  Features --->
-        <section class="download text-center section-feature text-white" id="featureSection">
+        <section class="text-center section-feature text-white" id="featureSection">
           <div class="container">
             <div class="row">
               <div class="col-md-8 mx-auto">
-                <h2 class="section-heading">Discover what all the buzz is about!</h2>
-                <p >a Virtual Learning Environment to the knowledge seekers</p>
-                <!--<div class="badges">
-                  <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
-                  <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
-                </div>-->
+                <div class="card card-nav-tabs text-right">
+                  <div class="card-body">
+                    <blockquote class="blockquote mb-0 ">
+                      <h4 class="lead">
+                        {{('"In learning you will teach, and in teaching you will learn."')}}
+                      </h4>
+                      <p class="lead">{{('- Phil Collins')}}</p>
+                    </blockquote>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -239,7 +259,7 @@
       <div class="container">
         <div class="section-heading text-center ">
           <h2>Unlimited Features, Unlimited Fun</h2>
-          <p class="text-muted">Check out what you can do with this site!</p>
+          <p class="text-muted">Check out what you can learn from here!</p>
           <hr>
         </div>
         <div class="row">
@@ -249,7 +269,7 @@
                 <div class="device">
                   <div class="screen">
                     <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                    <img src="img/new-age/iphone5.jpg" class="img-fluid" alt="">
+                    <img src="{{asset('img/new-age/iphone5.jpg')}}" class="img-fluid" alt="">
                   </div>
                   <div class="button">
                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -264,15 +284,15 @@
                 <div class="col-lg-6">
                   <div class="feature-item">
                     <i class="icon-screen-smartphone text-primary"></i>
-                    <h3>StudentCast</h3>
-                    <p class="text-muted">A tailor made discussion forum dedicated for students & tutors islandwide!</p>
+                    <h3>Student Cast</h3>
+                    <p class="text-muted">Unique discussion forum dedicated for students & tutors!</p>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="feature-item">
                     <i class="icon-emotsmile text-primary"></i>
                     <h3>Flexible Use</h3>
-                    <p class="text-muted">Tutors have the freedom of moving to various subscriptions!</p>
+                    <p class="text-muted">Tutors are capable to choose from an array of subscriptions!</p>
                   </div>
                 </div>
               </div>
@@ -281,14 +301,14 @@
                   <div class="feature-item">
                     <i class="icon-present text-primary"></i>
                     <h3>Free</h3>
-                    <p class="text-muted">As always, this is free for all students & tutors!</p>
+                    <p class="text-muted">A complimentary for all students and tutors!</p>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="feature-item">
                     <i class="icon-lock-open text-primary"></i>
                     <h3>Secured</h3>
-                    <p class="text-muted">All transactions are secured by the Sampath Bank PLC!</p>
+                    <p class="text-muted">A secured transaction gateway by Sampath Bank PLC!</p>
                   </div>
                 </div>
               </div>
@@ -303,7 +323,8 @@
     <section class="showcase">
       <div class="container-fluid p-0">
         <div class="row no-gutters">
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/new-age/bg-showcase-1.jpg');"></div>
+          <div class="col-lg-6 order-lg-2 text-white showcase-img" 
+          style="background-image: url({{asset('img/new-age/bg-showcase-1.jpg')}});"></div>
           <div class="col-lg-6 order-lg-1 my-auto showcase-text container">
             <h2>Responsive Helpdesk</h2>
             <p class="lead mb-0">
@@ -312,7 +333,8 @@
           </div>
         </div>
         <div class="row no-gutters">
-          <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/new-age/bg-showcase-2.jpg');"></div>
+          <div class="col-lg-6 text-white showcase-img" 
+          style="background-image: url({{asset('img/new-age/bg-showcase-2.jpg')}});"></div>
           <div class="col-lg-6 my-auto showcase-text">
             <h2>Updated with the latest Ui & Ux</h2>
             <p class="lead mb-0">
@@ -323,7 +345,8 @@
           </div>
         </div>
         <div class="row no-gutters">
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/new-age/bg-showcase-3.jpg');"></div>
+          <div class="col-lg-6 order-lg-2 text-white showcase-img" 
+          style="background-image: url({{asset('img/new-age/bg-showcase-3.jpg')}});"></div>
           <div class="col-lg-6 order-lg-1 my-auto showcase-text">
             <h2>Easy to Use &amp; Customize</h2>
             <p class="lead mb-0">
@@ -338,7 +361,7 @@
     <!---   Section 03  Technology --->
 
     <!---   Section 04  Contact Us --->
-    <div class="section section-ContactUs" style="background-image: url('img/bg19.jpg'); 
+    <div class="section section-ContactUs" style="background-image: url({{asset('img/bg19.jpg')}}); 
     background-size: cover; background-position: top center; min-height: 700px;"  id="ContactUs">
       <div class="container">
         <div class="title text-center pb-4">
@@ -349,7 +372,7 @@
             <div class="col-lg-5 mx-auto">
               <div class="card  ">
                   <div class="card-header card-header-warning text-center " >
-                    <a href="/register" 
+                    <a href="{{route('register', app()->getLocale()) }}" 
                     class="btn btn-white btn-block fontOne text-capitalize text-dark" 
                     >
                       <i class="fa fa-university"></i>&nbsp Join As Student
@@ -366,7 +389,7 @@
             <div class="col-lg-5 mx-auto">
               <div class="card  ">
                   <div class="card-header card-header-info text-center">
-                    <a href="/tutor_registration"  class="btn btn-white btn-block fontOne text-capitalize text-dark">
+                    <a href="{{url('{locale}/tutor_registration') }}"  class="btn btn-white btn-block fontOne text-capitalize text-dark">
                       <i class="fa fa-graduation-cap"></i>&nbsp Become a Tutor
                     </a>
                   </div>
@@ -441,18 +464,16 @@
 
   <!--  Scripts -->
     <!--   Core JS Files   -->
-    <script src="js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="js/core/popper.min.js" type="text/javascript"></script>
-    <script src="js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-    <script src="js/plugins/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-    <script src="js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <script src="js/material-kit.min.js?v=2.0.7" type="text/javascript"></script>
+    <script src="{{ asset('js/core/popper.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('js/core/jquery.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('js/core/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('js/plugins/moment.min.js')}}"></script>
+    <script src="{{('https://cdn.jsdelivr.net/npm/sweetalert2@10')}}"></script>
+    <script src="{{ asset('js/plugins/bootstrap-datetimepicker.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('js/plugins/nouislider.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('js/material-kit.min.js?v=2.0.7')}}" type="text/javascript"></script>
 
-    
-
-   
+    <!-- Vanilla Javascript -->
     <script>
       $('#studentForm').submit(function (e) {
         if (passValidate() == true ){

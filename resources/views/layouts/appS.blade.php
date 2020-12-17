@@ -14,13 +14,14 @@
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 
     <!-- Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <link href="css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" 
+    href="{{('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')}}" />
+    <link rel="stylesheet" href="{{('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css')}}">
+    <link href="{{asset('css/fonts/pe-icon-7-stroke.css')}}" rel="stylesheet">
 
     <!-- CSS Files -->
-    <link href="css/material-kit.min.css?v=2.0.7" rel="stylesheet" />
-    <link href="demo/demo.css" rel="stylesheet" />
+    <link href="{{asset('css/material-kit.min.css?v=2.0.7')}}" rel="stylesheet" />
+    <link href="{{asset("demo/demo.css")}}" rel="stylesheet" />
 
 </head>
 
@@ -29,8 +30,9 @@
         <nav class="navbar fixed-top navbar-expand-lg" id="sectionsNav">
             <div class="container ">
                 <div class="navbar-translate">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                    Enlighten Venture  </a>
+                    <a class="navbar-brand" href="{{ url('/', app()->getLocale())) }}">
+                        {{__('Enlighten Venture  ')}}
+                    </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
@@ -44,17 +46,14 @@
                     <ul class="navbar-nav ml-auto">
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link text-capitalize" data-toggle="dropdown">
-                        <i class="material-icons">apps</i> Choose Your Language
+                        <i class="material-icons">apps</i> {{__('Choose Your Language')}}
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
                         <a href="../index.html" class="dropdown-item">
-                            <i class="material-icons">layers</i>English
+                            <i class="material-icons">layers</i>{{__('English')}}
                         </a>
                         <a href="#l" class="dropdown-item">
-                            <i class="material-icons">content_paste</i> Sinhala
-                        </a>
-                        <a href="#l" class="dropdown-item">
-                            <i class="material-icons">content_paste</i> Tamil
+                            <i class="material-icons">content_paste</i> {{__('Sinhala')}}
                         </a>
                         </div>
                     </li>
@@ -115,7 +114,7 @@
                 &copy;
                 <script>
                     document.write(new Date().getFullYear())
-                </script> developed by <a href="https://www.instagram.com/captain_burah" target="_blank" class="text-dark" >
+                </script> developed by <a href="{{('https://www.instagram.com/captain_burah')}}" target="_blank" class="text-dark" >
                 Captain Burah
                 </a> for a better world.
             </div>
@@ -125,17 +124,17 @@
 
 
     <!--   Core JS Files   -->
-        <script src="js/core/jquery.min.js" type="text/javascript"></script>
-        <script src="js/core/popper.min.js" type="text/javascript"></script>
-        <script src="js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-        <script src="js/plugins/moment.min.js"></script>
+        <script src="{{asset('js/core/jquery.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('js/core/popper.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('js/core/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('js/plugins/moment.min.js')}}"></script>
         <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-        <script src="js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+        <script src="{{asset('js/plugins/bootstrap-datetimepicker.js')}}" type="text/javascript"></script>
         <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-        <script src="js/plugins/nouislider.min.js" type="text/javascript"></script>
+        <script src="{{asset('js/plugins/nouislider.min.js')}}" type="text/javascript"></script>
         <!--  Google Maps Plugin    -->
         <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-        <script src="js/material-kit.js?v=2.0.7" type="text/javascript"></script>
+        <script src="{{asset('js/material-kit.js?v=2.0.7')}}" type="text/javascript"></script>
 
         <script>
             

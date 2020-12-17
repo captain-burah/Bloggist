@@ -31,9 +31,9 @@ class HomeController extends Controller
         return view('joinAsTutor');
     }
 
-    public function Landing(){
-        return view('joinAsTutor');
-    }
+    //public function Landing(){
+    //    return view('joinAsTutor');
+    //}
     public function Landing2(){
         return view('landing', ['url' => '/student']);
     }

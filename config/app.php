@@ -80,6 +80,11 @@ return [
 
     'locale' => 'en',
 
+    'available_locales' => [
+        'en',
+        'sn',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

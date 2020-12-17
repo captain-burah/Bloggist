@@ -63,7 +63,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel">
             <div class="container ">
-                <a class="navbar-brand " href="{{ url('/') }}">
+                <a class="navbar-brand " href="{{ url('/'), app()->getLocale()) }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -81,10 +81,10 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/login/tutor') }}"><i class="fas fa-graduation-cap"></i>&nbsp Tutor Login </a>
+                                <a class="nav-link" href="{{ url('/login/tutor'), app()->getLocale()) }}"><i class="fas fa-graduation-cap"></i>&nbsp Tutor Login </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-child"></i>&nbsp &nbsp Student {{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login'), app()->getLocale()) }}"><i class="fas fa-child"></i>&nbsp &nbsp Student {{ __('Login') }}</a>
                             </li>
                         @else 
                             <li class="nav-item dropdown">
@@ -93,13 +93,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="{{ route('logout'), app()->getLocale()) }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Logout'), app()->getLocale()) }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout'), app()->getLocale()) }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>

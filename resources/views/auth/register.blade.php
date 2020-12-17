@@ -11,7 +11,7 @@
             <div class="col-md-5 ml-auto mr-auto ">
             <div class="py-4 my-1">
                 <h2 class="text-dark">{{ __('Join the Student Cast') }}</h2>
-                <img src="/img/svg/mobile_login2.svg" alt="" class="img-fluid" style="height: 300px;">
+                <img src="{{asset('/img/svg/mobile_login2.svg')}}" alt="" class="img-fluid" style="height: 300px;">
                 <div class="text-right">
                 <br>
                 <a href="#" target="" class="btn btn-danger btn-lg mobile-view " rel="nofollow">
@@ -42,8 +42,8 @@
 
                 <!---------------------- SignUp Body -------------------------------->
                 <div class="card-body">
-                    <form class="form" method="POST" id="studentForm" action="{{ route('register') }}" 
-                    aria-label="{{ __('Register') }}" name="studentForm">
+                    <form class="form" method="POST" id="studentForm" action="{{ route('register', app()->getLocale()) }}" 
+                    aria-label="{{ __('Register')}}" name="studentForm">
                         @csrf
 
                         <div class="form-group-row">
@@ -249,13 +249,16 @@
                                 </div>
                             <!--  Password  -->
                         </div>
-                        <p class="text-center">Please have yourself read through the privacy policy article before you make any further actions.</p>
+                        <p class="text-center">
+                            {{ __('Please have yourself read through the privacy policy 
+                            article before you make any further actions.')}}
+                        </p>
                         <div class="form-group p-0">
                             <input type="checkbox"/> {{ __("I have read & agreed to the ")}} 
                             <a href="">{{ __("Privacy Policy")}}</a>{{ __(" article and i give my consent to withold & use my information.")}}
                         </div>
                         <button type="submit" class="btn btn-block btn-success">
-                        {{ __('Register') }}
+                        {{ __('Register', app()->getLocale()) }}
                         </button>
                     </form>
                 </div>
