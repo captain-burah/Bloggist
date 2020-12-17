@@ -21,19 +21,23 @@ Route::group([
         
     //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
         Auth::routes();
-        
+        Route::get('/sinhala', function(){
+            App::setLocale('sn');
+            //dd(App::getLocale());
+            return view('home');
+        });
+        Route::get('/english', function(){
+            App::setLocale('en');
+            //dd(App::getLocale());
+            return view('home');
+        });
         Route::get('/tutor_registration', 'Auth\RegisterController@showlecRegisterForm');
         Route::post('/tutor/register', 'Auth\RegisterController@createLec');
         Route::get('/login/tutor', 'Auth\LoginController@showlecLoginForm');
         Route::post('/tutor/login', 'Auth\LoginController@lecLogin');
         Route::post('/student/login', 'Auth\LoginController@stuLogin');
         Route::get('/testPage', 'Lecturer\LecturerController@test');
-        Route::get('/entest', function(){
-            App::setLocale('sn');
-            //dd(App::getLocale());
-            return view('home');
-        });
-
+        
     //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
 
 
@@ -46,7 +50,7 @@ Route::group([
         Route::get('/home_student', 'Student\StudentController@home_student')->name('home-student-auth');
 
         Route::get('/JoinAsTutor', 'HomeController@JoinAsTutor')->name('home-student-auth');
-        Route::get('/landing2', function () {
+        Route::get('/landing', function () {
             return view('landing');
         });
     //--------------------------- /Home Routes Auths------------------------------------------------>

@@ -25,7 +25,7 @@ class Handler extends ExceptionHandler
                 return redirect()->guest('/login/tutor');
             }
 
-            return redirect()->guest('/en/home');
+            return redirect()->guest('/en/landing');
         }
 
 
