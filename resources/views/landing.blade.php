@@ -9,11 +9,11 @@
         {{ __('Your journey starts now!')}}
       </h1>
       <div class="col-md-6 mx-auto">
-        <a href="{{ ('/en/home')}}" class="btn btn-white btn-lg" style="min-width: 212.91px;">
+        <a href="{{ ('/en/home')}}" class="btn btn-white btn-lg text-dark" style="min-width: 212.91px;">
           <i class="fa fa-graduation-cap"></i>
           &nbsp {{ __('English')}}
         </a>
-        <a href="{{ ('/sn/home')}}" target="" class="btn btn-warning btn-lg " rel="nofollow" style="min-width: 212.91px;">
+        <a href="{{ ('/sn/home')}}" target="" class="btn btn-warning btn-lg text-dark" rel="nofollow" style="min-width: 212.91px;">
             <i class="fa fa-university"></i>
             &nbsp {{ __('සිංහල')}}
         </a>

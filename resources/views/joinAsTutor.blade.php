@@ -234,6 +234,19 @@
                   <div class="separator line-separator text-white  pb-0 pt-0">♦</div>
               </div>
               <div class="">
+                <li class="dropdown nav-item">
+                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                      {{ __('Language')}}
+                  </a>
+                  <div class="dropdown-menu dropdown-with-icons">
+                    <a href="#" class="dropdown-item">
+                      <img class="material-icons" src="{{asset('img/flags/GB.png')}}"/> {{ __(' English')}}
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <img class="material-icons" src="{{asset('img/flags/LK.png')}}"/> {{ __(' Sinhala')}}
+                    </a>
+                  </div>
+                </li>
                 <a href="#" class="btn btn-info btn-lg">
                   <i class="fa fa-university"></i>&nbsp Go To Academy
                 </a>
