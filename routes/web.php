@@ -10,28 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return redirect(app()->getLocale());
 });
-Auth::routes();
-Route::group([
-    'prefix' => '{locale}', 
-    'where' => ['locale' => '[a-zA-Z]{2}'],
-    'middleware' => 'setlocale'],   function() {
+
+Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => 'setlocale'], function() {
         
     //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
+        Route::get('/', function(){
+            return view('landing');
+        });
         Auth::routes();
-        Route::get('/sinhala', function(){
-            App::setLocale('sn');
-            //dd(App::getLocale());
-            return view('home');
-        });
-        Route::get('/english', function(){
-            App::setLocale('en');
-            //dd(App::getLocale());
-            return view('home');
-        });
-        Route::get('/tutor_registration', 'Auth\RegisterController@showlecRegisterForm');
+        Route::get('/tutor_registration', 'Auth\RegisterController@showlecRegisterForm')->name('tutor-register');
         Route::post('/tutor/register', 'Auth\RegisterController@createLec');
         Route::get('/login/tutor', 'Auth\LoginController@showlecLoginForm');
         Route::post('/tutor/login', 'Auth\LoginController@lecLogin');
@@ -156,4 +147,4 @@ Route::group([
 Route::get('{path}','Student\StudentController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );
 Route::get('{path}','Lecturer\LecturerController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );
 Route::get('{path}','Lecturer\LecturerController@dashboard')->where( 'path', '([A-z\d\-\/_.]+)?' );
-Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );
+//Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );

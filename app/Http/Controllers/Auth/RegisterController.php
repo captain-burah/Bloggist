@@ -33,8 +33,13 @@ class RegisterController extends Controller
      *
      * @var string
      */
+    
     protected $redirectTo = '/student_dashboard';
     
+    public function redirectTo()
+    {
+        return app()->getLocale() . '/student_dashboard';
+    }
 
     /**
      * Create a new controller instance.
@@ -47,6 +52,7 @@ class RegisterController extends Controller
         $this->middleware('guest:lecturer');
     }
 
+    
     /**
      * Get a validator for an incoming registration request.
      *
@@ -89,7 +95,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-
+    
 
 
 

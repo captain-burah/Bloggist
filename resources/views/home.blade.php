@@ -11,11 +11,11 @@
                   <h3 class="">{{ __('Your journey starts now!')}}</h3>
                   <div class="separator line-separator text-white  pb-0 pt-0">♦</div>
               </div>
-              <div class="">
-                <a href="#" class="btn btn-info btn-lg text-left" style="min-width: 293.11px;">
+              <div>
+                <a href="{{ route('register', app()->getLocale()) }}" class="btn btn-info btn-lg text-left" style="min-width: 293.11px;">
                   <i class="fa fa-university"></i>&nbsp {{ __('I am a Student')}}
                 </a>
-                <a href="#" target="" class="btn btn-success btn-lg text-left" rel="nofollow" 
+                <a href="{{ url(app()->getLocale() . '/tutor_registration')}}" target="" class="btn btn-success btn-lg text-left" rel="nofollow" 
                 style="min-width: 293.11px;">
                     <i class="fa fa-hashtag"></i>&nbsp {{ __('I am a Tutor')}}
                 </a>
@@ -92,10 +92,8 @@
         <div class="text-center">
           <div class="row">
             <div class="col-md-10 ml-auto mr-auto">
-              <h3 class="text-left description text-dark">
-                {{ __('We envision worlds best learning experience.')}}<br>
-              </h3>
-              <h3 class="text-left description text-dark">
+              
+              <h3 class="text-left text-dark">
                 {{ __('Our goal is to encourage every student to 
                 be part of the next generation of Leaders in Sri Lanka.')}}
               </h3>
@@ -127,7 +125,7 @@
       <!---   /Section 01  Features --->
     </div>
 
-    <!---   Section 02  PayAsYouGo --->
+    <!---   Section 02  Aims --->
     <div class="section section-Aims text-center ">
       <div class="features bg-primary">
         <div class="row px-3">
@@ -173,37 +171,37 @@
         </div>
       </div>
     </div>
-    <!---   /Section 02  PayAsYouGo --->
+    <!---   /Section 02  Aims --->
 
     <!---   Section 03  Contact Us --->
         <div class="section section-ContactUs" style="background-image: url({{asset('img/bg19.jpg')}}); 
         background-size: cover; background-position: top center; min-height: 700px;"  id="ContactUs">
           <div class="row container mx-auto">
-            <div class="col-md-8 ml-auto mr-auto border border-dark">
+            <div class="col-md-8 ml-auto mr-auto border border-white">
               <h2 class="text-center title text-dark">{{ __('Leave us your comments ')}}</h2>
               
-              <form class="contact-form" method="POST" action="#">
+              <form class="contact-form" method="POST" action="">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group bmd-form-group">
                       <label class="bmd-label-floating text-white">Your Name</label>
-                      <input type="email" class="form-control">
+                      <input type="text" class="form-control text-white">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group bmd-form-group">
                       <label class="bmd-label-floating text-white">Your Email</label>
-                      <input type="email" class="form-control">
+                      <input type="email" class="form-control text-white">
                     </div>
                   </div>
                 </div>
                 <div class="form-group bmd-form-group">
                   <label for="exampleMessage" class="bmd-label-floating text-white">Your Message</label>
-                  <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+                  <textarea type="text" class="form-control text-white" rows="4" id="exampleMessage"></textarea>
                 </div>
                 <div class="row">
                   <div class="col-md-4 ml-auto mr-auto text-center">
-                    <button class="btn btn-primary btn-raised">
+                    <button type="submit" class="btn btn-primary btn-raised">
                       Send Message
                     </button>
                   </div>

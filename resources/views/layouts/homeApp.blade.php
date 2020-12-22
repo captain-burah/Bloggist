@@ -254,6 +254,20 @@
             Captain Burah
           </a>for a better world.
           </small>
+          <ul>
+          <a class="m-0 text-secondary Flink pb-0 footer-aa"><i class="material-icons">language</i></a>
+          @foreach (config('app.available_locales') as $locale)
+              <li class="nav-item pb-0 footer-aa">
+                  <a @if (app()->getLocale() == $locale) 
+                      style="text-decoration: underline;" 
+                      class="nav-link footer-aa" @endif 
+                  href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}" class="nav-link Flink footer-aa">
+                      
+                      {{ strtoupper($locale )}}
+                  </a>
+              </li>
+          @endforeach
+          </ul>
         </div>
         <div class="col-6 col-md text-left">
           <h5 class="font-weight-bold m-0 mt-2">Features</h5>

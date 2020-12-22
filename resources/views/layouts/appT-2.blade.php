@@ -96,7 +96,7 @@
     <nav class="navbar  navbar-expand-lg" id="sectionsNav">
         <div class="container ">
             <div class="navbar-translate">
-                <a class="navbar-brand" href="/Landing">
+                <a class="navbar-brand" href="{{ url(app()->getLocale() . '/home') }}">
                 Enlighten Venture  </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
                 aria-label="Toggle navigation">

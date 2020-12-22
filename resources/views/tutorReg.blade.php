@@ -9,14 +9,15 @@
     <div class="row col-md-12 ml-auto mr-auto">
       <div class="col-md-5 ml-auto mr-auto ">
         <div class="py-4 my-1">
-          <h2 class="text-dark">{{ __('Join the Student Cast') }}</h2>
-          <img src="/img/svg/mobile_login2.svg" alt="" class="img-fluid" style="height: 300px;">
+          <h2 class="text-dark">{{ __('Join the Tutor panel') }}</h2>
+          <img src="{{asset('/img/svg/mobile_login2.svg')}}" alt="" class="img-fluid" style="height: 300px;">
           <div class="text-right">
             <br>
             <a href="#" target="" class="btn btn-danger btn-lg mobile-view border border-dark shadow-lg" rel="nofollow">
               <i class="fa fa-play"></i>&nbsp {{ __('learn how to register') }}
             </a>
-            <h4 class="text-dark"> <a href="javascript:void(0)" onclick="scrollLecReg()" class="text-dark">{{ __('or you can go register now') }}</a></h4>
+            <h4 class="text-dark"> <a href="javascript:void(0)" onclick="scrollLecReg()" class="text-dark">
+              {{ __('or you can go register now') }}</a></h4>
         </div>
         </div>
       </div>
@@ -45,33 +46,33 @@
                   @csrf
 
                   <div class="form-group-row">
-                      <div class="form-row col-md-12 p-0">
-                          <!--  First Name  fname-->
-                              <div class="form-group col-md-6 pt-0">
-                                  <input type="text" class="form-control{{ $errors->has('fname') ? ' is-invalid' : '' }}" 
-                                  name="fname" placeholder="{{ __('First name') }}" value="{{ old('fname') }}" required autofocus>
+                    <div class="form-row col-md-12 p-0">
+                      <!--  First Name  fname-->
+                          <div class="form-group col-md-6 pt-0">
+                              <input type="text" class="form-control{{ $errors->has('fname') ? ' is-invalid' : '' }}" 
+                              name="fname" placeholder="{{ __('First name') }}" value="{{ old('fname') }}" required autofocus>
 
-                                  @if ($errors->has('fname'))
-                                      <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $errors->first('fname') }}</strong>
-                                      </span>
-                                  @endif
-                              </div>
-                          <!--  /First Name  -->
-
-                          <!--  Last Name  lname-->
-                              <div class="form-group col-md-6 pt-0">
-                                  <input type="text" class="form-control{{ $errors->has('lname') ? ' is-invalid' : '' }}" 
-                                  name="lname" placeholder="{{ __('Last name') }}" value="{{ old('lname') }}" required autofocus>
-
-                                  @if ($errors->has('lname'))
+                              @if ($errors->has('fname'))
                                   <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $errors->first('lname') }}</strong>
+                                      <strong>{{ $errors->first('fname') }}</strong>
                                   </span>
-                                  @endif
-                              </div>
-                          <!--  /Last Name  -->
-                      </div>
+                              @endif
+                          </div>
+                      <!--  /First Name  -->
+
+                      <!--  Last Name  lname-->
+                          <div class="form-group col-md-6 pt-0">
+                              <input type="text" class="form-control{{ $errors->has('lname') ? ' is-invalid' : '' }}" 
+                              name="lname" placeholder="{{ __('Last name') }}" value="{{ old('lname') }}" required autofocus>
+
+                              @if ($errors->has('lname'))
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $errors->first('lname') }}</strong>
+                              </span>
+                              @endif
+                          </div>
+                      <!--  /Last Name  -->
+                    </div>
                   </div>
                   
                   <!--  Email  email-->
@@ -89,43 +90,43 @@
                   <!--  /Email  -->
   
                   <div class="form-group row mb-0">
-                      <!--  /Gender  gender-->
-                          <div class="form-group col-md-12">
-                              <label for="gender">{{ __('Gender') }}</label>
-                              <select name="gender" class="form-control {{ $errors->has('gender') ? ' is-invalid' : '' }}" 
-                                  value="{{ old('gender') }}" required >
-                                  <option value="">Choose..</option>
-                                  <option value="male">Male</option>
-                                  <option value="female">Female</option>
-                              </select>
+                    <!--  /Gender  gender-->
+                      <div class="form-group col-md-12">
+                          <label for="gender">{{ __('Gender') }}</label>
+                          <select name="gender" class="form-control {{ $errors->has('gender') ? ' is-invalid' : '' }}" 
+                              value="{{ old('gender') }}" required >
+                              <option value="">Choose..</option>
+                              <option value="male">Male</option>
+                              <option value="female">Female</option>
+                          </select>
 
-                              @if ($errors->has('gender'))
-                                  <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $errors->first('gender') }}</strong>
-                                  </span>
-                              @endif
-                          </div>
-                      <!--  /Gender  -->
+                          @if ($errors->has('gender'))
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $errors->first('gender') }}</strong>
+                              </span>
+                          @endif
+                      </div>
+                    <!--  /Gender  -->
                   </div>
                   <div class="form-group row p-0">
-                      <!--  Password  password & password_confirmation-->
-                          <div class="col-md-6">
-                              <input id="password" type="password" 
-                              class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" 
-                              name="password" placeholder="{{ __("Password") }}" autocomplete="off" required>
+                    <!--  Password  password & password_confirmation-->
+                      <div class="col-md-6">
+                          <input id="password" type="password" 
+                          class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" 
+                          name="password" placeholder="{{ __("Password") }}" autocomplete="off" required>
 
-                              @if ($errors->has('password'))
-                                  <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $errors->first('password') }}</strong>
-                                  </span>
-                              @endif
-                          </div>
+                          @if ($errors->has('password'))
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $errors->first('password') }}</strong>
+                              </span>
+                          @endif
+                      </div>
 
-                          <div class="col-md-6">
-                              <input id="password-confirmation" type="password" class="form-control" name="password_confirmation" 
-                              placeholder="{{ __("Confirm Password") }}" required>
-                          </div>
-                      <!--  Password  -->
+                      <div class="col-md-6">
+                          <input id="password-confirmation" type="password" class="form-control" name="password_confirmation" 
+                          placeholder="{{ __("Confirm Password") }}" required>
+                      </div>
+                    <!--  Password  -->
                   </div>
                   <p class="text-center">Please have yourself read through the privacy policy article before you make any further actions.</p>
                   <div class="form-group p-0">

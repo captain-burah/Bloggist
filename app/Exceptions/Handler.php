@@ -8,7 +8,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Auth\AuthenticationException;
 use Auth; 
 class Handler extends ExceptionHandler
-{
+{   
     
     protected function unauthenticated($request, AuthenticationException $exception)
         {
@@ -24,8 +24,7 @@ class Handler extends ExceptionHandler
             if ($request->is('setup') || $request->is('setup/*')) {
                 return redirect()->guest('/login/tutor');
             }
-
-            return redirect()->guest('/en/landing');
+            return redirect(app()->getLocale());
         }
 
 

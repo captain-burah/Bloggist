@@ -96,7 +96,7 @@
                                     <a class="dropdown-item" href="{{ route('logout'), app()->getLocale()) }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout'), app()->getLocale()) }}
+                                        {{ __('Logout')}}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout'), app()->getLocale()) }}" method="POST" style="display: none;">

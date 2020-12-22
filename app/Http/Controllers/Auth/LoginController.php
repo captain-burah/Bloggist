@@ -33,6 +33,11 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/login';
 
+    public function redirectTo()
+    {
+        return app()->getLocale() . '/login';
+    }
+
     /**
      * Create a new controller instance.
      *

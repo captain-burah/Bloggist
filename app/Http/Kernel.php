@@ -36,7 +36,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\SetLanguage::class,
+            \App\Http\Middleware\SetLocale::class,
             
         ],
 
@@ -62,6 +62,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'setlocale' => \App\Http\Middleware\SetLanguage::class,
+        'setlocale' => \App\Http\Middleware\SetLocale::class,
     ];
 }

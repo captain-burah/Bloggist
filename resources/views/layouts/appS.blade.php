@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <!-- CSRF Token -->
@@ -30,7 +30,7 @@
         <nav class="navbar fixed-top navbar-expand-lg" id="sectionsNav">
             <div class="container ">
                 <div class="navbar-translate">
-                    <a class="navbar-brand" href="{{ url('/', app()->getLocale())) }}">
+                    <a class="navbar-brand" href="{{ url(app()->getLocale() . '/home') }}">
                         {{__('Enlighten Venture  ')}}
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
@@ -44,22 +44,22 @@
 
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
-                    <li class="dropdown nav-item">
-                        <a href="#" class="dropdown-toggle nav-link text-capitalize" data-toggle="dropdown">
-                        <i class="material-icons">apps</i> {{__('Choose Your Language')}}
-                        </a>
-                        <div class="dropdown-menu dropdown-with-icons">
-                        <a href="../index.html" class="dropdown-item">
-                            <i class="material-icons">layers</i>{{__('English')}}
-                        </a>
-                        <a href="#l" class="dropdown-item">
-                            <i class="material-icons">content_paste</i> {{__('Sinhala')}}
-                        </a>
-                        </div>
-                    </li>
-
-                    
-
+                        <li class="dropdown nav-item ">
+                            <a href="#" class="dropdown-toggle nav-link text-capitalize" data-toggle="dropdown">
+                            <i class="material-icons">language</i> {{__('Language')}}
+                            </a>
+                            <div class="dropdown-menu dropdown-with-icons">
+                                @foreach (config('app.available_locales') as $locale)
+                                    <a @if (app()->getLocale() == $locale) 
+                                        style="text-decoration: underline;" 
+                                        class="dropdown-item text-white bg-success" @endif 
+                                    href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}" class="dropdown-item">
+                                        
+                                        {{ strtoupper($locale )}}
+                                    </a>
+                                @endforeach
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -73,53 +73,64 @@
     <!--  Body Content  -->
 
     <!--  Footer  -->
-        <footer class="pt-0 mt-0">
-            <div class="container text-dark  pb-0 mb-0">
-            <nav class=" pb-0">
-                <ul>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" 
-                        href="#" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">
-                        <i class="fa fa-twitter"></i> <span class="text-capitalize">Twitter</span>
+    <footer class="pt-0 mt-0">
+        <div class="container text-dark  pb-0 mb-0">
+          <nav class=" pb-0">
+            <ul>
+                <a class="m-0 text-dark Flink pb-0"><i class="material-icons">language</i></a>
+                @foreach (config('app.available_locales') as $locale)
+                    <li class="nav-item pb-0">
+                        <a @if (app()->getLocale() == $locale) 
+                            style="text-decoration: underline;" 
+                            class="nav-link" @endif 
+                        href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}" class="nav-link Flink">
+                            
+                            {{ strtoupper($locale )}}
                         </a>
                     </li>
+                @endforeach
+                <li class="nav-item pb-0">
+                    <a class="nav-link pb-2" rel="tooltip" title="" data-placement="bottom" 
+                    href="#" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">
+                    <i class="fa fa-twitter"></i> <span class="text-capitalize">Twitter</span>
+                    </a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" 
-                        href="#" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
-                        <i class="fa fa-facebook-square"></i> <span class="text-capitalize">facebook</span>
-                        </a>
-                    </li>
+                <li class="nav-item  pb-0">
+                    <a class="nav-link pb-2" rel="tooltip" title="" data-placement="bottom" 
+                    href="#" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
+                    <i class="fa fa-facebook-square"></i> <span class="text-capitalize">facebook</span>
+                    </a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" 
-                        href="#" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">
-                        <i class="fa fa-instagram"></i> <span class="text-capitalize">instagram</span>
-                        </a>
-                    </li>
-                    <li class="pb-0 mb-0">
-                        <a href="#" class="pb-0 mb-0">
-                        Licenses
-                        </a>
-                    </li>
-                    <li class="pb-0 mb-0">
-                        <a href="#" class="pb-0 mb-0">
-                        Terms & Conditions
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="copyright pt-0 mt-0  pb-0 mb-0">
-                &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script> developed by <a href="{{('https://www.instagram.com/captain_burah')}}" target="_blank" class="text-dark" >
-                Captain Burah
-                </a> for a better world.
-            </div>
-            </div>
-        </footer>
+                <li class="nav-item pb-0">
+                    <a class="nav-link py-2" rel="tooltip" title="" data-placement="bottom" 
+                    href="#" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">
+                    <i class="fa fa-instagram"></i> <span class="text-capitalize">instagram</span>
+                    </a>
+                </li>
+                <li class="nav-item pb-0 ">
+                    <a href="#" class="py-2">
+                    Licenses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="py-2">
+                    Terms & Conditions
+                    </a>
+                </li>
+            </ul>
+          </nav>
+          <div class="copyright pt-0 mt-0  pb-0 mb-0">
+            &copy;
+              <script>
+                document.write(new Date().getFullYear())
+              </script> developed by <a href="{{('https://www.instagram.com/captain_burah')}}" target="_blank" class="text-dark" >
+              Captain Burah
+            </a> for a better world.
+          </div>
+        </div>
+    </footer>
     <!--  Footer  -->
 
 
@@ -148,6 +159,6 @@
             }
         </script>
     <!--   Core JS Files   -->
-  </body>
+</body>
 
 </html>
