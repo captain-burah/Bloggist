@@ -21,7 +21,35 @@
     <!-- CSS Files -->
     <link href="{{asset('css/material-kit.min.css?v=2.0.7')}}" rel="stylesheet" />
     <style>
+      .image-preview__image{
+          max-width: 200px;
+          max-height: 200px;
+          border-radius: 50%;
+          border: 2px solid #dddddd;
+      }
+      .image-preview{
+          min-width: 200px;
+          min-height: 200px;
+          border-radius: 50%;
+          
+          
+                          
+          /* default text */
+          display: flex;
+          align-items: center;
+          justify-contents: center;
+          font-weight: bold;
+          color: #cccccc;
+      }
       
+      .image-preview__image{
+          display: block;
+          width: 100%;
+      }
+      .image-preview__default-text{
+          display: none;
+          width: 100%;
+      }
 
 
       .separator {
@@ -214,11 +242,6 @@
         <div class="container">
         <nav class="float-left ">
             <ul>
-            <li>
-                <a href="https://www.instagram.com/captain_burah" target="_blank">
-                Captain Burah
-                </a>
-            </li>
             <li>
                 <a href="#">
                 About Us
