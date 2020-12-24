@@ -1,4 +1,4 @@
-@extends('layouts.homeApp')
+@extends('layouts.appHome')
 
 @section('content')
   <!---   Cover   --->
@@ -12,10 +12,11 @@
                   <div class="separator line-separator text-white  pb-0 pt-0">♦</div>
               </div>
               <div>
-                <a href="{{ route('register', app()->getLocale()) }}" class="btn btn-info btn-lg text-left" style="min-width: 293.11px;">
+                <a href="{{ route('register', app()->getLocale()) }}" class="btn btn-info btn-lg text-left" 
+                  style="min-width: 293.11px;">
                   <i class="fa fa-university"></i>&nbsp {{ __('I am a Student')}}
                 </a>
-                <a href="{{ url(app()->getLocale() . '/tutor_registration')}}" target="" class="btn btn-success btn-lg text-left" rel="nofollow" 
+                <a href="{{ url(app()->getLocale() . '/tutors')}}" target="" class="btn btn-success btn-lg text-left" rel="nofollow" 
                 style="min-width: 293.11px;">
                     <i class="fa fa-hashtag"></i>&nbsp {{ __('I am a Tutor')}}
                 </a>

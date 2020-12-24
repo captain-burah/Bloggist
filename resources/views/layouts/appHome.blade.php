@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html  lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+ 
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
@@ -157,7 +157,7 @@
     </style>  
 </head>
 
-<body class="index-page sidebar-collapse">
+<body class="index-page sidebar-collapse bg-dark">
     <!--  Nav  -->
     <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-md p-1 m-0" 
     color-on-scroll="100" id="sectionsNav">

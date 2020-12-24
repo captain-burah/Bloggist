@@ -4,5 +4,23 @@
     "I am a Tutor": "දේශකයන්",
     "See all Courses": "ඇකඩමිය",
     "Enter Academy": "ඇකඩමියට ඇතුළු වන්න",
-    "What are you looking for?": "ඔබ සොයන්නේ කුමක්ද?"
+    "What are you looking for?": "ඔබ සොයන්නේ කුමක්ද?",
+
+    
+    "Sign Up": "ලියාපදිංචි වන්න",
+    "It's quick & easy": "එය ඉක්මන් සහ පහසුය",
+    "First name": "පළමු නම",
+    "Last name": "අවසන් නම",
+    "E-mail Address": "ඊ-තැපෑල",
+    "Gender": "ස්ත්රී පුරුෂ භාවය",
+    "Choose..": "පුරුෂ හෝ ස්ත්‍රී",
+    "Male": "පුරුෂ ලිංගය",
+    "Female": "ස්ත්‍රී ලිංගය",
+    "Password": "මුරපදය",
+    "Confirm Password": "තහවුරු කරන්න",
+    "Forgot Your Password?": "මුරපදය අමතක වුනාද",
+    "Login": "මීළඟ",
+    "Create account": "ගිණුමක් නිර්මාණය කරන්න"
+
+
 }

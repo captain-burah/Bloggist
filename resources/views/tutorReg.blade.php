@@ -41,7 +41,7 @@
 
           <!---------------------- SignUp Body -------------------------------->
             <div class="card-body">
-              <form class="form" method="POST" id="tutorForm" action="{{ ('tutor/register') }}" 
+              <form class="form" method="POST" id="tutorForm" action="{{ url(app()->getLocale() . '/tutor/register') }}" 
               aria-label="{{ __('Register') }}" name="tutorForm">
                   @csrf
 
@@ -78,7 +78,7 @@
                   <!--  Email  email-->
                       <div class="form-group p-0">
                           <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" 
-                          name="email" placeholder="{{ __('Email address') }}"
+                          name="email" placeholder="{{ __('E-mail Address') }}"
                           autocomplete="" value="{{ old('email') }}" required>
 
                           @if ($errors->has('email'))
@@ -88,16 +88,16 @@
                           @endif
                       </div>
                   <!--  /Email  -->
-  
+                  
+                  <!--  /Gender  gender
                   <div class="form-group row mb-0">
-                    <!--  /Gender  gender-->
                       <div class="form-group col-md-12">
                           <label for="gender">{{ __('Gender') }}</label>
                           <select name="gender" class="form-control {{ $errors->has('gender') ? ' is-invalid' : '' }}" 
                               value="{{ old('gender') }}" required >
-                              <option value="">Choose..</option>
-                              <option value="male">Male</option>
-                              <option value="female">Female</option>
+                              <option value="">{{ __('Choose..')}}</option>
+                              <option value="male">{{ __('Male')}}</option>
+                              <option value="female">{{ __('Female')}}</option>
                           </select>
 
                           @if ($errors->has('gender'))
@@ -106,8 +106,9 @@
                               </span>
                           @endif
                       </div>
-                    <!--  /Gender  -->
-                  </div>
+                    </div>
+                  /Gender  -->
+                  
                   <div class="form-group row p-0">
                     <!--  Password  password & password_confirmation-->
                       <div class="col-md-6">
@@ -128,7 +129,6 @@
                       </div>
                     <!--  Password  -->
                   </div>
-                  <p class="text-center">Please have yourself read through the privacy policy article before you make any further actions.</p>
                   <div class="form-group p-0">
                       <input type="checkbox" name="privacyPolicy"/> {{ __("I have read & agreed to the ")}} 
                       <a href="">{{ __("Privacy Policy")}}</a>{{ __(" article and i give my consent to withold & use my information.")}}

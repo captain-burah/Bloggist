@@ -10,7 +10,7 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
   
   <!-- CSS -->
-  <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <!--<link rel="stylesheet" href="/css/app.css">-->
   <style>
     .navbar-bg{
@@ -36,10 +36,10 @@
     
   </div>
   
-  <script rel="stylesheet" src="{{ asset('/js/app.js') }}"></script>
+  <script rel="stylesheet" src="{{ asset('js/app.js') }}"></script>
   <!--<script src="/js/app.js"></script>-->
-<script  src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
+<script  src="{{('https://unpkg.com/ionicons@5.1.2/dist/ionicons.js')}}"></script>
+<script src="{{('https://unpkg.com/vue/dist/vue.js')}}"></script>
+<script src="{{('https://unpkg.com/vue-i18n/dist/vue-i18n.js')}}"></script>
 </body>
 </html>

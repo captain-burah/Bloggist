@@ -24,14 +24,14 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers; 
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    //protected $redirectTo = '/login';
 
     public function redirectTo()
     {
@@ -54,6 +54,7 @@ class LoginController extends Controller
     public function showLecLoginForm()
     {
         return view('auth.login', ['url' => '/tutor']);
+        //return view('auth.login', ['url' => '/tutor']);
     }
 
 
@@ -73,11 +74,11 @@ class LoginController extends Controller
 
             if ($getArray->regStatus == 'false') {
                 //redirect to SETUP page
-                return redirect('/setup');
+                return redirect(app()->getLocale() . '/setup');
             } 
             elseif ($getArray->regStatus == 'true') {
                 //redirect to TUTOR DASHBOARD page
-                return redirect('/tutor');
+                return redirect(app()->getLocale() .'/tutor');
             } 
             else {
                 return 'something wrong in "regStatus" page load';

@@ -117,7 +117,6 @@ class RegisterController extends Controller
                 'fname'  => 'required|string|max:191',
                 'lname'  => 'required|string|max:191',
                 'email'  => 'required|string|email|max:191|unique:lecturers',
-                'gender' => 'required|string',
                 'password' => 'required|string|min:6|confirmed',
                 'password_confirmation' => 'required| min:6',
                 //'privacyPolicy' => 'required|string',
@@ -136,11 +135,11 @@ class RegisterController extends Controller
                     return view('errors.notFound', compact('message'));
                 }
 
-                $user = new LecturerInfo();
-                $user->lec_email = $request['email'];
-                $user->gender = $request['gender'];
-                $user->push();
-                return redirect('/tutor/login');
+                //$user = new LecturerInfo();
+                //$user->lec_email = $request['email'];
+                //$user->gender = $request['gender'];
+                //$user->push();
+                return app()->getLocale() . '/tutor/login';
             }
         //Else statement not required, Laravel redirects USER back with flash messages
         }

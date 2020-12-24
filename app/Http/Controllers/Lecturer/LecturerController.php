@@ -38,7 +38,7 @@ class LecturerController extends Controller
         */
         //$lecturerName = Lecturer::findOrFail($id);
         
-        return view('/lecturer.Lmaster');
+        return app()->getLocale() . view('/lecturer.Lmaster');
     }
 
 //------------------ Going Home--------------------------------------

@@ -209,8 +209,6 @@
 
 </template>
 <script>
-
-    
     export default {
         name: 'Logout',
         
@@ -225,7 +223,7 @@
             logout() {
                 axios.post('/logout')
                     .catch(error => {
-                       window.location.href = '/tutor/login';
+                       window.location.href = 'tutor/login';
                     });
             },
             handleChange(event){

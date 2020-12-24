@@ -20,13 +20,13 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
     //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
         Route::get('/', function(){
             return view('landing');
-        });
+        })->name('landing-page');
         Auth::routes();
         Route::get('/tutor_registration', 'Auth\RegisterController@showlecRegisterForm')->name('tutor-register');
-        Route::post('/tutor/register', 'Auth\RegisterController@createLec');
-        Route::get('/login/tutor', 'Auth\LoginController@showlecLoginForm');
-        Route::post('/tutor/login', 'Auth\LoginController@lecLogin');
-        Route::post('/student/login', 'Auth\LoginController@stuLogin');
+        Route::post('/tutor/register', 'Auth\RegisterController@createLec')->name('tutor-createDB');
+        Route::get('/login/tutor', 'Auth\LoginController@showlecLoginForm')->name('tutor-login');
+        Route::post('/tutor/login', 'Auth\LoginController@lecLogin')->name('tutor-verify');
+        Route::post('/student/login', 'Auth\LoginController@stuLogin')->name('student-verify');
         Route::get('/testPage', 'Lecturer\LecturerController@test');
         
     //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
@@ -40,7 +40,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
         Route::get('/home_tutor', 'Lecturer\LecturerController@home_tutor')->name('home-tutor-auth');
         Route::get('/home_student', 'Student\StudentController@home_student')->name('home-student-auth');
 
-        Route::get('/JoinAsTutor', 'HomeController@JoinAsTutor')->name('home-student-auth');
+        Route::get('/tutors', 'HomeController@JoinAsTutor')->name('home-student-auth');
         Route::get('/landing', function () {
             return view('landing');
         });
@@ -105,29 +105,30 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
     //Route::post('tutor_register', 'Lecturer\LecturerController@store')->name('tutor-register');
     //Route::post('tutor_logout', 'Auth\LoginController@lecLogOut')->name('tutor-logout');
     
+
+
+
+
+    
+
 });
 
-
-
-
-
+Route::group(['middleware' => 'auth:lecturer'], function() {
 //---------------------------- Group: Lecturer Auths------------------------------------------------------->
-    Route::group(['middleware' => 'auth:lecturer'], function() {
-        Route::get('/', function () {
-            return view('welcome');
-        });
-        
-        Route::get('/setup', function () {              //---- Loading of the step page
-            return view('lecturer.setup.lecSetup');     //---- This is controlled by App/Exceptions/Handler.php
-        });
-
-        Route::get('/setup_finish', 'Lecturer\LecturerController@setupSubmit')->name('Tsetup-Submit');
-        //Route::get('/testPage', 'Lecturer\LecturerController@test');
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    
+    Route::get('/setup', function () {              //---- Loading of the step page
+        return view('lecturer.setup.lecSetup');     //---- This is controlled by App/Exceptions/Handler.php
     });
 
+    Route::get('/setup_finish', 'Lecturer\LecturerController@setupSubmit')->name('Tsetup-Submit');
+    //Route::get('/testPage', 'Lecturer\LecturerController@test');
+
+
 //--------------------------- /Group: Lecturer Auths------------------------------------------------------->
-
-
+});
 
 
 
@@ -144,7 +145,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
 
 
 //--------------------------------------------------------------------------------------------
-Route::get('{path}','Student\StudentController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );
-Route::get('{path}','Lecturer\LecturerController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );
+//Route::get('{path}','Student\StudentController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );
+//Route::get('{path}','Lecturer\LecturerController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );
 Route::get('{path}','Lecturer\LecturerController@dashboard')->where( 'path', '([A-z\d\-\/_.]+)?' );
 //Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );

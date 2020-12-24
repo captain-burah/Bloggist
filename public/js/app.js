@@ -90256,7 +90256,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'Logout',
 
@@ -90270,7 +90269,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         logout: function logout() {
             axios.post('/logout').catch(function (error) {
-                window.location.href = '/tutor/login';
+                window.location.href = 'tutor/login';
             });
         },
         handleChange: function handleChange(event) {
