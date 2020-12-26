@@ -15,18 +15,23 @@
 
     <!-- Fonts and icons     -->
     <link href="{{('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')}}" rel="stylesheet" type="text/css"/>
+    <link rel="preconnect" href="{{('https://fonts.gstatic.com')}}">
+    <link href="{{('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap')}}" rel="stylesheet">
     <link href="{{('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css')}}" rel="stylesheet" >
     <link href="{{asset('css/fonts/pe-icon-7-stroke.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet" >
     <link href="{{('https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic')}}" rel="stylesheet" type="text/css">
 
     <!-- CSS Files -->
-    <link href="{{asset('css/material-kit.min.css?v=2.0.7')}}" rel="stylesheet" />
-
+    <link href="{{asset('css/material-kit.css?v=2.0.7')}}" rel="stylesheet" />
+    <link href="{{('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')}}" rel="stylesheet"/>
     <link href="{{asset('device-mockups/device-mockups.min.css')}}" rel="stylesheet" >
     <link href="{{asset('css/new-age/landing-page.min.css')}}" rel="stylesheet">
 
     <style>
+      .border-3 {
+        border-width:3px !important;
+      }
       #searchBar::placeholder {
         font-size: 1.2rem;
         color: white;
@@ -157,77 +162,78 @@
     </style>  
 </head>
 
-<body class="index-page sidebar-collapse bg-dark">
+<body class="ladning-page sidebar-collapse bg-dark">
     <!--  Nav  -->
-    <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-md p-1 m-0" 
+    <nav class="navbar navbar-transparent bg-dark navbar-color-on-scroll fixed-top navbar-expand-md " 
     color-on-scroll="100" id="sectionsNav">
         <div class="container">
           <div class="navbar-translate">
               <a class="navbar-brand" href="{{('/')}}" >
               Enlighten Venture 
               </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="navbar-toggler-icon"></span>
-              <span class="navbar-toggler-icon"></span>
-              <span class="navbar-toggler-icon"></span>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" 
+              aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Menu</span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
               </button>
           </div>
           <div class="collapse navbar-collapse">
             <!---   Navbar Left   --->
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="{{url('/home')}}" onclick="scrollToFeatures()">
+                    {{ __('Home')}}
+                </a>
+                </li>
+                <li class="nav-item mx-2">
+                <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
+                    {{ __('About Us')}}
+                </a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="{{url('/home')}}" onclick="scrollToFeatures()">
+                       {{ __('Clients')}}
+                  </a>
+                  </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
+                      {{ __('Blog')}}
+                  </a>
+                </li>
+            </ul>
+            <!---   Navbar Right   --->
+            <!---   Navbar Right   --->
+            <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link p-2" rel="tooltip" title="" data-placement="bottom" 
+                <a class="nav-link p-3" rel="tooltip" title="" data-placement="bottom" 
                 href="#" target="_blank" 
                 data-original-title="Follow us on Twitter">
                   <i class="fa fa-twitter"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link p-2" rel="tooltip" title="" data-placement="bottom" 
+                <a class="nav-link p-3" rel="tooltip" title="" data-placement="bottom" 
                 href="#" target="_blank" 
                 data-original-title="Like us on Facebook">
                   <i class="fa fa-facebook-square"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link p-2" rel="tooltip" title="" data-placement="bottom" 
+                <a class="nav-link p-3" rel="tooltip" title="" data-placement="bottom" 
                 href="#" target="_blank" 
                 data-original-title="Follow us on Instagram">
                   <i class="fa fa-instagram"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link p-2" rel="tooltip" title="" data-placement="bottom" 
+                <a class="nav-link p-3" rel="tooltip" title="" data-placement="bottom" 
                 href="#"
                 data-original-title="Call Us On">
                   <i class="fa fa-phone"></i>{{ __(' +94 77 637 1444')}}
                 </a>
               </li>
-            </ul>
-            <!---   Navbar Right   --->
-            <!---   Navbar Right   --->
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/home')}}" onclick="scrollToFeatures()">
-                    {{ __('Home')}}
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
-                    {{ __('About Us')}}
-                </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url('/home')}}" onclick="scrollToFeatures()">
-                       {{ __('Clients')}}
-                  </a>
-                  </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
-                      {{ __('Blog')}}
-                  </a>
-                  </li>
             </ul>
             <!---   Navbar Right   --->
           </div>
@@ -567,6 +573,14 @@
         if ($('.section-ContactUs').length != 0) {
           $("html, body").animate({
             scrollTop: $('.section-ContactUs').offset().top
+          }, 1000);
+        }
+      }
+      
+      function scrollToCover() {
+        if ($('.section-Cover').length != 0) {
+          $("html, body").animate({
+            scrollTop: $('.section-Cover').offset().top
           }, 1000);
         }
       }

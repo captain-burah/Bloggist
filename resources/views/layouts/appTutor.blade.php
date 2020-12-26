@@ -264,7 +264,7 @@
             <script>
                 document.write(new Date().getFullYear())
             </script>, <i class="material-icons text-danger">favorite</i> by
-            <a href="https://www.instagram.com/captain_burah" target="_blank" >
+            <a href="{{('https://www.instagram.com/captain_burah')}}" target="_blank" >
             Captain Burah
             </a> for a better world.
             
