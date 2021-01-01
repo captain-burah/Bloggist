@@ -356,10 +356,9 @@
             </div>
             <img src="{{asset('img/svg/chat1.svg')}}" class="img-fluid rounded " style="height: auto; width: 60vw;">
             <p class="container col-md-10 fontClass fontP description pt-4">
-              {{ __('With EV you only pay ')}}
-              <span class="text-dark">{{('for what you use,')}}</span>
-              {{(' helping your career remain agile, responsive and always able to meet scale demands. 
-              Pay-as-you-go pricing allows you to easily adapt to changing needs without overcommitting budgets and improving your responsiveness to changes.')}}
+              {{ __('EV provides a unique discussion forum connecting tutors and students ')}}
+              <span class="text-dark">{{('to create open discussions')}}</span>
+              {{(' categorized under subject names.')}}
             </p>
           </div>
         </div>
