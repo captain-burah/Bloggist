@@ -107,7 +107,7 @@ class RegisterController extends Controller
     //--------------- Tutor Controllers ----------------
         public function showLecRegisterForm()
         {
-            return view('tutorReg');
+            return view('auth.register', ['url' => '/tutor']);
         }
         
 

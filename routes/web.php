@@ -28,6 +28,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
         Route::post('/tutor/login', 'Auth\LoginController@lecLogin')->name('tutor-verify');
         Route::post('/student/login', 'Auth\LoginController@stuLogin')->name('student-verify');
         Route::get('/testPage', 'Lecturer\LecturerController@test');
+        Route::get('/about_us', 'HomeController@aboutUs')->name('about_us');
         
     //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
 

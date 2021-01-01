@@ -32,7 +32,7 @@ Coded by Khaazen Burah
     <link href="{{('https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic')}}" rel="stylesheet" type="text/css">
 
     <!-- CSS Files -->
-    <link href="{{asset('css/material-kit.min.css?v=2.0.7')}}" rel="stylesheet" />
+    <link href="{{asset('css/material-kit.css?v=2.0.7')}}" rel="stylesheet" />
 
     <link href="{{asset('device-mockups/device-mockups.min.css')}}" rel="stylesheet" >
     <link href="{{asset('css/new-age/landing-page.min.css')}}" rel="stylesheet">
@@ -54,6 +54,13 @@ Coded by Khaazen Burah
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
+                @isset($url)
+                <li class="dropdown nav-item ">
+                    <a href="{{ url(app()->getLocale() . '/tutors') }}" class="nav-link text-capitalize">
+                        <i class="fa fa-home"></i> {{__('Tutors Home')}}
+                    </a>
+                </li>
+                @endisset
                 <li class="dropdown nav-item ">
                     <a href="#" class="dropdown-toggle nav-link text-capitalize" data-toggle="dropdown">
                     <i class="material-icons">language</i> {{__('Language')}}

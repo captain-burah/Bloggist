@@ -180,7 +180,12 @@
         <div class="collapse navbar-collapse">
           <!---   Navbar Right   --->
               <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
+                <li class="nav-item">  <!---- Log-In item--->
+                  <a class="nav-link"  href="{{ url(app()->getLocale() . '/login/tutor') }}">
+                    <i class="material-icons">login</i> {{ __('Log-In')}}
+                  </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
                         <i class="material-icons">apps</i> Features
                     </a>
@@ -219,11 +224,7 @@
                     @endif
                   </li>
   
-                  <li class="nav-item">  <!---- Log-In item--->
-                    <a class="nav-link"  href="{{ url(app()->getLocale() . '/login/tutor') }}">
-                      <i class="material-icons">login</i> {{ __('Log-In')}}
-                    </a>
-                  </li>
+                  
               </ul>
           <!---   Navbar Right   --->
         </div>

@@ -1,7 +1,14 @@
 @extends('layouts.appLogin')
 
 @section('content')
-<div class="page-header header-filter" style="background-image: url('{{ asset('img/bg11.jpg')}}'); background-size: cover; background-position: top center;">
+<div  
+@isset($url)
+    class="page-header header-filter purple-filter clear-filter bg-info" style="background-image: url('{{ asset('img/bg25.jpg')}}'); 
+    background-size: cover; background-position:  center;"
+@else 
+    class="page-header header-filter bg-info"
+    style="background-image: url('{{ asset('img/bg10.jpg')}}'); background-size: cover; background-position: top center;"
+@endisset>
     <div class="container py-0 my-0">
         <div class="row col-md-12">
             <div class="pb-5 mb-5 pt-4 pt-4 bg-info"></div>
@@ -120,7 +127,7 @@
     </div>
     <footer class=" col-12 mastfoot mt-auto mx-auto">
         <div class="inner mx-auto">
-            <p>designed & developed | &copy <a href="//www.instagram.com/captain_burah" class="footer-a">Captain Burah</a>. All rights reserved.</p>
+            <p>designed & developed | &copy <a href="//www.instagram.com/captain_burah" class="footer-a text-white">Captain Burah</a>. All rights reserved.</p>
             </div>
     </footer>
 </div>

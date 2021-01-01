@@ -22,9 +22,10 @@
 
     <!-- CSS Files -->
     <link href="{{asset('css/material-kit.min.css?v=2.0.7')}}" rel="stylesheet" />
-    <link href="{{asset('css/new-age/new-age.min.css')}}" rel="stylesheet">
+    
     <link href="{{asset('device-mockups/device-mockups.min.css')}}" rel="stylesheet" >
     <link href="{{asset('css/new-age/landing-page.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
       .separator {
@@ -151,20 +152,7 @@
       }
     </style>  
 </head>
-<body class="landing-page sidebar-collapse">
-    <!--  Nav  -->
-    <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-      <div class="container">
-        <div class="navbar-translate">
-          <a class="navbar-brand" href="/" >
-            Enlighten Venture 
-          </a>
-          </div>
-      </div>
-    </nav>
-    <!--  Nav  -->
-
-
+<body class="landing-page sidebar-collapse bg-dark">
     <!-- Body -->
     <main>
         @yield('content')

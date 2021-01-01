@@ -31,6 +31,11 @@ class HomeController extends Controller
         return view('joinAsTutor');
     }
 
+    public function aboutUs()
+    {
+        return view('aboutUs');
+    }
+
     //public function Landing(){
     //    return view('joinAsTutor');
     //}

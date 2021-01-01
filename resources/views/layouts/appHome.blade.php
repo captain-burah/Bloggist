@@ -18,17 +18,64 @@
     <link rel="preconnect" href="{{('https://fonts.gstatic.com')}}">
     <link href="{{('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap')}}" rel="stylesheet">
     <link href="{{('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css')}}" rel="stylesheet" >
-    <link href="{{asset('css/fonts/pe-icon-7-stroke.css')}}" rel="stylesheet">
-    <link href="{{asset('vendor/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet" >
     <link href="{{('https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic')}}" rel="stylesheet" type="text/css">
-
+    <link href="{{('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;700;900&display=swap')}}" rel="stylesheet">
     <!-- CSS Files -->
-    <link href="{{asset('css/material-kit.css?v=2.0.7')}}" rel="stylesheet" />
+    
+    <link href="{{ asset('css/material-kit.css?v=2.0.7')}}" rel="stylesheet" />
     <link href="{{('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('device-mockups/device-mockups.min.css')}}" rel="stylesheet" >
-    <link href="{{asset('css/new-age/landing-page.min.css')}}" rel="stylesheet">
-
+    <link href="{{ asset('device-mockups/device-mockups.min.css')}}" rel="stylesheet" >
+    <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('owlcarousel/assets/owl.theme.default.min.css')}}">
+    
     <style>
+      .fontClass{
+        font-family: 'Source Sans Pro', sans-serif;
+        letter-spacing: -0.8px;
+      }
+      .fontH{
+        font-weight: 600;
+        font-size: 1.6em
+      }
+      .fontP{
+        font-weight:600;
+        font-size: 1.4em
+      }
+      .carousel-img{
+        max-width:100%;
+        height: 100%;
+        display: block;
+      }
+        .image-preview__image{
+          max-width: 200px;
+          max-height: 200px;
+          border-radius: 50%;
+          border: 2px solid #dddddd;
+      }
+      .image-preview{
+          min-width: 200px;
+          min-height: 200px;
+          border-radius: 50%;
+          
+          
+                          
+          /* default text */
+          display: flex;
+          align-items: center;
+          justify-contents: center;
+          font-weight: bold;
+          color: #cccccc;
+      }
+      
+      .image-preview__image{
+          display: block;
+          width: 100%;
+      }
+      .image-preview__default-text{
+          display: none;
+          width: 100%;
+      }
+
       .border-3 {
         border-width:3px !important;
       }
@@ -162,7 +209,7 @@
     </style>  
 </head>
 
-<body class="ladning-page sidebar-collapse bg-dark">
+<body class="index-page sidebar-collapse bg-dark">
     <!--  Nav  -->
     <nav class="navbar navbar-transparent bg-dark navbar-color-on-scroll fixed-top navbar-expand-md " 
     color-on-scroll="100" id="sectionsNav">
@@ -181,27 +228,65 @@
           </div>
           <div class="collapse navbar-collapse">
             <!---   Navbar Left   --->
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav mx-auto text-center">
+              <!--- What is EV? --->
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
+                    {{ __('What is EV?')}}
+                </a>
+              </li>
+              <!------ What is EV? ------>
+
+              <!------ Pages ------>
+              <li class="dropdown nav-item ">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                {{__('Pages')}}
+                </a>
+                <div class="dropdown-menu dropdown-with-icons">
+                  <a class="dropdown-item"
+                  href="{{ url(app()->getLocale() . '/tutors')}}">
+                    {{ __('Tutors Home')}}
+                  </a>
+                  <a class="dropdown-item"
+                  href="{{ url('#AcademyPage')}}">
+                    {{ __('Enter Academy')}}
+                  </a>
+                  <a class="dropdown-item"
+                  href="{{ url('#TutorPanel')}}">
+                    {{ __('View Tutor Panel')}}
+                  </a>
+                  <a class="dropdown-item"
+                  href="{{ url('#StudentCast')}}">
+                    {{ __('Go to StudentCast')}}
+                  </a>
+                </div>
+              </li>
+              <!------ Pages ------>
+              
+              <!------ Clients ------>
               <li class="nav-item mx-2">
                 <a class="nav-link" href="{{url('/home')}}" onclick="scrollToFeatures()">
-                    {{ __('Home')}}
+                      {{ __('Clients')}}
                 </a>
-                </li>
-                <li class="nav-item mx-2">
-                <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
+              </li>
+              <!------ Clients ------>
+              
+              <!------ Contact Us ------>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
+                    {{ __('Contact')}}
+                </a>
+              </li>
+              <!------ Contact Us ------>
+              
+              <!------ About Us ------>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="{{ url(app()->getLocale() . '/about_us')}}">
                     {{ __('About Us')}}
                 </a>
-                </li>
-                <li class="nav-item mx-2">
-                  <a class="nav-link" href="{{url('/home')}}" onclick="scrollToFeatures()">
-                       {{ __('Clients')}}
-                  </a>
-                  </li>
-                <li class="nav-item mx-2">
-                  <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
-                      {{ __('Blog')}}
-                  </a>
-                </li>
+              </li>
+              <!------ About Us ------>
+              
             </ul>
             <!---   Navbar Right   --->
             <!---   Navbar Right   --->
@@ -320,178 +405,63 @@
     <!--   Core JS Files   -->
     <script src="{{ asset('js/core/popper.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('js/core/jquery.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('owlcarousel/owl.carousel.js')}}"></script>
     <script src="{{ asset('js/core/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('js/plugins/moment.min.js')}}"></script>
-    <script src="{{('https://cdn.jsdelivr.net/npm/sweetalert2@10')}}"></script>
-    <script src="{{ asset('js/plugins/bootstrap-datetimepicker.js')}}" type="text/javascript"></script>
-    <script src="{{ asset('js/plugins/nouislider.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('js/material-kit.min.js?v=2.0.7')}}" type="text/javascript"></script>
-
+    
     <!-- Vanilla Javascript -->
     <script>
-      $('#studentForm').submit(function (e) {
-        if (passValidate() == true ){
-            
-            let url = '';
-            let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            var formData = $(this).serialize(); // get form data
-            if ( fetch(url, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json, text-plain, */*",
-                    "X-Requested-With": "XMLHttpRequest",
-                    "X-CSRF-TOKEN": token
-                    },
-                method: 'post',
-                credentials: "same-origin",
-                body: formData
-                }).then ((data) => {
-                  console.log('Reg Success');
-                }) == true) {
-                  console.log('true statement works')
-
-            } else (function(response) {
-                e.preventDefault(); // prevent the form from 'submitting'
-                Swal.fire({
-                  position: 'top-end',
-                  icon: 'error',
-                  title: 'Oops...',
-                  text: 'Something went wrong!',
-                  showConfirmButton: false,
-                  timer: 2000
-                });
-                console.log('error');
-                $('#studentRegModal').modal('show');
-            });
-        } else {
-              e.preventDefault(); // prevent the form from 'submitting'
-              Swal.fire({
-                position: 'top-end',
-                icon: 'error',
-                title: 'Password Error',
-                text: 'Please enter a valid password',
-                showConfirmButton: false,
-                timer: 2000
-              })
-        }
-        
-      })
-      
-          
-
-      function associate_errors(errors, $form) {
-          //remove existing error classes and error messages from form groups
-          $form.find('.form-group').removeClass('has-errors').find('.help-text').text('');
-          errors.foreach(function(value, index)
-          {
-              //find each form group, which is given a unique id based on the form field's name
-              var $group = $form.find('#' + index + '-group');
-
-              //add the error class and set the error text
-              $group.addClass('has-errors').find('.help-text').text(value);
-          })
-      }
-
-
-      function passValidate() { 
-        var res; 
-        var str = document.getElementById("stuPass").value; 
-        if (str.match(/[a-z]/g) && str.match(/[A-Z]/g) && 
-          str.match(/[0-9]/g) && str.match(/[^a-zA-Z\d]/g) && str.length >= 8) 
-            return true;
-        else 
-            return false;
-      } 
-
-      function lol(){
-        $('#studentForm').submit(function (e) {
-          e.preventDefault()  // prevent the form from 'submitting'
-          
-          var url = ('api/user')// get the target
-          var formData = $(this).serialize() // get form data
-          if ($.post(url, formData) == true){ // send; response.data will be what is returned
-            console.log('successful')
-            move(1)
-
-          } else {
-            move(2);
-            console.log('failled to post data')
-
-            let timerInterval
-            Swal.fire({
-              title: 'Validating!',
-              html: 'Give us a few <b></b> milliseconds.',
-              timer: 1500,
-              timerProgressBar: true,
-              willOpen: () => {
-                Swal.showLoading()
-                timerInterval = setInterval(() => {
-                  const content = Swal.getContent()
-                  if (content) {
-                    const b = content.querySelector('b')
-                    if (b) {
-                      b.textContent = Swal.getTimerLeft()
-                    }
-                  }
-                }, 100)
-              },
-              willClose: () => {
-                clearInterval(timerInterval)
-              }
-            }).then((result) => {
-              /* Read more about handling dismissals below */
-              if (result.dismiss === Swal.DismissReason.timer) {
-                console.log('I was closed by the timer')
-                Swal.fire({
-                  position: 'top-end',
-                  icon: 'error',
-                  title: 'Oops...',
-                  text: 'Something went wrong!',
-                  showConfirmButton: false,
-                  timer: 3000
-                })
-              }
-              else{
-                console.log('I was closed by the User')
-              }
-            })
-            
-          }
-            
+      $(document).ready(function(){
+        $('.loop1').owlCarousel({
+            center:false,
+            loop:true,
+            margin:10,
+            autoplay:true,
+            autoplayTimeout:1000,
+            autoplayHoverPause:true,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:3,
+                    nav:false
+                },
+                1000:{
+                    items:5,
+                    nav:true,
+                    loop:true
+                }
+            }
+        });
+        $('.loop2').owlCarousel({
+            center:true,
+            loop:true,
+            autoplay:true,
+            margin:10,
+            autoplayTimeout:2000,
+            autoplayHoverPause:true,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:2,
+                    nav:false
+                },
+                1000:{
+                    items:2,
+                    nav:true,
+                    loop:true
+                }
+            }
         })
-      }
-
-      function move(y) {
-        if (y == 1){
-          var width = 0;
-          var elem = document.getElementById("barStatus1"); 
-          
-          var id = setInterval(frame, 5);
-          function frame() {
-            if (width >= 100) {
-              //clearInterval(id);
-            } else {
-              width++; 
-              elem.style.width = width + '%'; 
-            }
-          }
-        } else if (y == 2){
-          var width = 0;
-          var elem = document.getElementById("barStatus2"); 
-          
-          var id = setInterval(frame, 5);
-          function frame() {
-            if (width >= 100) {
-              //clearInterval(id);
-            } else {
-              width++; 
-              elem.style.width = width + '%'; 
-            }
-          }
-        }
-      }
-
-
+      });
       function detectScreen(x){
         if (x == 1){
           if (( window.innerWidth <= 700 ) || ( window.innerHeight <= 600 )){
@@ -526,17 +496,6 @@
         }
       }
 
-      $(document).ready(function() {
-        if ($('.datetimepicker').length != 0) {
-          //init DateTimePickers
-          materialKit.initFormExtendedDatetimepickers();
-        }
-        if ($('.slider').length != 0) {
-          // Sliders Init
-          materialKit.initSliders();
-        }
-      });
-
       function scrollToCover() {
         if ($('.section-cover').length != 0) {
           $("html, body").animate({
@@ -560,14 +519,6 @@
           }, 1000);
         }
       }
-
-      function scrollToPayAsYouGo() {
-        if ($('.section-PayAsYouGo').length != 0) {
-          $("html, body").animate({
-            scrollTop: $('.section-PayAsYouGo').offset().top
-          }, 1000);
-        }
-      }
       
       function scrollToContactUs() {
         if ($('.section-ContactUs').length != 0) {
@@ -577,13 +528,6 @@
         }
       }
       
-      function scrollToCover() {
-        if ($('.section-Cover').length != 0) {
-          $("html, body").animate({
-            scrollTop: $('.section-Cover').offset().top
-          }, 1000);
-        }
-      }
     </script>
   <!-- /Scripts -->
 </body>

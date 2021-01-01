@@ -22,57 +22,81 @@
     <!-- CSS Files -->
     <link href="{{asset('css/material-kit.min.css?v=2.0.7')}}" rel="stylesheet" />
     <link href="{{asset("demo/demo.css")}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 </head>
 
-<body class="bg-warning login-page sidebar-collapse">
-    <!--  Nav  -->
-        <nav class="navbar fixed-top navbar-expand-lg" id="sectionsNav">
-            <div class="container ">
-                <div class="navbar-translate">
-                    <a class="navbar-brand" href="{{ url(app()->getLocale() . '/home') }}">
-                        {{__('Enlighten Venture  ')}}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="dropdown nav-item ">
-                            <a href="#" class="dropdown-toggle nav-link text-capitalize" data-toggle="dropdown">
-                            <i class="material-icons">language</i> {{__('Language')}}
-                            </a>
-                            <div class="dropdown-menu dropdown-with-icons">
-                                @foreach (config('app.available_locales') as $locale)
-                                    <a @if (app()->getLocale() == $locale) 
-                                        style="text-decoration: underline;" 
-                                        class="dropdown-item text-white bg-success" @endif 
-                                    href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}" class="dropdown-item">
-                                        
-                                        {{ strtoupper($locale )}}
-                                    </a>
-                                @endforeach
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+<body 
+@isset($url)
+    class="bg-info login-page sidebar-collapse"
+@else
+    class="bg-warning login-page sidebar-collapse"
+@endisset>
+    <!---  Nav  -->
+    <nav class="navbar fixed-top navbar-expand-lg" id="sectionsNav">
+        <div class="container ">
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="{{ url(app()->getLocale() . '/home') }}">
+                    {{__('Enlighten Venture  ')}}
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-        </nav>
-    <!--  Nav  -->
 
-    <!--  Body Content  -->
-        <main class="">
-            @yield('content')
-        </main>
-    <!--  Body Content  -->
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    @isset($url)
+                    <li class="dropdown nav-item ">
+                        <a href="{{ route('register', app()->getLocale()) }}" class="nav-link text-capitalize">
+                            <i class="fa fa-child"></i> {{__('Student Registration')}}
+                        </a>
+                    </li>
+                    <li class="dropdown nav-item ">
+                        <a href="{{ url(app()->getLocale() . '/tutors') }}" class="nav-link text-capitalize">
+                            <i class="fa fa-home"></i> {{__('Tutors Home')}}
+                        </a>
+                    </li>
+                    @else 
+                    <li class="dropdown nav-item ">
+                        <a href="{{ url(app()->getLocale() . '/tutor_registration')}}" class="nav-link text-capitalize">
+                            <i class="fa fa-graduation-cap"></i> {{__('Tutor Registration')}}
+                        </a>
+                    </li>
+                    @endisset
+                    <li class="dropdown nav-item ">
+                        <a href="#" class="dropdown-toggle nav-link text-capitalize" data-toggle="dropdown">
+                        <i class="material-icons">language</i> {{__('Language')}}
+                        </a>
+                        <div class="dropdown-menu dropdown-with-icons">
+                            @foreach (config('app.available_locales') as $locale)
+                                <a @if (app()->getLocale() == $locale) 
+                                    style="text-decoration: underline;" 
+                                    class="dropdown-item text-white bg-success" @endif 
+                                href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}" class="dropdown-item">
+                                    
+                                    {{ strtoupper($locale )}}
+                                </a>
+                            @endforeach
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!---  Nav  -->
 
-    <!--  Footer  -->
+    <!---  Body Content  -->
+    <main>
+        @yield('content')
+    </main>
+    <!---  Body Content  -->
+
+    <!---  Footer  -->
     <footer class="pt-0 mt-0">
         <div class="container text-dark  pb-0 mb-0">
           <nav class=" pb-0">
@@ -131,7 +155,7 @@
           </div>
         </div>
     </footer>
-    <!--  Footer  -->
+    <!---  Footer  -->
 
 
     <!--   Core JS Files   -->
@@ -139,21 +163,16 @@
         <script src="{{asset('js/core/popper.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/core/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/plugins/moment.min.js')}}"></script>
-        <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-        <script src="{{asset('js/plugins/bootstrap-datetimepicker.js')}}" type="text/javascript"></script>
-        <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-        <script src="{{asset('js/plugins/nouislider.min.js')}}" type="text/javascript"></script>
-        <!--  Google Maps Plugin    -->
         <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
         <script src="{{asset('js/material-kit.js?v=2.0.7')}}" type="text/javascript"></script>
 
         <script>
             
 
-            function scrollStuReg() {
-                if ($('.section-StuReg').length != 0) {
+            function scrollToForm() {
+                if ($('.section-regForm').length != 0) {
                 $("html, body").animate({
-                    scrollTop: $('.section-StuReg').offset().top
+                    scrollTop: $('.section-regForm').offset().top
                 }, 1000);
                 }
             }

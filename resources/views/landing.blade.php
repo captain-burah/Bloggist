@@ -1,14 +1,18 @@
-@extends('layouts.landingApp')
+@extends('layouts.appLanding')
 
 @section('content')
   <!---   Cover   --->
-  <div class="page-header header-filter purple-filter clear-filter section-cover" data-parallax="true" 
-  style="background-image: url({{asset('img/bg4.jpg')}}); transform: translate3d(0px, 0px, 0px);" id="coverSection">
-    <div class="container text-center mx-auto my-auto d-flex align-content-center flex-wrap" >
-      <h1 class="cover-heading mx-auto">
-        {{ __('Your journey starts now!')}}
-      </h1>
-      <div class="col-md-6 mx-auto">
+  <!--style="background-image: url({{asset('img/bg4.jpg')}}); transform: translate3d(0px, 0px, 0px);"-->
+  <div class="page-header bg-primary header-filter dark-filter" data-parallax="true" 
+  style="background-image: url({{asset('img/bg15.jpg')}}); transform: translate3d(0px, 0px, 0px);" id="coverSection">
+    <div class="row container text-center mx-auto my-auto d-flex align-content-center flex-wrap" >
+      <div class="col-md-12">
+        <h1 class="cover-heading mx-auto my-5 text-light animate__animated animate__fadeInUp animate__delay-1s"
+        style="font-size: 4.5em">
+        {{ __('Enlighten Venture')}}
+        </h1>
+      </div>
+      <div class="col-md-12 mx-auto animate__animated animate__fadeInDown animate__delay-2s animate__fast	800ms">
         <a href="{{ ('/en/home')}}" class="btn btn-white btn-lg text-dark" style="min-width: 212.91px;">
           <i class="fa fa-graduation-cap"></i>
           &nbsp {{ __('English')}}
@@ -19,11 +23,13 @@
         </a>
       </div>
       <div class="footer-head">
-        <p class="p-4 text-light">
-          {{ __('Developed & Coded by')}} 
-          
+        <p class="p-4 text-light small animate__animated animate__fadeInUp animate__delay-2s animate__fast	800ms">
+          {{ __('Brought to you by ')}} 
+          &nbsp
           <span class="badge badge badge-light text-dark">
-            <i class="fa fa-hashtag text-info"></i> Captain Burah</span>
+            <i class="fa fa-hashtag text-primary"></i>
+            Captain_Burah
+          </span>
         </p>
       </div>
     </div>
