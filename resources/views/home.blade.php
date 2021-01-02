@@ -8,7 +8,7 @@
       <div class="row">
           <div class="col-md-5 my-auto text-center">
               <div class="brand mobile-view ">
-                  <h2 class="text-white"><span class="text-warning">{{ __('Education')}}</span>{{ __(' for everyone')}}</h2>
+                  <p class="text-white fontClass" style="font-size: 3.0em; line-height: 1;"><span class="text-warning">{{ __('Education')}}</span>{{ __(' for everyone')}}</p>
                   <div class="separator line-separator text-white  pb-0 pt-0">♦</div>
               </div>
               <div class="">
@@ -28,9 +28,7 @@
           </div>
           
           <div class="col-md-7 text-right mobile-hide mr-auto ml-auto" >
-            <h1 class="">
-              <span class="text-warning title">{{ __('Education')}}</span>{{ __(' for everyone')}}
-            </h1>
+            <p class="text-white fontClass" style="font-size: 4.5em; line-height: 1;"><span class="text-warning">{{ __('Education')}}</span>{{ __(' for everyone')}}</p>
             <h4 class="desciption">{{ __('A centralized online environement to exchange your study materials')}}</h4>
               <!-- Carousel Card -->
               <!---

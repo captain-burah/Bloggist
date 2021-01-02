@@ -7,7 +7,7 @@
   style="background-image: url({{asset('img/bg15.jpg')}}); transform: translate3d(0px, 0px, 0px);" id="coverSection">
     <div class="row container text-center mx-auto my-auto d-flex align-content-center flex-wrap" >
       <div class="col-md-12">
-        <h1 class="cover-heading mx-auto my-5 text-light animate__animated animate__fadeInUp animate__delay-1s"
+        <h1 class="cover-heading mx-auto mb-5 mt-0 text-light animate__animated animate__fadeInUp animate__delay-1s"
         style="font-size: 4.5em">
         {{ __('Enlighten Venture')}}
         </h1>
@@ -22,7 +22,7 @@
             &nbsp {{ __('සිංහල')}}
         </a>
       </div>
-      <div class="footer-head">
+      <div class="footer-head mb-5">
         <p class="p-4 text-light small animate__animated animate__fadeInUp animate__delay-2s animate__fast	800ms">
           {{ __('Brought to you by ')}} 
           &nbsp
