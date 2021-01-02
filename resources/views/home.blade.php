@@ -256,7 +256,7 @@
     <!---   /Section   Aims --->
     
     <!---   Section   User friendly --->
-    <div class="section text-center pb-5 mb-5 pt-3 mt-0">
+    <div class="section text-center pb-5 pt-5 mt-5">
       <div class="features bg-white">
         <!---  First row --->
         <div class="row container col-md-10 mx-auto px-3 py-0">
@@ -278,7 +278,8 @@
           <p class="container col-md-10 text-right fontClass fontP description mobile-hide m-0 p-0 pt-5" style="position:absolute;">
             {{ __('"We give you the best student friendly environment"')}}
           </p>
-            <img src="{{asset('img/svg/dashboard.svg')}}" class="img-fluid rounded" style="height: auto; width: 100vw;">
+            <img src="{{asset('img/svg/dashboard.svg')}}" class="img-fluid rounded mobile-hide" style="height: auto; width: 70vw;">
+            <img src="{{asset('img/svg/dashboard.svg')}}" class="img-fluid rounded mobile-view" style="height: auto; width: 100vw;">
             <p class="container col-md-10 fontClass fontP description">
               {{ __('With a dedicated research program made on the')}}
               <span class="text-dark">{{('psychology of learning patterns of a student')}}</span>
@@ -290,10 +291,11 @@
         <!---  First row --->
       </div>
     </div>
+    <hr class="bg-dark">
     <!---   /Section  User friendly --->
-
+   
     <!---   Section   Pay as you go --->
-    <div class="section text-center pb-5 mb-5 pt-3 mt-0">
+    <div class="section text-center pb-5 pt-5 ">
       <div class="features bg-white">
         <!---  First row --->
         <div class="row container col-md-10 mx-auto px-3 py-0 pb-3">
@@ -315,7 +317,8 @@
             <p class="container col-md-10 text-right fontClass fontP description mobile-hide m-0 p-0 pt-5pb-" style="position:absolute;">
               {{ __('"A worthwhile contribution to all tutors."')}}
             </p>
-            <img src="{{asset('img/svg/money2.svg')}}" class="img-fluid rounded " style="height: auto; width: 60vw;">
+            <img src="{{asset('img/svg/money2.svg')}}" class="img-fluid rounded mobile-hide" style="height: auto; width: 60vw;">
+            <img src="{{asset('img/svg/money2.svg')}}" class="img-fluid rounded mobile-view" style="height: auto; width: auto;">
             <p class="container col-md-10 fontClass fontP description pt-4">
               {{ __('With EV you only pay ')}}
               <span class="text-dark">{{('for what you use,')}}</span>
@@ -328,9 +331,9 @@
       </div>
     </div>
     <!---   /Section  Pay as you go --->
-
+    <hr class="bg-dark">
     <!---   Section   StudentCast --->
-    <div class="section text-center pb-5 mb-5 pt-3 mt-0">
+    <div class="section text-center pb-5 pt-5 mt-0">
       <div class="features bg-white">
         <!---  First row --->
         <div class="row container col-md-10 mx-auto px-3 py-0 pb-3">
@@ -354,11 +357,13 @@
                 {{ __('"A worthwhile contribution to all tutors."')}}
               </p>
             </div>
-            <img src="{{asset('img/svg/chat1.svg')}}" class="img-fluid rounded " style="height: auto; width: 60vw;">
+            <img src="{{asset('img/svg/chat1.svg')}}" class="img-fluid rounded mobile-hide" style="height: auto; width: 60vw;">
+            <img src="{{asset('img/svg/chat1.svg')}}" class="img-fluid rounded mobile-view" style="height: auto; width: auto;">
             <p class="container col-md-10 fontClass fontP description pt-4">
-              {{ __('EV provides a unique discussion forum connecting tutors and students ')}}
+              {{ __('StudentCast is a question and answer discussion forum for professional tutors and enthusiast students ')}}
               <span class="text-dark">{{('to create open discussions')}}</span>
-              {{(' categorized under subject names.')}}
+              {{(' on a wide range of topics categorized under the name of the subject such as Science, English, Applied Mathematics, 
+              Physics, Business, Economics, Accounting, Social Studies, Fine Arts, Applied Arts, Music, etc.')}}
             </p>
           </div>
         </div>
@@ -366,12 +371,16 @@
       </div>
     </div>
     <!---   /Section  StudentCast --->
-
-    <!---   Section   Contact Us --->
-    <div class="section section-Clients  py-3" id="Clients">
-      <div class="row container-fluid mx-4 mx-auto">
-        <div class="col-md-12 ml-auto mr-auto border border-white">
-          <h2 class="text-center title text-dark mt-0 mb-5">{{ __('Our Clients')}}</h2>
+    
+    <!---   Section   Clients --->
+    <div class="section section-Clients  py-5 my-5" id="Clients">
+      <div class="row container mx-4 mx-auto">
+        <div class="col-md-10 ml-auto mr-auto border border-white">
+          <p class="text-secondary text-center my-0 fontClass fontH mt-0 mb-5" style="font-size: 4.5em; line-height: 1;">
+            {{ __('Our')}}
+            <span class="text-dark my-0 fontClass "> {{ __('Clients')}}</span>
+          </p>
+          <br>
           <div class="row">  
             <div class="owl-carousel owl-theme owl-loaded loop1">
               <div class="item"><img src="{{ asset('img/logos/airbnb.svg')}}" class="mx-1"></div>
@@ -387,32 +396,96 @@
         </div>
       </div>
     </div>
-    <!---   /Section  Contact Us --->
-    <hr>
+    <!---   /Section  Clients --->
+
+    <!---   Section    Customer Feedback --->
+    <div class="section text-center py-0">
+      <div class="features bg-dark pt-5">
+        <div class="row col-md-11 px-3 mx-auto">
+          <p class="text-secondary ml-auto text-center my-0 fontClass fontH mt-4 mb-4" style="font-size: 3.5em; line-height: 1;">
+            {{ __('Satisfied ')}}{{ __('Customers')}}
+            <span class="text-dark my-0 fontClass "> </span>
+          </p>
+          <div class="owl-carousel owl-theme owl-loaded loop2 border-right border-left border-secondary">
+            <div class="item mx-2 my-auto">
+              <div class="info py-4 mt-3">  
+                <p class="text-light text-center fontClass my-2" style="font-size: 2.0em">{{ __('Aims')}}</p>
+                <p class="text-justify text-white">
+                  Enlighten Venture aims to produce the next generation 
+                  of leaders in Sri Lanka. Our mission is to provide the 
+                  best all-round education environment for students & tutors in a caring, disciplined 
+                  and inspiring atmosphere.
+                </p>
+              </div>
+            </div>
+            <div class="item mx-2 my-auto">
+              <div class="info py-4 mt-3">  
+                <p class="text-light text-center fontClass my-2" style="font-size: 2.0em">{{ __('Aims')}}</p>
+                <p class="text-white text-justify">
+                  Our users should leave the VLE confident, articulate, 
+                  well-balanced and able to think for themselves. 
+                  They should be comfortable both in operations and in their 
+                  functionality. We are ambitious and determined, 
+                  yet sensitive to the needs of our users, supporting the 
+                  critical and creative thinkers, who are ready to make a 
+                  positive difference to their country and to the world.
+                </p>
+              </div>
+            </div>
+            <div class="item mx-2 my-auto">
+              <div class="info py-4 mt-3">  
+                <p class="text-light text-center fontClass my-2" style="font-size: 2.0em">{{ __('Aims')}}</p>
+                <p class="text-white text-justify">
+                  Our users should leave the VLE confident, articulate, 
+                  well-balanced and able to think for themselves. 
+                  They should be comfortable both in operations and in their 
+                  functionality. We are ambitious and determined, 
+                  yet sensitive to the needs of our users, supporting the 
+                  critical and creative thinkers, who are ready to make a 
+                  positive difference to their country and to the world.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---   /Section   Customer Feedback --->
+
     <!---   Section  Contact Us --->
-    <div class="section section-ContactUs" id="ContactUs">
-      <div class="row container mx-auto">
-        <div class="col-md-8 ml-auto mr-auto border border-dark">
-          <h2 class="text-center title text-dark">{{ __('Leave us your comments ')}}</h2>
-          
+    <div class="section section-ContactUs pb-5 bg-dark" id="ContactUs">
+      <div class="row container mx-auto py-5">
+        <div class="col-md-8 ml-auto mr-auto p-5 border border-light">
+          <p class="text-secondary text-center my-0 fontClass fontH mt-4 mb-4" style="font-size: 2.5em; line-height: 1;">
+            {{ __('Leave ')}}{{ __('us your feedback')}}
+            <span class="text-dark my-0 fontClass "> </span>
+          </p>
           <form class="contact-form" method="POST" action="">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bmd-form-group">
-                  <label class="bmd-label-floating text-dark">Your Name</label>
-                  <input type="text" class="form-control text-dark">
+                  <label class="bmd-label-floating text-light">{{ __('Your Name')}}</label>
+                  <input type="text" class="form-control text-light">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group bmd-form-group">
-                  <label class="bmd-label-floating text-dark">Your Email</label>
-                  <input type="email" class="form-control text-dark">
+                  <label class="bmd-label-floating text-light">{{ __('Your Email')}}</label>
+                  <input type="email" class="form-control text-light">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mx-auto">
+                <div class="form-group bmd-form-group">
+                  <label class="bmd-label-floating text-light">{{ __('Occupation (optional)')}}</label>
+                  <input type="text" class="form-control text-light">
                 </div>
               </div>
             </div>
             <div class="form-group bmd-form-group">
-              <label for="exampleMessage" class="bmd-label-floating text-dark">Your Message</label>
-              <textarea type="text" class="form-control text-dark" rows="4" id="exampleMessage"></textarea>
+              <label for="exampleMessage" class="bmd-label-floating text-light">{{ __('Your Message')}}</label>
+              <textarea type="text" class="form-control text-light" rows="4" id="exampleMessage"></textarea>
             </div>
             <div class="row">
               <div class="col-md-4 ml-auto mr-auto text-center">

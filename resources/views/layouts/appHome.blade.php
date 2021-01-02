@@ -229,16 +229,24 @@
           <div class="collapse navbar-collapse">
             <!---   Navbar Left   --->
             <ul class="navbar-nav mx-auto text-center">
-              <!--- What is EV? --->
-              <li class="nav-item mx-2">
+              <!--- Register --->
+              <li class="nav-item mx-4">
                 <a class="nav-link" href="javascript:void(0)" onclick="scrollToFeatures()">
-                    {{ __('What is EV?')}}
+                    {{ __('Register')}}
                 </a>
               </li>
-              <!------ What is EV? ------>
+              <!------ Register ------>
+
+              <!------ About Us ------>
+              <li class="nav-item mx-4">
+                <a class="nav-link" href="{{ url(app()->getLocale() . '/about_us')}}">
+                    {{ __('About')}}
+                </a>
+              </li>
+              <!------ About Us ------>
 
               <!------ Pages ------>
-              <li class="dropdown nav-item ">
+              <li class="dropdown nav-item mx-4">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                 {{__('Pages')}}
                 </a>
@@ -249,43 +257,19 @@
                   </a>
                   <a class="dropdown-item"
                   href="{{ url('#AcademyPage')}}">
-                    {{ __('Enter Academy')}}
+                    {{ __('Open Academy')}}
                   </a>
                   <a class="dropdown-item"
                   href="{{ url('#TutorPanel')}}">
-                    {{ __('View Tutor Panel')}}
+                    {{ __('Open Tutor Panel')}}
                   </a>
                   <a class="dropdown-item"
                   href="{{ url('#StudentCast')}}">
-                    {{ __('Go to StudentCast')}}
+                    {{ __('Open StudentCast')}}
                   </a>
                 </div>
               </li>
               <!------ Pages ------>
-              
-              <!------ Clients ------>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="{{url('/home')}}" onclick="scrollToFeatures()">
-                      {{ __('Clients')}}
-                </a>
-              </li>
-              <!------ Clients ------>
-              
-              <!------ Contact Us ------>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="javascript:void(0)" onclick="scrollToContactUs()">
-                    {{ __('Contact')}}
-                </a>
-              </li>
-              <!------ Contact Us ------>
-              
-              <!------ About Us ------>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="{{ url(app()->getLocale() . '/about_us')}}">
-                    {{ __('About Us')}}
-                </a>
-              </li>
-              <!------ About Us ------>
               
             </ul>
             <!---   Navbar Right   --->
@@ -312,6 +296,7 @@
                   <i class="fa fa-instagram"></i>
                 </a>
               </li>
+              <!--
               <li class="nav-item">
                 <a class="nav-link p-3" rel="tooltip" title="" data-placement="bottom" 
                 href="#"
@@ -319,6 +304,7 @@
                   <i class="fa fa-phone"></i>{{ __(' +94 77 637 1444')}}
                 </a>
               </li>
+            -->
             </ul>
             <!---   Navbar Right   --->
           </div>
@@ -335,15 +321,15 @@
   <footer class="bg-dark">
     <div class="container">
       <div class="py-5 row text-secondary">
-        <div class="col-12 col-md">
+        <div class="col-12 col-md my-auto">
           <small class="d-block mb-3 text-muted">
             &copy; 
             <script>
               document.write(new Date().getFullYear())
             </script>,
-          <a href="{{('https://www.instagram.com/captain_burah')}}" class="footer-a text-rose  " target="_blank" >
+          <a href="{{('https://www.instagram.com/captain_burah')}}" class="footer-a text-rose" target="_blank" >
             Captain Burah
-          </a>for a better world.
+          </a>for a better world. Made in Laravel 8.
           </small>
           <ul>
           <a class="m-0 text-secondary Flink pb-0 footer-aa"><i class="material-icons">language</i></a>
@@ -360,43 +346,49 @@
           @endforeach
           </ul>
         </div>
-        <div class="col-6 col-md text-left">
-          <h5 class="font-weight-bold m-0 mt-2">Features</h5>
-          <ul class="text-small text-secondary">
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Team feature</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Random feature</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Cool stuff</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Stuff for developers</a></li>
-          </ul>
+        <div class="col-md-6">
+          <div class="row col-md-12 pb-5">
+            <div class="col-6 col-md text-left">
+              <h5 class="font-weight-bold m-0 mt-2">Features</h5>
+              <ul class="text-small text-secondary">
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Home</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Tutors Home</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Cool stuff</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Stuff for developers</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md text-left">
+              <h5 class="font-weight-bold m-0 mt-2">Resources</h5>
+              <ul class="list-unstyled text-small">
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Resource</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Resource name</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Another resource</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Final resource</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row col-md-12 ">
+            <div class="col-6 col-md text-left">
+              <h5 class="font-weight-bold m-0 mt-2">Help</h5>
+              <ul class="list-unstyled text-small">
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Payment Gateways</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Tutors Payout</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Government</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Gaming</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md text-left">
+              <h5 class="font-weight-bold m-0 mt-2">About</h5>
+              <ul class="list-unstyled text-small">
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Team & DevOps</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Privacy Policy</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Copyright License</a></li>
+                <li class="d-block"><a class="footer-aa py-0 pr-0 text-capitalize" href="#">Terms & Conditions</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="col-6 col-md text-left">
-          <h5 class="font-weight-bold m-0 mt-2">Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Resource</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Resource name</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Another resource</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Final resource</a></li>
-          </ul>
         </div>
-        <div class="col-6 col-md text-left">
-          <h5 class="font-weight-bold m-0 mt-2">Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Business</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Education</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Government</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Gaming</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md text-left">
-          <h5 class="font-weight-bold m-0 mt-2">About</h5>
-          <ul class="list-unstyled text-small">
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Team</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Locations</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Privacy</a></li>
-            <li class="d-block"><a class="footer-aa py-0 text-capitalize" href="#">Terms</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
   </footer>
   <!---------- Footer ----------->
@@ -442,7 +434,7 @@
             loop:true,
             autoplay:true,
             margin:10,
-            autoplayTimeout:2000,
+            autoplayTimeout:2500,
             autoplayHoverPause:true,
             responsiveClass:true,
             responsive:{
