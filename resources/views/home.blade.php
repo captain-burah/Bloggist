@@ -407,18 +407,18 @@
           <div class="owl-carousel owl-theme owl-loaded loop2 border-right border-left border-secondary">
             <div class="item mx-2 my-auto">
               <div class="info py-4 mt-3">  
-                <p class="text-light text-center fontClass my-2" style="font-size: 2.0em">{{ __('Aims')}}</p>
+                <p class="text-light text-center fontClass my-2" style="font-size: 2.0em">{{ __('Jonathon Williams')}}</p>
                 <p class="text-justify text-white">
-                  Enlighten Venture aims to produce the next generation 
-                  of leaders in Sri Lanka. Our mission is to provide the 
-                  best all-round education environment for students & tutors in a caring, disciplined 
-                  and inspiring atmosphere.
+                  Brilliant client! Highly recommend!
+                  Thank you for the opportunity and trust for giving me this wonderful app.
+                  It was fun and interesting working with EV and hope others can 
+                  work with it too. I will spread this message as much as i could.
                 </p>
               </div>
             </div>
             <div class="item mx-2 my-auto">
               <div class="info py-4 mt-3">  
-                <p class="text-light text-center fontClass my-2" style="font-size: 2.0em">{{ __('Aims')}}</p>
+                <p class="text-light text-center fontClass my-2" style="font-size: 2.0em">{{ __('Abraham Lincoln')}}</p>
                 <p class="text-white text-justify">
                   Our users should leave the VLE confident, articulate, 
                   well-balanced and able to think for themselves. 
@@ -432,7 +432,7 @@
             </div>
             <div class="item mx-2 my-auto">
               <div class="info py-4 mt-3">  
-                <p class="text-light text-center fontClass my-2" style="font-size: 2.0em">{{ __('Aims')}}</p>
+                <p class="text-light text-center fontClass my-2" style="font-size: 2.0em">{{ __('William Shakespear')}}</p>
                 <p class="text-white text-justify">
                   Our users should leave the VLE confident, articulate, 
                   well-balanced and able to think for themselves. 

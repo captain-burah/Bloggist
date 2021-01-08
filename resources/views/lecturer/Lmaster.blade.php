@@ -2,6 +2,10 @@
 
 @section('lecContent')
   
-  <tutor-dashboard></tutor-dashboard>
+  <tutor-dashboard
+  locale="{{ app()->getLocale() }}"
+  link-en="{{ route('logout', setLocale(en) ) }}"
+  link-sn="{{ route('logout', setLocale(sn) )  }}"
+  ></tutor-dashboard>
 
 @endsection

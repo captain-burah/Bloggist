@@ -35300,6 +35300,8 @@ __WEBPACK_IMPORTED_MODULE_4_vue___default.a.component('passport-authorized-clien
 __WEBPACK_IMPORTED_MODULE_4_vue___default.a.component('passport-personal-access-tokens', __webpack_require__(299));
 
 __WEBPACK_IMPORTED_MODULE_4_vue___default.a.component('tutor-dashboard', __webpack_require__(304));
+
+__WEBPACK_IMPORTED_MODULE_4_vue___default.a.component('language-switcher', __webpack_require__(322));
 //------------- Vue Custom Event-------------------------------------------------//
 var Fire = new __WEBPACK_IMPORTED_MODULE_4_vue___default.a();
 window.Fire = Fire;
@@ -35318,14 +35320,6 @@ __WEBPACK_IMPORTED_MODULE_4_vue___default.a.filter('myDate', function (created) 
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-//-------------- Vue i18N-------------------------------------------------//
-/**
-import i18n from 'i18n'
-import axios from 'axios'
-const lang = localStorage.getItem('lang') || 'en';
-axios.defaults.headers['Accept-Language'] = lang;
-*/
 
 var router = new __WEBPACK_IMPORTED_MODULE_6_vue_router__["a" /* default */]({
   mode: 'history',
@@ -90257,29 +90251,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'Logout',
+  props: ['locale', 'link-en', 'link-sn'],
+  name: 'Logout',
 
-    data: function data() {
-        var lang = localStorage.getItem('lang') || 'en';
-        return {
-            lang: lang
-        };
-    },
+  data: function data() {
+    var lang = localStorage.getItem('lang') || 'en';
+    return {
+      lang: lang
+    };
+  },
 
-    methods: {
-        logout: function logout() {
-            axios.post('/logout').catch(function (error) {
-                window.location.href = 'tutor/login';
-            });
-        },
-        handleChange: function handleChange(event) {
-            localStorage.setItem('lang', event.target.value);
-            window.location.reload();
-        }
+  methods: {
+    logout: function logout() {
+      axios.post('/logout').catch(function (error) {
+        window.location.href = 'tutor/login';
+      });
     },
-    mounted: function mounted() {
-        console.log('Component mounted.');
+    handleChange: function handleChange(event) {
+      localStorage.setItem('lang', event.target.value);
+      window.location.reload();
     }
+  },
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  setLocale: function setLocale(locale) {
+    this.$i18n.locale = locale;
+    this.$router.push({
+      params: { lang: locale }
+    });
+    this.hideDropdown();
+  }
 });
 
 /***/ }),
@@ -90862,6 +90864,621 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(325)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(323)
+/* template */
+var __vue_template__ = __webpack_require__(327)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-ac3507e0"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/LanguageSwitcher.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ac3507e0", Component.options)
+  } else {
+    hotAPI.reload("data-v-ac3507e0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 323 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['locale', 'link-en', 'link-sn'],
+  data: function data() {
+    return {
+      isVisible: false,
+      focusedIndex: 0
+    };
+  },
+
+  methods: {
+    toggleVisibility: function toggleVisibility() {
+      this.isVisible = !this.isVisible;
+    },
+    hideDropdown: function hideDropdown() {
+      this.isVisible = false;
+      this.focusedIndex = 0;
+    },
+    startArrowKeys: function startArrowKeys() {
+      if (this.isVisible) {
+        // this.$refs.account.focus()
+        this.$refs.dropdown.children[0].children[0].focus();
+      }
+    },
+    focusPrevious: function focusPrevious(isArrowKey) {
+      this.focusedIndex = this.focusedIndex - 1;
+      if (isArrowKey) {
+        this.focusItem();
+      }
+    },
+    focusNext: function focusNext(isArrowKey) {
+      this.focusedIndex = this.focusedIndex + 1;
+      if (isArrowKey) {
+        this.focusItem();
+      }
+    },
+    focusItem: function focusItem() {
+      this.$refs.dropdown.children[this.focusedIndex].children[0].focus();
+    },
+    setLocale: function setLocale(locale) {
+      this.$i18n.locale = locale;
+      this.$router.push({
+        params: { lang: locale }
+      });
+      this.hideDropdown();
+    }
+  }
+});
+
+/***/ }),
+/* 324 */,
+/* 325 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(326);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("394add30", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ac3507e0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LanguageSwitcher.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ac3507e0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./LanguageSwitcher.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 326 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nbutton[data-v-ac3507e0] {\n  padding: 0;\n  border: none;\n  font: inherit;\n  color: inherit;\n  background-color: transparent;\n  cursor: pointer;\n}\n.flex[data-v-ac3507e0] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\nimg[data-v-ac3507e0] {\n    width: 2rem;\n    height: 2rem;\n}\nul[data-v-ac3507e0] {\n    list-style-type: none;\n    padding-left: 0;\n    position: absolute;\n    z-index: 30;\n    right: 0;\n}\n.relative[data-v-ac3507e0] {\n    position: relative;\n}\n.dropdown-fade-enter-active[data-v-ac3507e0], .dropdown-fade-leave-active[data-v-ac3507e0] {\n    -webkit-transition: all .1s ease-in-out;\n    transition: all .1s ease-in-out;\n}\n.dropdown-fade-enter[data-v-ac3507e0], .dropdown-fade-leave-to[data-v-ac3507e0] {\n    opacity: 0;\n    -webkit-transform: translateY(-12px);\n            transform: translateY(-12px);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 327 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "relative" },
+    [
+      _c(
+        "button",
+        {
+          staticClass: "flex items-center",
+          attrs: { href: "#" },
+          on: {
+            click: _vm.toggleVisibility,
+            keydown: [
+              function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "space", 32, $event.key, [
+                    " ",
+                    "Spacebar"
+                  ])
+                ) {
+                  return null
+                }
+                if (
+                  $event.ctrlKey ||
+                  $event.shiftKey ||
+                  $event.altKey ||
+                  $event.metaKey
+                ) {
+                  return null
+                }
+                $event.preventDefault()
+                return _vm.toggleVisibility($event)
+              },
+              function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "esc", 27, $event.key, [
+                    "Esc",
+                    "Escape"
+                  ])
+                ) {
+                  return null
+                }
+                if (
+                  $event.ctrlKey ||
+                  $event.shiftKey ||
+                  $event.altKey ||
+                  $event.metaKey
+                ) {
+                  return null
+                }
+                return _vm.hideDropdown($event)
+              },
+              function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "tab", 9, $event.key, "Tab")
+                ) {
+                  return null
+                }
+                if (!$event.shiftKey) {
+                  return null
+                }
+                return _vm.hideDropdown($event)
+              },
+              function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "up", 38, $event.key, [
+                    "Up",
+                    "ArrowUp"
+                  ])
+                ) {
+                  return null
+                }
+                if (
+                  $event.ctrlKey ||
+                  $event.shiftKey ||
+                  $event.altKey ||
+                  $event.metaKey
+                ) {
+                  return null
+                }
+                $event.preventDefault()
+                return _vm.startArrowKeys($event)
+              },
+              function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "down", 40, $event.key, [
+                    "Down",
+                    "ArrowDown"
+                  ])
+                ) {
+                  return null
+                }
+                if (
+                  $event.ctrlKey ||
+                  $event.shiftKey ||
+                  $event.altKey ||
+                  $event.metaKey
+                ) {
+                  return null
+                }
+                $event.preventDefault()
+                return _vm.startArrowKeys($event)
+              }
+            ]
+          }
+        },
+        [
+          _c("span", { staticClass: "ml-2" }, [_vm._v(_vm._s(_vm.locale))]),
+          _vm._v(" "),
+          _c(
+            "svg",
+            {
+              attrs: {
+                fill: "currentColor",
+                xmlns: "http://www.w3.org/2000/svg",
+                viewBox: "0 0 24 24",
+                width: "24",
+                height: "24"
+              }
+            },
+            [
+              _c("path", {
+                staticClass: "heroicon-ui",
+                attrs: {
+                  d:
+                    "M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"
+                }
+              })
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: "dropdown-fade" } }, [
+        _vm.isVisible
+          ? _c(
+              "ul",
+              {
+                ref: "dropdown",
+                staticClass:
+                  "absolute normal-case z-30 font-normal xs:left-0 lg:right-0 bg-white shadow overflow-hidden rounded w-48 border mt-2 py-1 lg:z-20"
+              },
+              [
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "flex items-center px-3 py-3 hover:bg-gray-200",
+                      attrs: { href: _vm.linkEn },
+                      on: {
+                        keydown: [
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k($event.keyCode, "up", 38, $event.key, [
+                                "Up",
+                                "ArrowUp"
+                              ])
+                            ) {
+                              return null
+                            }
+                            if (
+                              $event.ctrlKey ||
+                              $event.shiftKey ||
+                              $event.altKey ||
+                              $event.metaKey
+                            ) {
+                              return null
+                            }
+                            $event.preventDefault()
+                          },
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "tab",
+                                9,
+                                $event.key,
+                                "Tab"
+                              )
+                            ) {
+                              return null
+                            }
+                            if (
+                              $event.ctrlKey ||
+                              $event.shiftKey ||
+                              $event.altKey ||
+                              $event.metaKey
+                            ) {
+                              return null
+                            }
+                            return _vm.focusNext(false)
+                          },
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k($event.keyCode, "down", 40, $event.key, [
+                                "Down",
+                                "ArrowDown"
+                              ])
+                            ) {
+                              return null
+                            }
+                            if (
+                              $event.ctrlKey ||
+                              $event.shiftKey ||
+                              $event.altKey ||
+                              $event.metaKey
+                            ) {
+                              return null
+                            }
+                            $event.preventDefault()
+                            return _vm.focusNext(true)
+                          },
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k($event.keyCode, "esc", 27, $event.key, [
+                                "Esc",
+                                "Escape"
+                              ])
+                            ) {
+                              return null
+                            }
+                            if (
+                              $event.ctrlKey ||
+                              $event.shiftKey ||
+                              $event.altKey ||
+                              $event.metaKey
+                            ) {
+                              return null
+                            }
+                            return _vm.hideDropdown($event)
+                          }
+                        ]
+                      }
+                    },
+                    [_c("span", { staticClass: "ml-2" }, [_vm._v("English")])]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "flex items-center px-3 py-3 hover:bg-gray-200",
+                      attrs: { href: _vm.linkSn },
+                      on: {
+                        keydown: [
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "tab",
+                                9,
+                                $event.key,
+                                "Tab"
+                              )
+                            ) {
+                              return null
+                            }
+                            if (!$event.shiftKey) {
+                              return null
+                            }
+                            return _vm.focusPrevious(false)
+                          },
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k($event.keyCode, "up", 38, $event.key, [
+                                "Up",
+                                "ArrowUp"
+                              ])
+                            ) {
+                              return null
+                            }
+                            if (
+                              $event.ctrlKey ||
+                              $event.shiftKey ||
+                              $event.altKey ||
+                              $event.metaKey
+                            ) {
+                              return null
+                            }
+                            $event.preventDefault()
+                            return _vm.focusPrevious(true)
+                          },
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k($event.keyCode, "down", 40, $event.key, [
+                                "Down",
+                                "ArrowDown"
+                              ])
+                            ) {
+                              return null
+                            }
+                            if (
+                              $event.ctrlKey ||
+                              $event.shiftKey ||
+                              $event.altKey ||
+                              $event.metaKey
+                            ) {
+                              return null
+                            }
+                            $event.preventDefault()
+                          },
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k(
+                                $event.keyCode,
+                                "tab",
+                                9,
+                                $event.key,
+                                "Tab"
+                              )
+                            ) {
+                              return null
+                            }
+                            if (
+                              $event.ctrlKey ||
+                              $event.shiftKey ||
+                              $event.altKey ||
+                              $event.metaKey
+                            ) {
+                              return null
+                            }
+                            return _vm.hideDropdown($event)
+                          },
+                          function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k($event.keyCode, "esc", 27, $event.key, [
+                                "Esc",
+                                "Escape"
+                              ])
+                            ) {
+                              return null
+                            }
+                            if (
+                              $event.ctrlKey ||
+                              $event.shiftKey ||
+                              $event.altKey ||
+                              $event.metaKey
+                            ) {
+                              return null
+                            }
+                            return _vm.hideDropdown($event)
+                          }
+                        ]
+                      }
+                    },
+                    [_c("span", { staticClass: "ml-2" }, [_vm._v("French")])]
+                  )
+                ])
+              ]
+            )
+          : _vm._e()
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ac3507e0", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

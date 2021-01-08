@@ -137,10 +137,14 @@ Vue.component(
   'tutor-dashboard', 
   require('./lecturerComp/Lmaster.vue')
 );
+
+Vue.component(
+  'language-switcher', 
+  require('./components/LanguageSwitcher.vue')
+);
 //------------- Vue Custom Event-------------------------------------------------//
 let Fire = new Vue();
 window.Fire = Fire;
-
 
 
 //-------------- Vue Filters-------------------------------------------------//
@@ -158,23 +162,6 @@ window.Fire = Fire;
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-//-------------- Vue i18N-------------------------------------------------//
-/**
-import i18n from 'i18n'
-import axios from 'axios'
-const lang = localStorage.getItem('lang') || 'en';
-axios.defaults.headers['Accept-Language'] = lang;
-*/
-
-
-
-
-
-
-
-
-
 
 const router = new VueRouter({
   mode: 'history',

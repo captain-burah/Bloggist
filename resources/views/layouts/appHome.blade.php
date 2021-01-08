@@ -272,7 +272,9 @@
               <!------ Pages ------>
               
             </ul>
-            <!---   Navbar Right   --->
+            <!---   Navbar Left   --->
+
+
             <!---   Navbar Right   --->
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
@@ -303,8 +305,7 @@
                 data-original-title="Call Us On">
                   <i class="fa fa-phone"></i>{{ __(' +94 77 637 1444')}}
                 </a>
-              </li>
-            -->
+              </li>-->
             </ul>
             <!---   Navbar Right   --->
           </div>
@@ -434,7 +435,7 @@
             loop:true,
             autoplay:true,
             margin:10,
-            autoplayTimeout:2500,
+            autoplayTimeout:3500,
             autoplayHoverPause:true,
             responsiveClass:true,
             responsive:{
@@ -452,7 +453,7 @@
                     loop:true
                 }
             }
-        })
+        });
       });
       function detectScreen(x){
         if (x == 1){

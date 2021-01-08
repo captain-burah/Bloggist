@@ -210,29 +210,37 @@
 </template>
 <script>
     export default {
-        name: 'Logout',
-        
-        data: function(){
-          const lang = localStorage.getItem('lang') || 'en';
-          return {
-            lang: lang
-          }
-        },
-
-        methods: {
-            logout() {
-                axios.post('/logout')
-                    .catch(error => {
-                       window.location.href = 'tutor/login';
-                    });
-            },
-            handleChange(event){
-              localStorage.setItem('lang', event.target.value);
-              window.location.reload();
-            }
-        },
-        mounted() {
-            console.log('Component mounted.')
+      props: ['locale', 'link-en', 'link-sn'],
+      name: 'Logout',
+      
+      data: function(){
+        const lang = localStorage.getItem('lang') || 'en';
+        return {
+          lang: lang
         }
-    }
+      },
+
+      methods: {
+          logout() {
+              axios.post('/logout')
+                  .catch(error => {
+                      window.location.href = 'tutor/login';
+                  });
+          },
+          handleChange(event){
+            localStorage.setItem('lang', event.target.value);
+            window.location.reload();
+          }
+      },
+      mounted() {
+          console.log('Component mounted.')
+      },
+      setLocale(locale) {
+        this.$i18n.locale = locale
+        this.$router.push({
+          params: { lang: locale }
+        })
+        this.hideDropdown()
+      }
+  }
 </script>

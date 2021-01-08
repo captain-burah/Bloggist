@@ -154,14 +154,45 @@
 </head>
 <body class="landing-page sidebar-collapse bg-dark">
     <!-- Body -->
+  <div id="app">
+    <!--  Nav  -->
+    <nav class="navbar navbar-transparent bg-dark navbar-color-on-scroll fixed-top navbar-expand-md " 
+    color-on-scroll="100" id="sectionsNav">
+        <div class="container ">
+          <div class="navbar-translate">
+              <a class="navbar-brand" href="{{('/')}}" >
+              Enlighten Venture 
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" 
+              aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Menu</span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          </div>
+          <div class="collapse navbar-collapse">
+            <language-switcher 
+              locale="{{ app()->getLocale() }}"
+              link-en="{{ route(Route::currentRouteName(), 'en') }}"
+              link-sn="{{ route(Route::currentRouteName(), 'sn') }}"
+            ></language-switcher>
+          </div>
+        </div>
+    </nav>
+    <!--  Nav  -->
+    <div>
+      
+    </div>
     <main>
         @yield('content')
     </main>
     <!-- Body -->
-
+  </div>
     
     <!--  Scripts -->
         <!--   Core JS Files   -->
+        <script src="{{ asset('js/app.js')}}" type="text/javascript"></script>
         <script src="{{ asset('js/core/popper.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('js/core/jquery.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('js/core/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
