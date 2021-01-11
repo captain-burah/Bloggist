@@ -23,10 +23,8 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary sideMenu elevation-4 border-right border-dark">
     <!-- Brand Logo -->
-    <a href="/home_tutor" class="brand-link navbar-bg">
-      <img src="img/rocket.png" alt="Larastart" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">Venture 2021</span>
+    <a href="/home_tutor" class="brand-link navbar-bg text-center">
+      <span class="brand-text font-weight-light text-center">Enlighten Venture</span>
     </a>
 
     <!-- Sidebar -->
@@ -34,7 +32,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex ">
         <div class="image">
-          <img src="img/user1.png" class="img-circle elevation-2" alt="User Image">
+          <img :src="tutor_img" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="/tutor" class="d-block ">Tutor Name Here</a>
@@ -66,95 +64,95 @@
             </router-link>
           </li>
           
-        <!------ Sub-Menu ----->
-        <li class="nav-item">
-          <router-link to="/tutor" class="nav-link text-light ">
-            <i class="nav-icon fas fa-tachometer-alt text-info"></i>
-            <p>
-              Dashboard
-              
-            </p>
-          </router-link>
-        </li>
-        
-        <li class="nav-item">
-          <router-link to="/Lessons" class="nav-link text-light">
-            <i class="nav-icon fas fa-book purple"></i>
-            <p>
-              Lesson Builder
-              
-            </p>
-          </router-link>
-        </li>
-        <li class="nav-item has-treeview ">
-          <a href="#" class="nav-link text-light ">
-            <i class="nav-icon fa fa-copy text-success"></i>
-            <p>
-              My Exams
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview ">
-            <li class="nav-item">
-              <router-link to="createPapers" class="nav-link text-light offset-sm-1">
-                <i class="fas fa-angle-right nav-icon text-light"></i>
-                <p>Create Paper</p>
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/categories" class="nav-link text-light offset-sm-1">
-                <i class="fas fa-angle-right nav-icon text-light "></i>
-                <p>Categories</p>
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/bank" class="nav-link text-light offset-sm-1">
-                <i class="fas fa-angle-right nav-icon text-light "></i>
-                <p>Question Bank</p>
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/examAnalysis" class="nav-link text-light offset-sm-1">
-                <i class="fas fa-angle-right nav-icon text-light "></i>
-                <p>Exam Analysis</p>
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/archive" class="nav-link text-light offset-sm-1">
-                <i class="fas fa-angle-right nav-icon  text-light"></i>
-                <p>Archive</p>
-              </router-link>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <router-link to="/Schedules" class="nav-link text-light">
-            <i class="nav-icon fas fa-edit text-warning"></i>
-            <p>
-              My Schedules
-              
-            </p>
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/Layout" class="nav-link text-light">
-            <i class="nav-icon fa fa-cog text-success"></i>
-            <p>
-              Site Layout
-              
-            </p>
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/Staff" class="nav-link text-light">
-            <i class="fas fa-users-cog nav-icon text-secondary"></i>
-            <p>
-              Staff Management
-              
-            </p>
-          </router-link>
-        </li>
-        <!------ Sub-Menu ----->
+          <!------ Sub-Menu ----->
+          <li class="nav-item">
+            <router-link to="/tutor" class="nav-link text-light ">
+              <i class="nav-icon fas fa-tachometer-alt text-info"></i>
+              <p>
+                Dashboard
+                
+              </p>
+            </router-link>
+          </li>
+          
+          <li class="nav-item">
+            <router-link to="/Lessons" class="nav-link text-light">
+              <i class="nav-icon fas fa-book purple"></i>
+              <p>
+                Lesson Builder
+                
+              </p>
+            </router-link>
+          </li>
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link text-light ">
+              <i class="nav-icon fa fa-copy text-success"></i>
+              <p>
+                My Exams
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview ">
+              <li class="nav-item">
+                <router-link to="createPapers" class="nav-link text-light offset-sm-1">
+                  <i class="fas fa-angle-right nav-icon text-light"></i>
+                  <p>Create Paper</p>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/categories" class="nav-link text-light offset-sm-1">
+                  <i class="fas fa-angle-right nav-icon text-light "></i>
+                  <p>Categories</p>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/bank" class="nav-link text-light offset-sm-1">
+                  <i class="fas fa-angle-right nav-icon text-light "></i>
+                  <p>Question Bank</p>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/examAnalysis" class="nav-link text-light offset-sm-1">
+                  <i class="fas fa-angle-right nav-icon text-light "></i>
+                  <p>Exam Analysis</p>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/archive" class="nav-link text-light offset-sm-1">
+                  <i class="fas fa-angle-right nav-icon  text-light"></i>
+                  <p>Archive</p>
+                </router-link>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <router-link to="/Schedules" class="nav-link text-light">
+              <i class="nav-icon fas fa-edit text-warning"></i>
+              <p>
+                My Schedules
+                
+              </p>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/Layout" class="nav-link text-light">
+              <i class="nav-icon fa fa-cog text-success"></i>
+              <p>
+                Site Layout
+                
+              </p>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/Staff" class="nav-link text-light">
+              <i class="fas fa-users-cog nav-icon text-secondary"></i>
+              <p>
+                Staff Management
+                
+              </p>
+            </router-link>
+          </li>
+          <!------ Sub-Menu ----->
           <li class="nav-item">
             <router-link to="/tutor/lecProfile" class="nav-link text-light">
               <i class="nav-icon fas fa-user orange"></i>
@@ -166,13 +164,16 @@
           </li>
           <li class="nav-item">
             
-            <a class="nav-link text-light" href="#" @click.prevent="logout()">
+            <a class="nav-link text-light" href="logout--user" 
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               <i class="nav-icon fa fa-power-off red"></i>
               <p>
                 Logout
               </p>
             </a>
-
+            <form id="logout-form" :action="logout_user" method="POST" style="display: none;">
+              {!! csrf_field() !!}
+            </form>
             
           </li>
         </ul>
@@ -210,7 +211,7 @@
 </template>
 <script>
     export default {
-      props: ['locale', 'link-en', 'link-sn'],
+      props: ['logout_user', 'tutor_img'],
       name: 'Logout',
       
       data: function(){
@@ -222,7 +223,7 @@
 
       methods: {
           logout() {
-              axios.post('/logout')
+              axios.post('logout_user')
                   .catch(error => {
                       window.location.href = 'tutor/login';
                   });
@@ -235,12 +236,6 @@
       mounted() {
           console.log('Component mounted.')
       },
-      setLocale(locale) {
-        this.$i18n.locale = locale
-        this.$router.push({
-          params: { lang: locale }
-        })
-        this.hideDropdown()
-      }
+
   }
 </script>

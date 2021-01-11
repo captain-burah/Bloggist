@@ -142,6 +142,11 @@ Vue.component(
   'language-switcher', 
   require('./components/LanguageSwitcher.vue')
 );
+
+Vue.component(
+  'test-vue', 
+  require('./components/test.vue')
+);
 //------------- Vue Custom Event-------------------------------------------------//
 let Fire = new Vue();
 window.Fire = Fire;

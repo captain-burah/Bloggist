@@ -3,9 +3,8 @@
 @section('lecContent')
   
   <tutor-dashboard
-  locale="{{ app()->getLocale() }}"
-  link-en="{{ route('logout', setLocale(en) ) }}"
-  link-sn="{{ route('logout', setLocale(sn) )  }}"
+  logout_user="{{ route('logout', app()->getLocale()) }}"
+  tutor_img="{{ asset('img/user1.png')}}"
   ></tutor-dashboard>
 
 @endsection

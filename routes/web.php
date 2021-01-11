@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => 'setlocale'], function() {
-        
+
     //---------------------- Newly Declared routes based on laravel inbuilt authentication system-----------------------
         Route::get('/', function(){
             return view('landing');
