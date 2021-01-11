@@ -174,7 +174,6 @@
             <form id="logout-form" :action="logout_user" method="POST" style="display: none;">
               {!! csrf_field() !!}
             </form>
-            
           </li>
         </ul>
       </nav>
