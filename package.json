@@ -26,7 +26,7 @@
         "@ckeditor/ckeditor5-vue": "^1.0.1",
         "@fortawesome/fontawesome-free": "^5.13.0",
         "admin-lte": "^3.0.0-alpha.2",
-        "ajv": "^6.9.1",
+        "ajv": "^6.12.3",
         "ajv-keywords": "^3.5.2",
         "imagemin": "^5.0.0",
         "moment": "^2.26.0",
